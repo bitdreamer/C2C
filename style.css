@@ -1,0 +1,57 @@
+
+h1 {text-align: center;}
+
+#container
+{
+   width: 900px;
+   text-align: justify;
+}
+
+#logo
+{
+	width: 1500px;
+	height: 150px;
+	/**background-color :url(log2.png);*/
+	border-bottom: 50px solid Gray;
+}
+
+#leftNav
+{
+  float:left;
+  width: 160px;
+  height: 900px;
+  background-image: url(images/logo3.png);
+}
+#Hlinks
+{
+  float:right;
+  height: 400px;
+}
+.links 
+{
+ 	position:absolute; left:0px; top:200;
+ 	text-decoration: none; 	
+}
+
+ul {list-style-type:none; }
+
+.links a
+{
+ 	    color:white;
+ 	   
+ 	 	text-decoration: underline;
+ 
+}
+
+
+#body
+{
+width : 620px;
+font: sans-serif; margin: 30 300 10 180}
+}
+
+#footer
+{
+	clear :both;
+	background-color: #99004C;
+}
