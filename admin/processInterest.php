@@ -13,6 +13,5 @@
    //echo "query = $query";
 
    header("Location: addInterest.php");
-   exit;
-   
+   exit; 
 ?>
