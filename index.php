@@ -41,8 +41,6 @@
 	</p>
 	 <p>
 	 	<h1>Career PathWays</h1>
-		
-		Testing a change!
 
 	    These Career Pathways are presented as introductions to different careers and topics, and are intended to be used by students for career planning and course selection
 
