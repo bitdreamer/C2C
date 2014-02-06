@@ -13,7 +13,7 @@
 <h2>Add New Alumna</h2>
 
 <!--Begin form.  
-action attribute denotes where the informatio will be directed.  
+action attribute contains the name of the file where the information will be directed.  
 method attribute type POST will create an array with submitted information.  
 The POST array will be indexed using the respective input type's name -->
 
@@ -97,7 +97,7 @@ The POST array will be indexed using the respective input type's name -->
 	echo "<section>";
 	
 		/*tabledump contains a function (tabledump()) that iterates through a table and displays all of its contents
-		opeDB cotains a function (opeDB()) that grants access to the database*/
+		opeDB contains a function (opeDB()) that grants access to the database*/
 
    		include("../included/tabledump.php");
   	 	include("../included/openDB.php");

@@ -1,32 +1,65 @@
 <?php
+   //include allows file to reference all functions in specified files (here, tabledump.php and openDB.php
    include("..//included/tabledump.php");
    include("..//included/openDB.php");
+   //openDB() is a defined function in openDB, opens the classroomtocareer database
    openDB();
 
-	$major=$_POST['major'];
-	$job=$_POST['job'];
+	//Gathers input data from addJob.php
 	$mindegree=$_POST['MinDegree'];
+	$arrayM=$_POST['checkboxM'];	//majors
+	$arrayJ=$_POST['checkboxJ'];	//jobs
 
-	$queryB="SELECT id FROM Major WHERE major='$major'";
-	$queryC="SELECT id FROM Job WHERE career='$job'";
 
-	$majorIDr=mysql_query($queryB);
-	$jobIDr=mysql_query($queryC);
+	connect($arrayM,$arrayJ,$mindegree);
 
-	$majorIDq=mysql_fetch_row($majorIDr);
-	$jobIDq=mysql_fetch_row($jobIDr);
+	function connect($arrayM,$arrayJ,$mindegree)
+	{
+		$sizeM=sizeof($arrayM);
+		$sizeJ=sizeof($arrayJ);
 
-	$majorID=$majorIDq[0];
-	$jobID=$jobIDq[0];
+		for($i=0;$i<$sizeM;$i++)
+		{
+				//Defines query to get the correct Major id from the table
+				$queryM="SELECT id FROM Major WHERE major='$arrayM[$i]'";
+				
+				//Performs defined query, result is an array
+				$majorIDq=mysql_query($queryM);
 
-	$queryD="INSERT INTO MajorJob "
-		." set majorID='$majorID' "
-		." ,jobID='$jobID' "
-		." ,degree='$mindegree' "
-		.";";
+				//Fetchs the row from the resulting array
+				$majorIDr=mysql_fetch_row($majorIDq);
 
-   $resultD=mysql_query($queryD);
-   if ($resultD==0) { noerror( $resultD ); }
+				//Goes to specific field (#0) in the row
+				$majorID=$majorIDr[0];
+
+		for($j=0;$j<$sizeJ;$j++)
+		{
+				//Defines query to get the correct Job id from the table
+				$queryJ="SELECT id FROM Job WHERE career='$arrayJ[$j]'";
+
+				//Performs defined query, result is an array
+				$jobIDq=mysql_query($queryJ);
+
+				//Fetchs the row from the resulting array
+				$jobIDr=mysql_fetch_row($jobIDq);
+
+				//Goes to specific field (#0) in the row
+				$jobID=$jobIDr[0];
+
+				//Defines query to put the found ids and the mindegree in the MajorJob table
+				$query="INSERT INTO MajorJob "
+					." set majorID='$majorID' "
+					." ,jobID='$jobID' "
+					." ,degree='$mindegree' "
+					.";";
+
+   				//Performs insertion query, checks for errors using noerror function defined in tabledump.php	
+   				$result=mysql_query($query);
+   				if ($result==0) { noerror( $result ); }
+		}
+		}
+	}
+   //Header travels to specified location
    header("Location:addJob.php");
    exit;
 ?>
