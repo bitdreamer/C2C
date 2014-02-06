@@ -16,7 +16,104 @@
 ?>
 
 <br/>
-<article id="newJob">
+<h2>Connect Job to Major</h2>
+<form action="connectMajorJob.php" method="POST">
+<?php
+$query = "SELECT * FROM Major";
+$result=mysql_query($query);
+majortabledump($result);
+function majortabledump( $result )
+{
+	echo "<table>";
+	echo "<tr>";
+	echo "<td align=right>Major</td>";
+
+   if($result==0)
+   {
+      echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
+   }
+   elseif (@mysql_num_rows($result)==0)
+   {
+      echo "<b>There doesn't seem to be anything here... yet.</b><br>";
+   }
+   else
+   {
+   $nr = mysql_num_rows($result);
+            
+	echo "<td><select name=major id=major required=required>";
+         for($i=0; $i<$nr; $i++ )
+         {
+		$j=1;
+               $row=mysql_fetch_array($result);
+               settype($row[$j], "string");
+               echo "<option value="."'$row[$j]'".">".$row[$j]."</option>";
+
+         }
+	echo "</select></td>";
+   }
+
+	echo "</tr>";
+	echo "</table>";
+   return $row;
+
+}
+$queryB = "SELECT * FROM Job";
+$resultB=mysql_query($queryB);
+jobtabledump($resultB);
+function jobtabledump( $resultB )
+{
+	echo "<table>";
+	echo "<tr>";
+	echo "<td align=right>Job</td>";
+
+   if($resultB==0)
+   {
+      echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
+   }
+   elseif (@mysql_num_rows($resultB)==0)
+   {
+      echo "<b>There doesn't seem to be anything here... yet.</b><br>";
+   }
+   else
+   {
+   $nr = mysql_num_rows($resultB);
+            
+	echo "<td><select name=job id=job required=required>";
+         for($i=0; $i<$nr; $i++ )
+         {
+		$j=1;
+               $row=mysql_fetch_array($resultB);
+               
+               echo "<option value="."'$row[$j]'".">".$row[$j]."</option>";
+
+         }
+	echo "</select></td>";
+   }
+
+	echo "</tr>";
+	echo "</table>";
+   return $row;
+}
+?>
+	<table>
+	<tr>
+		<td align="right">Minimum Required Degree</td>
+		<td><select name="MinDegree" id="MinDegree" required="required">
+			<option value="BA">BA</option>
+			<option value="BS">BS</option>
+			<option value="BSW">BSW</option>
+			</select></td>
+	</tr>
+      <tr>
+         <td colspan="2" align="center"> 
+         <input type="submit" value="Submit">
+         </td>
+      </tr>
+	</table>
+</form>
+
+<br/>
+<br/>
 <h2>Add New Job</h2>
 <form action="processJob.php" method="POST">
    <table>
@@ -49,8 +146,6 @@
    
 	echo "</section>";
 ?>
-
-</article>
 </body>
 </html>
 

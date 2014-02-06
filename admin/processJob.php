@@ -3,7 +3,7 @@
    include("..//included/openDB.php");
    openDB();
 
-   $career=$_POST['job'];
+   	$career=$_POST['job'];
 	$description=$_POST['description'];
    
    $query="INSERT INTO Job "
@@ -13,6 +13,9 @@
 
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
+
+
+
 
    header("Location: addJob.php");
    exit;
