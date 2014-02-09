@@ -36,7 +36,8 @@
    
    			tabledump( $result );
    
-			echo "<div id="."section".">";
+			//echo "<div id="."section".">";
+ 
 		?>
 	</p>
 	 <p>
@@ -49,28 +50,54 @@
 
 		In Meredith collage, We offer the following Career Pathways for your consideration. Please note that this is only a partial list of the kinds of career directions you can follow.
 	</p>
-	
-	<?php
-		$query = "SELECT id, major FROM Major ORDER BY major"; 
-		$result = mysql_query($query); 
+	<fieldset id="majorInfo">
+		<legend>What is your Major/Intended Major?</legend>
+			<?php
+				$query = "SELECT id, major FROM Major ORDER BY major"; 
+				$result = mysql_query($query); 
 
-		if(noerror($result))
-		{
-			echo "<select name='major'> \n";
-			
-			$nr = mysql_num_rows($result); 
-			
-			for($i=0; $i<$nr; $i++)
-			{
-				$row = mysql_fetch_array($result);
-				$majorID = $row['id']; 
-				$major = $row['major']; 
+				if(noerror($result))
+				{
+					echo "<select name='major'> \n";
+					
+					$nr = mysql_num_rows($result); 
+					
+					for($i=0; $i<$nr; $i++)
+					{
+						$row = mysql_fetch_array($result);
+						$majorID = $row['id']; 
+						$major = $row['major']; 
+						
+						echo "<option value='$majorID'>$major</option> \n"; 
+					}
+					echo "</select> \n";
+				}
+			?>
+	</fieldset>
+	<fieldset id="jobInfo">
+		<legend>Which of the following jobs are you most interested in?</legend>
+			<?php
+				$jquery = "SELECT id, career FROM Job ORDER BY career";
+				$jresult = mysql_query($jquery); 
 				
-				echo "<option value='$majorID'>$major</option> \n"; 
-			}
-			echo "</select> \n";
-		}
-	?>
+				if(noerror($jresult))
+				{
+					echo "<select name='career'> \n";
+					
+					$jnr = mysql_num_rows($jresult); 
+					
+					for($j=0; $j<$jnr; $j++)
+					{
+						$jrow = mysql_fetch_array($jresult);
+						$jobID = $row['id']; 
+						$job = $row['career']; 
+						
+						echo "<option value='$jobID'>$job</option> \n"; 
+					}
+					echo "</select> \n";
+				}
+			?>
+		</fieldset>
 		
 	
 </div>	
