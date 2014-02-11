@@ -78,6 +78,168 @@
          <td align="right">Department</td>
          <td><input type="text" name="department" value="" required="required" size="20" style="height:20px"></td>
       </tr>
+	<tr>
+		<td align="center" colspan="2"><h3>Add Jobs</h3></td>
+	</tr>
+
+<?php
+	$queryB = "SELECT * FROM Job";
+	$resultB=mysql_query($queryB);
+	jobtabledump1($resultB);
+	
+	function jobtabledump1( $resultB )
+	{
+		echo "<table>";
+		echo "<tr>";
+		echo "<td align=center width=150>Min Degree: BA</td>";
+
+		if($resultB==0)
+		{
+			echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
+		}
+		elseif (@mysql_num_rows($resultB)==0)
+		{
+			echo "<b>There doesn't seem to be anything here... yet.</b><br>";
+		}
+		else
+		{
+		   $nr = mysql_num_rows($resultB);
+					
+			for($i=0; $i<$nr; $i++ )
+			{	   
+				$j=1;
+				$row=mysql_fetch_array($resultB);
+				settype($row[$j], "string");
+				if($i==5 || $i==10 || $i==15)
+				{
+					
+					echo "</tr>";
+					echo "<tr>";
+					echo "<td></td>";
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+					
+				}
+				else
+				{
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+				}
+			}
+		}
+
+		echo "</tr>";
+		return $row;
+	}
+?>
+<?php
+	$queryB = "SELECT * FROM Job";
+	$resultB=mysql_query($queryB);
+	jobtabledump2($resultB);
+	
+	function jobtabledump2( $resultB )
+	{
+		echo "<table>";
+		echo "<tr>";
+		echo "<td align=center width=150>Min Degree: BS</td>";
+
+		if($resultB==0)
+		{
+			echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
+		}
+		elseif (@mysql_num_rows($resultB)==0)
+		{
+			echo "<b>There doesn't seem to be anything here... yet.</b><br>";
+		}
+		else
+		{
+		   $nr = mysql_num_rows($resultB);
+					
+			for($i=0; $i<$nr; $i++ )
+			{	   
+				$j=1;
+				$row=mysql_fetch_array($resultB);
+				settype($row[$j], "string");
+				if($i==5 || $i==10 || $i==15)
+				{
+					
+					echo "</tr>";
+					echo "<tr>";
+					echo "<td></td>";
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+					
+				}
+				else
+				{
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+				}
+			}
+		}
+
+		echo "</tr>";
+		return $row;
+	}
+?>
+<?php
+	$queryB = "SELECT * FROM Job";
+	$resultB=mysql_query($queryB);
+	jobtabledump3($resultB);
+	
+	function jobtabledump3( $resultB )
+	{
+		echo "<table>";
+		echo "<tr>";
+		echo "<td align=center width=150>Min Degree: BSW</td>";
+
+		if($resultB==0)
+		{
+			echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
+		}
+		elseif (@mysql_num_rows($resultB)==0)
+		{
+			echo "<b>There doesn't seem to be anything here... yet.</b><br>";
+		}
+		else
+		{
+		   $nr = mysql_num_rows($resultB);
+					
+			for($i=0; $i<$nr; $i++ )
+			{	   
+				$j=1;
+				$row=mysql_fetch_array($resultB);
+				settype($row[$j], "string");
+				if($i==5 || $i==10 || $i==15)
+				{
+					
+					echo "</tr>";
+					echo "<tr>";
+					echo "<td></td>";
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+					
+				}
+				else
+				{
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+				}
+			}
+		}
+
+		echo "</tr>";
+		return $row;
+	}
+?>
+
+
       <tr>
          <td colspan="2" align="center"> 
          <input type="submit" value="Submit">

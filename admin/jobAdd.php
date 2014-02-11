@@ -16,7 +16,7 @@
 	?>
 	<br/>
 	<h2>Connect Job to Major</h2>
-	<form action="connectMajorJob.php" method="POST">
+	<form action="jobMajorConnect.php" method="POST">
 	<?php
 	
 	$query = "SELECT * FROM Major";
@@ -27,7 +27,7 @@
 	{
 		echo "<table>";
 		echo "<tr>";
-		echo "<td align=right>Major</td>";
+		echo "<td align=center width=100>Major</td>";
 
 		if($result==0)
 		{
@@ -42,15 +42,31 @@
 			$nr = mysql_num_rows($result);
 					
 			//echo "<td><select name=major id=major required=required>";
-			echo "<td>";
+			
 			for($i=0; $i<$nr; $i++ )
 			{
 				$j=1;
 				$row=mysql_fetch_array($result);
 				settype($row[$j], "string");
-				echo "<input type=checkbox name=checkboxM[] value="."'$row[$j]'".">".$row[$j]."</option>";
+				if($i==5 || $i==10 || $i==15)
+				{
+					
+					echo "</tr>";
+					echo "<tr>";
+					echo "<td></td>";
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxM[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+					
+				}
+				else
+				{
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxM[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+				}
+
 			}
-			echo "</select></td>";
 		}
 
 		echo "</tr>";
@@ -67,7 +83,7 @@
 	{
 		echo "<table>";
 		echo "<tr>";
-		echo "<td align=right>Job</td>";
+		echo "<td align=center width=100>Job</td>";
 
 		if($resultB==0)
 		{
@@ -81,15 +97,29 @@
 		{
 		   $nr = mysql_num_rows($resultB);
 					
-			echo "<td>";
 			for($i=0; $i<$nr; $i++ )
-			{
+			{	   
 				$j=1;
 				$row=mysql_fetch_array($resultB);
-				settype($row[$j], "string");	   
-				echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";;
+				settype($row[$j], "string");
+				if($i==5 || $i==10 || $i==15)
+				{
+					
+					echo "</tr>";
+					echo "<tr>";
+					echo "<td></td>";
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+					
+				}
+				else
+				{
+					echo "<td width=200>";
+					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "</td>";
+				}
 			}
-			echo "</select></td>";
 		}
 
 		echo "</tr>";

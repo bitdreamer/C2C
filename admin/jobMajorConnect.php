@@ -60,6 +60,6 @@
 		}
 	}
    //Header travels to specified location
-   header("Location:addJob.php");
+   header("Location:jobAdd.php");
    exit;
 ?>
