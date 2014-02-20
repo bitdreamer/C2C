@@ -1,3 +1,6 @@
+<!-- 
+//main page 
+ -->
 <html>
 <head> 
 	<link rel= "stylesheet" href="style.css" type="text/css" />
@@ -5,22 +8,27 @@
 
 <body>
 
+<!-- 
+\\logo
+ -->
 <div id="container">
-
-<div id="logo" style=" text-align: left">
+<div id="logo">
 	     <img src= "images/upperlogo.png" alt="logo"/>
-
 </div>
 
-
+<!-- 
+\\ left list
+ -->
 <div id="leftNav">
-<img src= "images/sideBar.png" alt="logo"/>
 <ul class="links">
 		<li><a href="http://www.meredith.edu"> Meredith College</a></li>
-		<li><a href="main.html"> Main Page </a></li>
+		<li><a href="login/main_login.php">Admin Login</a></li>
 </ul>		
 </div>
 
+<!-- 
+//drop down choices for Majors and Jobs
+ -->
 <div id="body">
 		<?php
 			//echo "<div id="."section".">";
@@ -50,6 +58,7 @@
 
 		In Meredith collage, We offer the following Career Pathways for your consideration. Please note that this is only a partial list of the kinds of career directions you can follow.
 	</p>
+	
 	<form action="majorRequest.php" method="POST">
 	<fieldset id="majorInfo">
 		<legend>What is your Major/Intended Major?</legend>
@@ -79,6 +88,7 @@
 	</fieldset>
 	</form>
 
+	<form action="jobRequest.php" method="POST">
 	<fieldset id="jobInfo">
 		<legend>Which of the following jobs are you most interested in?</legend>
 			<?php
@@ -105,14 +115,18 @@
 				</br>
 				<input type="submit" value="Go"/>
 	</fieldset>
+	</form>
 	
 </div>	
 
-<div id="footer">
-	
 </div>
 
-</div>
+<footer>
+	<div id="footer">
+
+	     <img src= "images/footer.png" alt="footer"/>
+	</div>
+</footer>
 </body>
 
 </html>
