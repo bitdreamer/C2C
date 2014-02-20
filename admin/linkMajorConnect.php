@@ -1,5 +1,4 @@
 <?php
-	session_start();
    //include allows file to reference all functions in specified files (here, tabledump.php and openDB.php
    include("..//included/tabledump.php");
    include("..//included/openDB.php");
@@ -9,15 +8,15 @@
 	//Gathers input data from addJob.php
 	$mindegree=$_POST['MinDegree'];
 	$arrayM=$_POST['checkboxM'];	//majors
-	$arrayJ=$_POST['checkboxJ'];	//jobs
+	$arrayL=$_POST['checkboxL'];	//links
 
 
-	connect($arrayM,$arrayJ,$mindegree);
+	connect($arrayM,$arrayL,$mindegree);
 
-	function connect($arrayM,$arrayJ,$mindegree)
+	function connect($arrayM,$arrayL,$mindegree)
 	{
 		$sizeM=sizeof($arrayM);
-		$sizeJ=sizeof($arrayJ);
+		$sizeL=sizeof($arrayL);
 
 		for($i=0;$i<$sizeM;$i++)
 		{
@@ -33,25 +32,24 @@
 				//Goes to specific field (#0) in the row
 				$majorID=$majorIDr[0];
 
-		for($j=0;$j<$sizeJ;$j++)
+		for($j=0;$j<$sizeL;$j++)
 		{
 				//Defines query to get the correct Job id from the table
-				$queryJ="SELECT id FROM Job WHERE career='$arrayJ[$j]'";
+				$queryL="SELECT linkID FROM Link WHERE name='$arrayL[$j]'";
 
 				//Performs defined query, result is an array
-				$jobIDq=mysql_query($queryJ);
+				$linkIDq=mysql_query($queryL);
 
 				//Fetchs the row from the resulting array
-				$jobIDr=mysql_fetch_row($jobIDq);
+				$linkIDr=mysql_fetch_row($linkIDq);
 
 				//Goes to specific field (#0) in the row
-				$jobID=$jobIDr[0];
+				$linkID=$linkIDr[0];
 
 				//Defines query to put the found ids and the mindegree in the MajorJob table
-				$query="INSERT INTO MajorJob "
+				$query="INSERT INTO MajorLink "
 					." set majorID='$majorID' "
-					." ,jobID='$jobID' "
-					." ,degree='$mindegree' "
+					." ,linkID='$linkID' "
 					.";";
 
    				//Performs insertion query, checks for errors using noerror function defined in tabledump.php	
@@ -61,6 +59,6 @@
 		}
 	}
    //Header travels to specified location
-   header("Location:jobAdd.php");
+   header("Location:linkAdd.php");
    exit;
 ?>

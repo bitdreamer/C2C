@@ -1,4 +1,5 @@
 <?php
+session_start();
    include("..//included/tabledump.php");
    include("..//included/openDB.php");
    openDB();
@@ -17,6 +18,6 @@
 
 
 
-   header("Location: addJob.php");
+   header("Location: jobAdd.php");
    exit;
 ?>

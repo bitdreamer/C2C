@@ -1,4 +1,5 @@
 <?php
+	session_start();
    include("..//included/tabledump.php");
    include("..//included/openDB.php");
    openDB();
