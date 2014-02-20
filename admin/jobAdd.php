@@ -79,7 +79,7 @@
 
 	}
 	
-	$queryB = "SELECT * FROM Link";
+	$queryB = "SELECT * FROM Job";
 	$resultB=mysql_query($queryB);
 	jobtabledump($resultB);
 	
