@@ -33,16 +33,38 @@
 	
 	if(noerror($result))
 	{
-		tabledump($result); 
+		$row = mysql_fetch_array($result); 
+		$major = $row['major'];
+		$des = $row['description']; 
+		$dep = $row['department'];
+		
+		echo "<p> \n"; 
+		echo "<h1>$major</h1> \n"; 
+		echo "<h2>$dep Department</h2> \n"; 
+		echo "$des \n"; 
+		echo "</p> \n"; 
 	}
 	
 	$q2="SELECT * FROM MajorJob, Job WHERE jobID=id AND majorID='$majorID';";
 	$r2=mysql_query($q2); 
-	
+
+ 			echo "<h3> Career Opportunities </h3> \n"; 
+			
 	if(noerror($r2))
 	{
-		tabledump($r2);
+		$nr = mysql_num_rows($r2);
+		for($i=0; $i<$nr; $i++)
+		{
+			$row = mysql_fetch_array($r2); 
+			$job = $row['career']; 
+			$jdes= $row['description']; 
+
+			echo "<p> \n";
+			echo "$job: $jdes \n"; 			
+			echo "</p> \n"; 
+		}
 	}
+
 	
 ?>
 
