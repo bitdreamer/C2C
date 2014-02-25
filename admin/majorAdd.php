@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['email'])){
+	header("location:..//login/main_login.php");
+	}
 	include("..//included/tabledump.php");
    include("..//included/openDB.php");
    openDB();
@@ -18,7 +21,7 @@
 <br/>
 <article id="newJob">
 <h2>Add Major (For development purposes ONLY)</h2>
-<form action="processMajor.php" method="POST">
+<form action="majorProcess.php" method="POST">
    <table>
  <tr>
       <td align="right">Major</td>

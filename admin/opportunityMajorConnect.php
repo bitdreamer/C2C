@@ -1,23 +1,21 @@
 <?php
-	session_start();
    //include allows file to reference all functions in specified files (here, tabledump.php and openDB.php
    include("..//included/tabledump.php");
    include("..//included/openDB.php");
    //openDB() is a defined function in openDB, opens the classroomtocareer database
    openDB();
 
-	//Gathers input data from addJob.php
-	$mindegree=$_POST['MinDegree'];
+	//Gathers input data from addOpportunity.php
 	$arrayM=$_POST['checkboxM'];	//majors
-	$arrayJ=$_POST['checkboxJ'];	//jobs
+	$arrayO=$_POST['checkboxO'];	//jobs
 
 
-	connect($arrayM,$arrayJ,$mindegree);
+	connect($arrayM,$arrayO,$mindegree);
 
-	function connect($arrayM,$arrayJ,$mindegree)
+	function connect($arrayM,$arrayO,$mindegree)
 	{
 		$sizeM=sizeof($arrayM);
-		$sizeJ=sizeof($arrayJ);
+		$sizeO=sizeof($arrayO);
 
 		for($i=0;$i<$sizeM;$i++)
 		{
@@ -33,25 +31,24 @@
 				//Goes to specific field (#0) in the row
 				$majorID=$majorIDr[0];
 
-		for($j=0;$j<$sizeJ;$j++)
+		for($j=0;$j<$sizeO;$j++)
 		{
 				//Defines query to get the correct Job id from the table
-				$queryJ="SELECT id FROM Job WHERE career='$arrayJ[$j]'";
+				$queryO="SELECT opportunityID FROM Opportunity WHERE opportunity='$arrayO[$j]'";
 
 				//Performs defined query, result is an array
-				$jobIDq=mysql_query($queryJ);
+				$opportunityIDq=mysql_query($queryO);
 
 				//Fetchs the row from the resulting array
-				$jobIDr=mysql_fetch_row($jobIDq);
+				$opportunityIDr=mysql_fetch_row($opportunityIDq);
 
 				//Goes to specific field (#0) in the row
-				$jobID=$jobIDr[0];
+				$opportunityID=$opportunityIDr[0];
 
 				//Defines query to put the found ids and the mindegree in the MajorJob table
-				$query="INSERT INTO MajorJob "
+				$query="INSERT INTO MajorOpportunity "
 					." set majorID='$majorID' "
-					." ,jobID='$jobID' "
-					." ,degree='$mindegree' "
+					." ,opportunityID='$opportunityID' "
 					.";";
 
    				//Performs insertion query, checks for errors using noerror function defined in tabledump.php	
@@ -61,6 +58,6 @@
 		}
 	}
    //Header travels to specified location
-   header("Location:jobAdd.php");
+   header("Location:opportunityAdd.php");
    exit;
 ?>

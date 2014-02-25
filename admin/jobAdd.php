@@ -1,8 +1,12 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['email'])){
+	header("location:..//login/main_login.php");
+	}
 	include("..//included/tabledump.php");
 	include("..//included/openDB.php");
 	openDB();
+	
 ?>
 <html>
 <head>
@@ -48,7 +52,7 @@
 				$j=1;
 				$row=mysql_fetch_array($result);
 				settype($row[$j], "string");
-				if($i==5 || $i==10 || $i==15)
+				if($i==5 || $i==10 || $i==15 || $i==20 || $i==25 || $i==30 || $i==35 || $i==40 || $i==45 || $i==50)
 				{
 					
 					echo "</tr>";
@@ -102,7 +106,7 @@
 				$j=1;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
-				if($i==5 || $i==10 || $i==15)
+				if($i==5 || $i==10 || $i==15 || $i==20 || $i==25 || $i==30 || $i==35 || $i==40 || $i==45 || $i==50)
 				{
 					
 					echo "</tr>";
@@ -147,7 +151,7 @@
 	<br/>
 	<br/>
 	<h2>Add New Job</h2>
-	<form action="processJob.php" method="POST">
+	<form action="jobProcess.php" method="POST">
 	   <table>
 			<tr>
 				<td align="right">Job</td>

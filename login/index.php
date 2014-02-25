@@ -9,11 +9,12 @@
 <body>
 
 <!-- 
-\\logo
+//logo
  -->
 <div id="container">
-<div id="logo">
+<div id="logo" style=" text-align: left">
 	     <img src= "images/upperlogo.png" alt="logo"/>
+
 </div>
 
 <!-- 
@@ -119,14 +120,12 @@
 	
 </div>	
 
-</div>
 
 <footer>
-	<div id="footer">
+	     <img src= "images/newfooter.png" alt="footer"/>
 
-	     <img src= "images/footer.png" alt="footer"/>
-	</div>
 </footer>
+</div>
 </body>
 
 </html>

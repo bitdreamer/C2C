@@ -1,4 +1,5 @@
 <?php
+session_start();
    include("..//included/openDB.php");
    include("../included/tabledump.php");
    openDB();
@@ -14,9 +15,8 @@
    $resultArray=mysql_fetch_array($result);
    $majorID=$resultArray[0];
    
-   $query1="INSERT INTO MajorLink "
-          ." set majorID='$majorID' "
-          ." ,link='$url' "
+   $query1="INSERT INTO Link "
+          ." set link='$url' "
           ." ,name='$name' "
           ." ,description='$description' "
           ." ,category='$category' "
@@ -24,6 +24,6 @@
    $result1=mysql_query($query1);
    if ($result1==0) { noerror( $result1 ); }
    //echo "query = $query";
-   header("Location: addLink.php");
+   header("Location: linkAdd.php");
    exit;
 ?>

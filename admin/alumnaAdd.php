@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['email'])){
+header("location:..//login/main_login.php");
+}
+?>
 <html>
 <head> 
 <title>Classroom to Career Pathways</title>

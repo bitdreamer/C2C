@@ -1,4 +1,5 @@
 <?php
+session_start();
    include("..//included/tabledump.php");
    include("..//included/openDB.php");
    openDB();
@@ -22,7 +23,7 @@
    if ($result==0) { noerror( $result ); }
    //echo "query = $query";
 
-   header("Location: addOpportunity.php");
+   header("Location: opportunityAdd.php");
    exit;
    
 ?>
