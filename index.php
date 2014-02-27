@@ -59,7 +59,7 @@
 		In Meredith collage, We offer the following Career Pathways for your consideration. Please note that this is only a partial list of the kinds of career directions you can follow.
 	</p>
 	
-	<form action="majorRequest.php" method="POST">
+	<form action="majorRequest.php" method="GET">
 	<fieldset id="majorInfo">
 		<legend>What is your Major/Intended Major?</legend>
 			<?php
