@@ -48,7 +48,7 @@
 	$q2="SELECT * FROM MajorJob, Job WHERE jobID=id AND majorID='$majorID';";
 	$r2=mysql_query($q2); 
 
- 			echo "<h3> Career Options </h3> \n"; 
+ 			echo "<h3> Career Opportunities </h3> \n"; 
 			
 	if(noerror($r2))
 	{
@@ -60,31 +60,10 @@
 			$jdes= $row['description']; 
 
 			echo "<p> \n";
-			echo "$job \n"; 			
+			echo "$job: $jdes \n"; 			
 			echo "</p> \n"; 
 		}
 	}
-	
-	$linkQ="SELECT * FROM MajorLink, Link WHERE MajorLink.linkID=Link.linkID AND majorID='$majorID';"; 		//one linkID from Link table, one from MajorLink table
-	$linkR=mysql_query($linkQ);
-	
-		echo "<h3> Related Websites</h3> \n"; 
-	
-	if(noerror($linkR))
-	{
-		$nr = mysql_num_rows($linkR);
-		for($i=0; $i<nr; $i++)
-		{
-			$row  = mysql_fetch_array($linkR);
-			$link = $row['link']; 
-		
-			echo "<p> \n";
-			echo "$link \n";
-			echo "</p> \n"; 
-		}
-	}	
-			
-	
 
 	
 ?>
