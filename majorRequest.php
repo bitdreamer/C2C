@@ -27,7 +27,9 @@
 
 <?php
 
-	$majorID=$_POST['major']; 
+	//get and display Major and description 
+	$majorID=addslashes($_GET['major']); 
+
 	$query="SELECT * FROM Major WHERE id='$majorID';"; 
 	$result=mysql_query($query); 
 	

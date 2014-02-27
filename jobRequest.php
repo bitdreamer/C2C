@@ -27,7 +27,7 @@
 
 <?php
 
-	$jobID=$_POST['career']; 
+	$jobID=addslashes($_GET['career']); 
 	$query="SELECT * FROM Job WHERE id='$jobID';"; 
 	$result=mysql_query($query); 
 	
