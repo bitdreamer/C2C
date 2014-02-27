@@ -88,7 +88,7 @@
 	</fieldset>
 	</form>
 
-	<form action="jobRequest.php" method="POST">
+	<form action="jobRequest.php" method="GET">
 	<fieldset id="jobInfo">
 		<legend>Which of the following jobs are you most interested in?</legend>
 			<?php
