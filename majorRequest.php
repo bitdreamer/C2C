@@ -1,7 +1,7 @@
 <?php
 
 	session_start(); 
-
+    $bug = false;
 	include("included/openDB.php");
 	include("included/leftMenu.php"); 
 	include("included/tabledump.php");
@@ -73,7 +73,8 @@
 	if(noerror($linkR))
 	{
 		$nr = mysql_num_rows($linkR);
-		for($i=0; $i<nr; $i++)
+		if ( $bug) { echo "number of links found = ".$nr; }
+		for($i=0; $i<$nr; $i++)
 		{
 			$row  = mysql_fetch_array($linkR);
 			$link = $row['link']; 
@@ -83,6 +84,7 @@
 			echo "</p> \n"; 
 		}
 	}	
+	else { if ($bug) { echo "error in link query"; } }
 			
 	
 
