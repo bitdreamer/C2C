@@ -82,10 +82,50 @@ function tabledump( $result )
                $row=mysql_fetch_array($result);
                for( $j=0; $j<$nf; $j++ )
                { echo "<td>".$row[$j]."</td>"; }
+
             echo "</tr>";
          }
       echo "</tbody></table>";
    }
    return $row;
+}
+?>
+<?php
+function tabledumpdelt( $result, $tablename )
+{
+	echo "<form action= method=POST>";
+   if($result==0)
+   {
+      echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
+   }
+   elseif (@mysql_num_rows($result)==0)
+   {
+      echo "<b>There doesn't seem to be anything here... yet.</b><br>";
+   }
+   else
+   {
+   $nf = mysql_num_fields($result);
+   $nr = mysql_num_rows($result);
+      echo "<table border='1'> <thead>";
+         echo "<tr>";
+            for($i=0; $i<$nf; $i++ )
+            {
+               echo "<th>".mysql_field_name($result,$i)."</th>";
+            }
+         echo "</tr>";
+      echo "</thead><tbody>";
+         for($i=0; $i<$nr; $i++ )
+         {
+            echo "<tr>";
+               $row=mysql_fetch_array($result);
+               for( $j=0; $j<$nf; $j++ )
+               { echo "<td>".$row[$j]."</td>"; }
+		echo "<td> <input type=submit  name=Delete value=Delete /> </td>";
+            echo "</tr>";
+         }
+      echo "</tbody></table>";
+   }
+   return $row;
+	echo "</form>";
 }
 ?>

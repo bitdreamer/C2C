@@ -3,24 +3,41 @@
 	if(!isset($_SESSION['email'])){
 	header("location:..//login/main_login.php");
 	}
-	include("..//included/tabledump.php");
-   include("..//included/openDB.php");
-   openDB();
+	 include("..//included/tabledump.php");
+     include("..//included/openDB.php");
+     openDB();
 ?>
 <html>
 <head>
+
+<link rel= "stylesheet" href="style3.css" type="text/css" />
 <title>Classroom to Career Pathways</title>
+
 </head>
+
 <body>
-<h1>Classroom to Career Pathways</h1>
+<div id="logo">
+     <img src= "images3/upperlogo.png" alt="logo"/>
+</div>
+
+<div id="leftNav">
+<ul class="links">
+		<li><a href="http://www.meredith.edu"> Meredith College</a></li>
+		<li><a href="login/main_login.php">Admin Login</a></li>
+
+<div id="newLinks">	
 <?php
 	include("../included/menu.php");
 	openAddMenu();
 ?>
-
+</ul>
+</div> 
+</div>
 <br/>
+		
+<div id="main">
 <article id="newJob">
-<h2>Add Major (For development purposes ONLY)</h2>
+<h1 style="margin:0 0 0 200">Add Major (For development purposes ONLY)</h1>
 <form action="majorProcess.php" method="POST">
    <table>
  <tr>
@@ -75,15 +92,15 @@
       </tr>
 	  <tr>
          <td align="right">Description</td>
-         <td><input type="text" name="description" value="" required="required" size="75" style="height:75px"></td>
+         <td><input type="text" name="description" value="" required="required" size="50" style="height:75px"></td>
       </tr>
 	<tr>
          <td align="right">Department</td>
          <td><input type="text" name="department" value="" required="required" size="20" style="height:20px"></td>
       </tr>
-	<tr>
-		<td align="center" colspan="2"><h3>Add Jobs</h3></td>
-	</tr>
+	</table>
+		<div align="left" colspan="2" style="margin:50 0 0 0" ><h2>Jobs in Major</h2></div>
+	
 
 <?php
 	$queryB = "SELECT * FROM Job";
@@ -93,8 +110,10 @@
 	function jobtabledump1( $resultB )
 	{
 		echo "<table>";
+		echo"<p> To link associated jobs with major being created.</p>";
+		echo"<h3 style='background-color:gray; height:30'> Min Degree: BS </h3>";
 		echo "<tr>";
-		echo "<td align=center width=150>Min Degree: BA</td>";
+		echo "<td></td>";
 
 		if($resultB==0)
 		{
@@ -107,21 +126,23 @@
 		else
 		{
 		   $nr = mysql_num_rows($resultB);
+			$c=0;
 					
 			for($i=0; $i<$nr; $i++ )
 			{	   
 				$j=1;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
-				if($i==5 || $i==10 || $i==15)
+				if($c==5)
 				{
 					
 					echo "</tr>";
 					echo "<tr>";
 					echo "<td></td>";
-					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<td>";
+					echo "<input  type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c=1;
 					
 				}
 				else
@@ -129,6 +150,7 @@
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c++;
 				}
 			}
 		}
@@ -145,8 +167,9 @@
 	function jobtabledump2( $resultB )
 	{
 		echo "<table>";
+	    echo"<h3 style='background-color:gray; height:30'>Min Degree: BA</h3>";
 		echo "<tr>";
-		echo "<td align=center width=150>Min Degree: BS</td>";
+		echo "<td></td>";
 
 		if($resultB==0)
 		{
@@ -159,13 +182,14 @@
 		else
 		{
 		   $nr = mysql_num_rows($resultB);
+			$c=0;
 					
 			for($i=0; $i<$nr; $i++ )
 			{	   
 				$j=1;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
-				if($i==5 || $i==10 || $i==15)
+				if($c==5)
 				{
 					
 					echo "</tr>";
@@ -173,14 +197,14 @@
 					echo "<td></td>";
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
-					echo "</td>";
-					
+					$c=1;
 				}
 				else
 				{
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c++;
 				}
 			}
 		}
@@ -189,6 +213,7 @@
 		return $row;
 	}
 ?>
+</br>
 <?php
 	$queryB = "SELECT * FROM Job";
 	$resultB=mysql_query($queryB);
@@ -197,8 +222,9 @@
 	function jobtabledump3( $resultB )
 	{
 		echo "<table>";
+		echo"<h3 style='background-color:gray; height:30'->Min Degree: BSW</h3>";
 		echo "<tr>";
-		echo "<td align=center width=150>Min Degree: BSW</td>";
+		echo "<td></td>";
 
 		if($resultB==0)
 		{
@@ -211,13 +237,14 @@
 		else
 		{
 		   $nr = mysql_num_rows($resultB);
+			$c=0;
 					
 			for($i=0; $i<$nr; $i++ )
 			{	   
 				$j=1;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
-				if($i==5 || $i==10 || $i==15)
+				if($c==5)
 				{
 					
 					echo "</tr>";
@@ -226,6 +253,7 @@
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c=1;
 					
 				}
 				else
@@ -233,6 +261,7 @@
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c++;
 				}
 			}
 		}
@@ -242,9 +271,8 @@
 	}
 ?>
 
-
       <tr>
-         <td colspan="2" align="center"> 
+         <td colspan="2"  style="margin:200 0 0 0"> 
          <input type="submit" value="Submit">
          </td>
       </tr>
@@ -252,6 +280,7 @@
 
 </form>
 
+<!-- 
 <h3>Majors already created</h3>
 <?php
 	echo "<section>";
@@ -264,7 +293,12 @@
    
 	echo "</section>";
 ?>
-
+ -->
+</div>
 </article>
+<footer>
+	     <img src= "images3/footer.png" alt="footer"/>
+
+</footer>
 </body>
 </html>

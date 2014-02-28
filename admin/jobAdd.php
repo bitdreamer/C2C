@@ -46,13 +46,15 @@
 			$nr = mysql_num_rows($result);
 					
 			//echo "<td><select name=major id=major required=required>";
+			$c=0;
 			
 			for($i=0; $i<$nr; $i++ )
 			{
 				$j=1;
+				
 				$row=mysql_fetch_array($result);
 				settype($row[$j], "string");
-				if($i==5 || $i==10 || $i==15 || $i==20 || $i==25 || $i==30 || $i==35 || $i==40 || $i==45 || $i==50)
+				if($c==5)
 				{
 					
 					echo "</tr>";
@@ -61,6 +63,7 @@
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxM[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c=1;
 					
 				}
 				else
@@ -68,6 +71,7 @@
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxM[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c++;
 				}
 
 			}
@@ -100,13 +104,14 @@
 		else
 		{
 		   $nr = mysql_num_rows($resultB);
+			$c=0;
 					
 			for($i=0; $i<$nr; $i++ )
 			{	   
 				$j=1;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
-				if($i==5 || $i==10 || $i==15 || $i==20 || $i==25 || $i==30 || $i==35 || $i==40 || $i==45 || $i==50)
+				if($c==5)
 				{
 					
 					echo "</tr>";
@@ -115,6 +120,7 @@
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c=1;
 					
 				}
 				else
@@ -122,6 +128,7 @@
 					echo "<td width=200>";
 					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
+					$c++;
 				}
 			}
 		}

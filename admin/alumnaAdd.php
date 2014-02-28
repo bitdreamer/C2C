@@ -114,7 +114,7 @@ The POST array will be indexed using the respective input type's name -->
 		$query="SELECT * from Alumna;";
     		$result=mysql_query($query);
    
-   		tabledump( $result );
+   		tabledumpdelt( $result );
    
 	echo "</section>";
 ?>
