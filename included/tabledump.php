@@ -91,9 +91,8 @@ function tabledump( $result )
 }
 ?>
 <?php
-function tabledumpdelt( $result, $tablename )
+function tabledumpdelt( $result)
 {
-	echo "<form action= method=POST>";
    if($result==0)
    {
       echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
@@ -120,12 +119,13 @@ function tabledumpdelt( $result, $tablename )
                $row=mysql_fetch_array($result);
                for( $j=0; $j<$nf; $j++ )
                { echo "<td>".$row[$j]."</td>"; }
-		echo "<td> <input type=submit  name=Delete value=Delete /> </td>";
+		//echo "<td> <input type=submit name=id value=$row[0]> </td>";
+		echo "<td> <button name=id value=$row[0]>Delete</button</td>";
             echo "</tr>";
          }
       echo "</tbody></table>";
    }
    return $row;
-	echo "</form>";
+	
 }
 ?>

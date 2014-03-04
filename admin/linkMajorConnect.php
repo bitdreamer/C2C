@@ -35,7 +35,7 @@
 		for($j=0;$j<$sizeL;$j++)
 		{
 				//Defines query to get the correct Job id from the table
-				$queryL="SELECT linkID FROM Link WHERE name='$arrayL[$j]'";
+				$queryL="SELECT id FROM Link WHERE name='$arrayL[$j]'";
 
 				//Performs defined query, result is an array
 				$linkIDq=mysql_query($queryL);
