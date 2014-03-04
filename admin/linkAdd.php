@@ -178,9 +178,7 @@
 	$query="SELECT * from Link;";
     $result=mysql_query($query);
    
-	echo "<form action=linkDelete.php method=$_GET>";
-   tabledumpdelt( $result );
-	echo "</form>";
+   tabledump( $result );
    
 	echo "</section>";
 ?>
