@@ -1,62 +1,121 @@
 
-h1 {text-align: center;}
-
-#container
-{
-margi-right:auto;
-   text-align: justify;
-width:900;
-}
-
+#darkgray
+    {
+    width:  100%;
+    height: 50px;
+    background-image: url(images/up1.png);
+    }
+    
 #logo
+	{
+	width:  100%;
+        height: 90px;
+        background-image: url(images/up2.png);
+	} 
+	  
+#lightgray
+	{
+	width:  100%;
+        height: 25px;
+        background-image: url(images/lightgray.png);
+	} 
+		  
+ #links		 
+   {
+    width:  15%;
+    height: 800px;
+    background-image: url(images/sideBar.png);
+    float:left; 
+    }
+    
+
+
+ul     {list-style-type:none;      margin:50 0 0 0;
+ }
+
+li a
 {
-	width: 1500px;
-	height: 120px;
-	border-bottom: 20px solid Gray;
+      color:white;
+      text-decoration: underline; 
 }
 
-#leftNav
-{
-  float: left;
-  width: 170px;
-  height:1000px;
-  background-image: url(images/sideBar.png);
-}
+#content
+ {
+ width:85%;
+ height:500px;
+ text-align:justify;
+ float:left;
+ } 
 
-#Hlinks
-{
-  float:right;
-  height: 400px;
-}
+ #body
+  {
+     width : 500px;
+     font-family: helvetica neue;
+     margin: 50 0 10 150
+  }
 
+#video 
+  {
+    margin: 40 0 0 250; 
+    width:500;
+    height:300;
+  }
 
-.links 
-{
- 	position:absolute; left: 0px; top:200;
- 	text-decoration: none; 	
-}
+#first
+ {
+     color: #7C1C05; 
+     text-align:center;
+     margin-top: 50px;
+ }
+ 
+#second
+ {
+    font-color:#6C3082;
+    margin: 60 0 0 50;  
+ } 
+ 
+ #main
+ {
+  	color: black;
+ 	margin: 50 100 0 100; 
+ 	font-family: helvetica neue;
+ 	text-align:center;
+ }
+ 
 
-ul {list-style-type:none; }
-
-.links a
-{
- 	color:white;
- 	text-decoration: underline;
+ h1 
+ {
+ text-align: center;  	
+ color: #7C1C05; 
+ font-family: helvetica neue;
  
 }
-
-#body
+p
 {
-width : 620px;
-font: sans-serif; margin: 100 300 100 300}
+        color: black;
+ 	margin: 50 100 10 0; 
+ 	font-family: helvetica neue;
 }
-
-#footer
-{
-  border-top: 20px solid Gray;
+legend{ color: #7C1C05; 
+}
+ p:first-letter
+ { 
+  font-size:200%;
+  color:#6C3082;
+ }
  
-}
-form
-{
-margin: 30px;
-}
+ address 
+ {
+  list-style-type:none;
+  margin:100 0 0 550;
+  }
+  
+  address a{ clear:botrh; color:white;}
+  
+#footer   
+   {
+   clear:both;
+   width:100%;
+   height:230px;
+   background-image: url(images/footerc.png);   
+   }
