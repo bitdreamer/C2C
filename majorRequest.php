@@ -25,9 +25,11 @@
 
 <?php leftMenu(); ?>
 
+   <div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:right;">
 <?php
 
-	$majorID=$_POST['major']; 
+	//get and display Major and description 
+	$majorID=addslashes($_GET['major']); 
 	$query="SELECT * FROM Major WHERE id='$majorID';"; 
 	$result=mysql_query($query); 
 	
@@ -45,6 +47,7 @@
 		echo "</p> \n"; 
 	}
 	
+	//get and display job options 
 	$q2="SELECT * FROM MajorJob, Job WHERE jobID=id AND majorID='$majorID';";
 	$r2=mysql_query($q2); 
 
@@ -56,12 +59,32 @@
 		for($i=0; $i<$nr; $i++)
 		{
 			$row = mysql_fetch_array($r2); 
-			$job = $row['career']; 
-			$jdes= $row['description']; 
+			$job  = $row['career']; 
+			$jdes = $row['description']; 
+			$jobID  = $row['id']; 
 
-			echo "<p> \n";
-			echo "$job \n"; 			
-			echo "</p> \n"; 
+			//echo "<a href='jobRequest.php?career=$jobID'>$job</a> \n"; 			
+			
+			echo "<table class='jobs' \n"; 
+echo "	summary='List of career options for a particular major'> \n"; 
+	
+echo "	<colgroup> \n"; 
+echo "	<col class='jobs' span='1' /> \n"; 
+echo "		</colgroup> \n"; 
+echo " 	<thead> \n"; 
+echo " 	<tr> \n"; 
+//echo "	<th>Career Options</th> \n"; 
+echo "  </tr> \n"; 
+echo "  </thead> \n"; 
+
+echo "  <tbody> \n"; 
+echo "  <tr> \n"; 
+echo "	  <th> \n"; 
+echo "		<a href='jobRequest.php?career=$jobID'>$job</a> \n";
+echo "	  </th> \n";
+echo " 	</tr> \n";
+echo " 	</tbody> \n";
+echo "	</table> \n";
 		}
 	}
 	
@@ -73,24 +96,29 @@
 	if(noerror($linkR))
 	{
 		$nr = mysql_num_rows($linkR);
+
 		if ( $bug) { echo "number of links found = ".$nr; }
+
 		for($i=0; $i<$nr; $i++)
 		{
 			$row  = mysql_fetch_array($linkR);
 			$link = $row['link']; 
 		
 			echo "<p> \n";
-			echo "$link \n";
+			echo "<a href='$link'> $link </a> \n";
 			echo "</p> \n"; 
 		}
+
 	}	
 	else { if ($bug) { echo "error in link query"; } }
 			
+
 	
+
 
 	
 ?>
-
+   </div>  <!-- end container -->
 </body>
 </html>
 
