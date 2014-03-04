@@ -106,7 +106,7 @@
 					
 			for($i=0; $i<$nr; $i++ )
 			{	   
-				$j=0;
+				$j=1;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
 				if($c==5)
@@ -167,7 +167,9 @@
 	$query="select * from Interest;";
     $result=mysql_query($query);
    
-   tabledump( $result );
+	echo "<form action=interestDelete.php method=$_GET>";
+   tabledumpdelt( $result );
+	echo "</form>";
    
 	echo "</section>";
 ?>

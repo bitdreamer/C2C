@@ -175,7 +175,9 @@
 	$query="select * from Opportunity;";
     $result=mysql_query($query);
    
-   tabledump( $result );
+	echo "<form action=opportunityDelete.php method=$_GET>";
+   tabledumpdelt( $result );
+	echo "</form>";
    
 	echo "</section>";
 ?>

@@ -6,11 +6,11 @@
 
 	$id = $_GET["id"];
    
-   $query="DELETE FROM Alumna WHERE id='".$id."'";
+   $query="DELETE FROM Opportunity WHERE id='".$id."'";
 
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
-   header("Location: alumnaAdd.php");
+   header("Location: opportunityAdd.php");
    exit;
 ?>
