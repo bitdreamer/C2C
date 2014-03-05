@@ -65,29 +65,28 @@
 			//echo "<a href='jobRequest.php?career=$jobID'>$job</a> \n"; 			
 			
 			echo "<table class='jobs' \n"; 
-echo "	summary='List of career options for a particular major'> \n"; 
-	
-echo "	<colgroup> \n"; 
-echo "	<col class='jobs' span='1' /> \n"; 
-echo "		</colgroup> \n"; 
-echo " 	<thead> \n"; 
-echo " 	<tr> \n"; 
-//echo "	<th>Career Options</th> \n"; 
-echo "  </tr> \n"; 
-echo "  </thead> \n"; 
+				echo "	summary='List of career options for a particular major'> \n"; 
+					
+				echo "	<colgroup> \n"; 
+				echo "	<col class='jobs' span='1' /> \n"; 
+				echo "		</colgroup> \n"; 
+				echo " 	<thead> \n"; 
+				echo " 	<tr> \n"; 
+				echo "  </tr> \n"; 
+				echo "  </thead> \n"; 
 
-echo "  <tbody> \n"; 
-echo "  <tr> \n"; 
-echo "	  <th> \n"; 
-echo "		<a href='jobRequest.php?career=$jobID'>$job</a> \n";
-echo "	  </th> \n";
-echo " 	</tr> \n";
-echo " 	</tbody> \n";
-echo "	</table> \n";
+				echo "  <tbody> \n"; 
+				echo "  <tr> \n"; 
+				echo "	  <th> \n"; 
+				echo "		<a href='jobRequest.php?career=$jobID'>$job</a> \n";
+				echo "	  </th> \n";
+				echo " 	</tr> \n";
+				echo " 	</tbody> \n";
+				echo "	</table> \n";
 		}
 	}
 	
-	$linkQ="SELECT * FROM MajorLink, Link WHERE MajorLink.linkID=Link.linkID AND majorID='$majorID';"; 		//one linkID from Link table, one from MajorLink table
+	$linkQ="SELECT * FROM MajorLink, Link WHERE linkID=ID AND majorID='$majorID';"; 		//one linkID from Link table, one from MajorLink table
 	$linkR=mysql_query($linkQ);
 	
 		echo "<h3> Related Websites</h3> \n"; 
@@ -100,9 +99,29 @@ echo "	</table> \n";
 			$row  = mysql_fetch_array($linkR);
 			$link = $row['link']; 
 		
-			echo "<p> \n";
-			echo "<a href='$link'> $link </a> \n";
-			echo "</p> \n"; 
+			//echo "<p> \n";
+			//echo "<a href='$link'> $link </a> \n";
+			//echo "</p> \n"; 
+			
+			echo "<table class='links' \n"; 
+				echo "	summary='List of related links for a particular major'> \n"; 
+					
+				echo "	<colgroup> \n"; 
+				echo "	<col class='links' span='1' /> \n"; 
+				echo "		</colgroup> \n"; 
+				echo " 	<thead> \n"; 
+				echo " 	<tr> \n"; 
+				echo "  </tr> \n"; 
+				echo "  </thead> \n"; 
+
+				echo "  <tbody> \n"; 
+				echo "  <tr> \n"; 
+				echo "	  <th> \n"; 
+				echo "		<a href='$link'> $link </a> \n";
+				echo "	  </th> \n";
+				echo " 	</tr> \n";
+				echo " 	</tbody> \n";
+				echo "	</table> \n";
 		}
 	}
 
