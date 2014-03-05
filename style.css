@@ -30,7 +30,10 @@
     
 
 
-ul     {list-style-type:none;      margin:50 0 0 0;
+ul   
+  {
+     list-style-type:none;    
+      margin:50 0 0 0;
  }
 
 li a
@@ -41,10 +44,9 @@ li a
 
 #content
  {
- width:85%;
- height:500px;
- text-align:justify;
- float:left;
+       width:85%;
+       height:500px;
+       float:left;
  } 
 
  #body
@@ -84,26 +86,37 @@ li a
  
 
  h1 
- {
- text-align: center;  	
- color: #7C1C05; 
- font-family: helvetica neue;
- 
-}
-p
+ {   
+     text-align: center;  	
+     color: #7C1C05;/*red*/ 
+     font-family: helvetica neue;
+     font-size:40px;
+     margin:70 0 0 0;
+  }
+
+h2{  color:#6C3082; font-family: helvetica neue;}/*purple*/
+h3{  color: #7C1C05; font-family: helvetica neue;}/*red*/
+legend{ color: #7C1C05;}/*red*/
+
+
+#major{text-align:center;}
+
+#text
 {
         color: black;
- 	margin: 50 100 10 0; 
+ 	margin: 50 50 0 250; 
  	font-family: helvetica neue;
+        font-size:17px;
 }
-legend{ color: #7C1C05; 
-}
+
+
  p:first-letter
  { 
-  font-size:200%;
+  font-size:150%;
   color:#6C3082;
  }
  
+
  address 
  {
   list-style-type:none;
