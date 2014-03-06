@@ -3,6 +3,7 @@ session_start();
 include("included/openDB.php");
 include("included/tabledump.php");
 include("included/leftMenu.php");
+openDB();
 ?>
 
 <html>
@@ -30,8 +31,22 @@ include("included/leftMenu.php");
     <p>Look through the list of interests below and drag the things that interest you into the box below. Once you have dragged a few interests into the box below, the majors on the left will change size based off your interests. The larger the major, the more compatiable it is for you.</p>
 
     <h3><i><b>Interests</h3></i></b>
-    <br>
-    <ul>Problem solving</ul>
+    <?php
+        $query="SELECT * From Interest";
+        $result=mysql_query($query); 
+
+
+        if(noerror($result))
+	    {
+            $nr = mysql_num_rows($result); 
+            for($i=0; $i<$nr; $i++)
+            {
+		      $row = mysql_fetch_array($result); 
+                $interest=$row['interest'];
+                echo "<li>$interest</li> \n"; 
+            }
+        }
+    ?>
         
          </div>
  
