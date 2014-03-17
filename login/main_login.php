@@ -1,11 +1,12 @@
 <?php
 session_start();
-// logger1.php  
+// main_login.php  
 // This page has a form to let you log in or register.  If you 
 // try to login, it jumps
-// to logger2CheckPW.php to check.  If you register, it send you
-// to logger3Reg.php to send email to the user to complete the
-// registration.  Note: the php to send you to a new page has to 
+// to check_login.php to check.  If you register, it sends you
+// to register.php to send an email to the user to complete the
+// registration.  
+//Note: the php to send you to a new page has to 
 // happen before 
 // any HTML is sent.
 

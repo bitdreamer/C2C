@@ -14,7 +14,7 @@
 
 <head>
 	<link rel= "stylesheet"type="text/css"  href="style.css"  />
-	<title> Carrer Pathways</title>
+	<title> Career Pathways</title>
 </head>
 
 <!--logo-->

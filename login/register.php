@@ -121,7 +121,7 @@ else
          $result=mysql_query($query);
          noerror($result);
          
-         // send email to user 
+         // Email details to be sent
          $subj="Registration Confirmation";
          $msg="Confirm registration to C2C Pathways by clicking on this link: "
          ."http://www.bitlab.meredith.edu/~c2c/login/regConfirm.php"
@@ -129,13 +129,9 @@ else
          ."$regnum\" >"
          ;
          $heads="";
-
+		
+	  //Send e-mail
          mail($em,$subj,$msg,$heads);
-         //echo "message is ".$msg; // can't do this here, 
-
-         // jump to the page that tells them to check their email
-         
-         //header("Location: logger4GoRead.php");
          
          echo "Go read your email and click on the link to confirm.  ";
       }

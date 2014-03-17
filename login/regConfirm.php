@@ -65,7 +65,6 @@ $confirmationNumber = @$_GET[confirmationNumber];
          $result=mysql_query($query);
          // Give click option back to login page.
          $shtats = "regsuccessful";
-         //header("Location: logger.php");
       }
       else { $shtats = "regfailed"; }
    }
