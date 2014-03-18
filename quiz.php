@@ -33,6 +33,7 @@ openDB();
    <div id="contentBox" style="margin: 0px auto; width:70%">
         <div id="column1" style="float:left; margin:0; width:50%;">
     <h3><i><b>Interests</h3></i></b>
+    <!-- query to list all the interets on one side of the page -->
     <?php
         $query="SELECT * From Interest";
         $result=mysql_query($query); 
@@ -53,6 +54,7 @@ openDB();
        <div id="column2" style="float:left; margin:0; width:50%;">
             
     <h3><i><b>Majors</b></i></h3>
+    <!-- qurey to list all the majors on the other side of the page -->
     <?php
         $query="SELECT * From Major";
         $result=mysql_query($query);
@@ -75,7 +77,7 @@ openDB();
         </div>
         
          </div>
- 
+ <!-- adds the address line at the bottom of the page -->
         <div id="footer"></br>
 	       <address >
 	       <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
