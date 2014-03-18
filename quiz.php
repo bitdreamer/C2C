@@ -25,7 +25,7 @@ openDB();
     <div id="text">
         <!-- <div id="content" style="background-       color:#EEEEEE;height:200px;width:400px;float:right;">-->
         
-    <h1>Quiz</h1>
+    <h1>Major Match Maker</h1>
     <br>
     <br>
     <p>Look through the list of interests below and drag the things that interest you into the box below. Once you have dragged a few interests into the box below, the majors on the left will change size based off your interests. The larger the major, the more compatiable it is for you.</p>
