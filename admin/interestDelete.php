@@ -11,6 +11,11 @@
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
+	$queryB="DELETE FROM MajorInterest WHERE interestID='".$id."'";
+
+	$resultB=mysql_query($queryB);
+	if ($resultB==0) {noerror($resultB);}
+
    header("Location: interestAdd.php");
    exit;
 ?>
