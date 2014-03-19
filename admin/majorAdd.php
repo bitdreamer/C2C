@@ -13,6 +13,26 @@
 <link rel= "stylesheet" href="style3.css" type="text/css" />
 <title>Classroom to Career Pathways</title>
 
+<script type="text/javascript">
+	var k = 0;
+	var preview = new Array();
+	
+	function previewData()
+	{
+		var major = document.majorForm.major.value;
+		var id = document.majorForm.id.value;
+		var description = document.majorForm.description.value;
+		var department = document.majorForm.department.value;
+		
+		preview[k] = major + " | " + id + " | " + description + " | " + department;
+		
+		var previewData = document.getElementById("previewData");
+		previewData.firstChild.nodeValue = preview[0];
+	}
+	
+	
+</script>
+
 </head>
 
 <body>
@@ -38,7 +58,7 @@
 <div id="main">
 <article id="newJob">
 <h1 style="margin:0 0 0 200">Add Major (For development purposes ONLY)</h1>
-<form action="majorProcess.php" method="POST">
+<form name="majorForm" action="majorProcess.php" method="POST">
    <table>
  <tr>
       <td align="right">Major</td>
@@ -273,6 +293,7 @@
 
       <tr>
          <td colspan="2"  style="margin:200 0 0 0"> 
+	 <input type="button" value="Preview Entry" onclick="previewData();"/>
          <input type="submit" value="Submit">
          </td>
       </tr>
