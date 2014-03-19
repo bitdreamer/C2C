@@ -300,7 +300,8 @@
    </table>
 
 </form>
-
+<p id="previewData" name="previewData">
+</p>
 <!-- 
 <h3>Majors already created</h3>
 <?php
