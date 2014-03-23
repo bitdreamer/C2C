@@ -14,8 +14,6 @@
 <title>Classroom to Career Pathways</title>
 
 <script type="text/javascript">
-	var k = 0;
-	var preview = new Array();
 	
 	function previewData()
 	{
@@ -24,10 +22,10 @@
 		var description = document.majorForm.description.value;
 		var department = document.majorForm.department.value;
 		
-		preview[k] = major + " | " + id + " | " + description + " | " + department;
+		var preview = major + " | " + id + " | " + description + " | " + department;
 		
 		var previewData = document.getElementById("previewData");
-		previewData.firstChild.nodeValue = preview[0];
+		previewData.firstChild.nodeValue = preview;
 	}
 	
 	
