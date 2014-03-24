@@ -1,6 +1,7 @@
 <?php
-/* includeMe.php
-   tabledump function, display and SQL result table, with headers.
+/*	includeMe.php
+	tabledump function, display and SQL result table, with headers.
+	tabledumpdelt function, displays table with delete button.
 */
    
    // if there's an error, head to ErrorReport with messages (and don't return)

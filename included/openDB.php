@@ -1,4 +1,5 @@
 <?php
+	//Connects with database.  Include wherever you must access the database, and call openDB.
    function openDB()
    {
 	   $host="localhost:/var/lib/mysql/mysql.sock"; // localhost doesn't work
