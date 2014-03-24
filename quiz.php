@@ -80,23 +80,24 @@ openDB();
             echo "<script>";
             if(noerror($result))
 	        {
-            $nr = mysql_num_rows($result); 
-            for($i=0; $i<$nr; $i++)
-            {
-		      $row = mysql_fetch_array($result); 
-                $interest=$row['interest'];
-                echo "function dealWith$interest()";
-                echo "{";
-                echo "alert(\"this is an alert from function dealWith$interest\");";
-                echo "}";
+                $nr = mysql_num_rows($result); 
+                for($i=0; $i<$nr; $i++)
+                {
+                  $row = mysql_fetch_array($result); 
+                    $interest=$row['interest'];
+                    echo "function dealWith$interest()";
+                    echo "{";
+                    echo "alert(\"this is an alert from function dealWith$interest\");";
+                    echo "}";
+                }
             }
-        }
-            
+            echo "</script>";
+            ?>
+           
            </div>
-    
+       </div>
         </div>
-        
-         </div>
+         
  <!-- adds the address line at the bottom of the page -->
         <div id="footer"></br>
 	       <address >
