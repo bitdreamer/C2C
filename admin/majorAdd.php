@@ -10,10 +10,12 @@
 <html>
 <head>
 
-<link rel= "stylesheet" href="style3.css" type="text/css" />
+<link rel= "stylesheet" href="../style.css" type="text/css" />
 <title>Classroom to Career Pathways</title>
 
 <script type="text/javascript">
+	var k = 0;
+	var preview = new Array();
 	
 	function previewData()
 	{
@@ -22,10 +24,10 @@
 		var description = document.majorForm.description.value;
 		var department = document.majorForm.department.value;
 		
-		var preview = major + " | " + id + " | " + description + " | " + department;
+		preview[k] = major + " | " + id + " | " + description + " | " + department;
 		
 		var previewData = document.getElementById("previewData");
-		previewData.firstChild.nodeValue = preview;
+		previewData.firstChild.nodeValue = preview[0];
 	}
 	
 	
@@ -34,22 +36,15 @@
 </head>
 
 <body>
-<div id="logo">
-     <img src= "images3/upperlogo.png" alt="logo"/>
-</div>
+	<div id="darkgray"></div>
+	<div id="logo"></div>
+	<div id="lightgray"></div>
 
-<div id="leftNav">
-<ul class="links">
-		<li><a href="http://www.meredith.edu"> Meredith College</a></li>
-		<li><a href="login/main_login.php">Admin Login</a></li>
-
-<div id="newLinks">	
+<div id="links">	
 <?php
-	include("../included/menu.php");
-	openAddMenu();
+	include("../included/leftMenu.php");
+	leftMenu();
 ?>
-</ul>
-</div> 
 </div>
 <br/>
 		
@@ -117,7 +112,7 @@
          <td><input type="text" name="department" value="" required="required" size="20" style="height:20px"></td>
       </tr>
 	</table>
-		<div align="left" colspan="2" style="margin:50 0 0 0" ><h2>Jobs in Major</h2></div>
+		<div align="left" colspan="2" style="margin:50 0 0 0" ><p>Jobs in Major</p></div>
 	
 
 <?php
@@ -316,9 +311,13 @@
  -->
 </div>
 </article>
-<footer>
-	     <img src= "images3/footer.png" alt="footer"/>
-
-</footer>
+<div id="footer"></br>
+	   <address >
+	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
+	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
+	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
+       					Phone: (919) 760-8600 or 1-800 MEREDITH
+       	</address>	
+</div>
 </body>
 </html>

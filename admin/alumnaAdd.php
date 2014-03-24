@@ -4,19 +4,30 @@ if(!isset($_SESSION['email'])){
 header("location:..//login/main_login.php");
 }
 ?>
+<!-- Here's where the HTML starts -->
 <html>
-<head> 
-<title>Classroom to Career Pathways</title>
+
+<head>
+	<link rel= "stylesheet"type="text/css"  href="..//style.css"  />
+	<title> Add an alumna</title>
 </head>
-<body>
-<h1>Classroom to Career Pathways</h1>
+
+<!--logo-->
+<body> 	   
+	<div id="darkgray"></div>
+	<div id="logo"></div>
+	<div id="lightgray"></div>
+
+<div id="links">	
 <?php
-//menu.php iclude function that echoes navigation bar
-	include("../included/menu.php");
-	openAddMenu();
+	include("..//included/leftMenu.php"); 
+	leftMenu();
 ?>
+</div>
 <br/>
-<h2>Add New Alumna</h2>
+
+<div id="text">
+     <h1 id="smallerH1">Add New Alumna</h1>
 
 <!--Begin form.  
 action attribute contains the name of the file where the information will be directed.  
@@ -120,5 +131,12 @@ The POST array will be indexed using the respective input type's name -->
    		echo "</form>";
 	echo "</section>";
 ?>
+</div>
 </body>
-</html>
+	<div id="footer"></br>
+	   <address >
+	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
+	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
+	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
+       					Phone: (919) 760-8600 or 1-800 MEREDITH
+       	</address>	
