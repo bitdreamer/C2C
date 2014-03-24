@@ -3,7 +3,7 @@
 	session_start(); 
 
 	include("included/openDB.php");
-	include("included/leftMenu.php"); 
+	include("included/mainMenu.php"); 
 	include("included/tabledump.php");
 	openDB();
 
@@ -23,9 +23,9 @@
 	<div id="logo"></div>
 	<div id="lightgray"></div>
 
-<!--left Menu-->
+<!--main Menu-->
 <div id="links">
-	<?php leftMenu(); ?>
+	<?php mainMenu(); ?>
 </div>
 
 <div id="content">
@@ -47,7 +47,7 @@
 
 		?>
 
-	<p id="main"> Confused on what you want to do? There are lots of career options and below you can explore many of them. Find career clusters, many groupings of educational
+	<p> Confused on what you want to do? There are lots of career options and below you can explore many of them. Find career clusters, many groupings of educational
 		        paths that will lead you to a rewarding career. It is time to focus on your future! Many people have trouble choosing a career path and are confused on finding 
 		        their calling. Whether you are in high school graduating, or an adult,it is never too late to follow your dreams. 
 		        Just follow these steps and listen to yourself to make your decision.</p>
