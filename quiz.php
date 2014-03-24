@@ -32,6 +32,7 @@ openDB();
     
    <div id="contentBox" style="margin: 0px auto; width:70%">
         <div id="column1" style="float:left; margin:0; width:50%;">
+    <form>
     <h3><i><b>Interests</h3></i></b>
     <!-- query to list all the interets on one side of the page -->
     <?php
@@ -46,10 +47,12 @@ openDB();
             {
 		      $row = mysql_fetch_array($result); 
                 $interest=$row['interest'];
-                echo "<li>$interest</li> \n"; 
+                echo "<li><input type='button' value='$interest' onclick='dealWith$interest();' /></li> \n"; 
             }
         }
     ?>
+        
+    </form>
     </div>
        <div id="column2" style="float:left; margin:0; width:50%;">
             
@@ -57,22 +60,39 @@ openDB();
     <!-- qurey to list all the majors on the other side of the page -->
     <?php
         $query="SELECT * From Major";
-        $result=mysql_query($query);
+        $result2=mysql_query($query);
 
         if(noerror($result))
         {
-            $nr=mysql_num_rows($result);
+            $nr=mysql_num_rows($result2);
             for($i=0; $i<$nr; $i++)
             {
-                $row=mysql_fetch_array($result);
+                $row=mysql_fetch_array($result2);
                 $major=$row['major'];
                 echo "<td><li>$major</li></td> \n";
             }
         }
 
     ?>
+           
+           <?php
+            
+            echo "<script>";
+            if(noerror($result))
+	        {
+            $nr = mysql_num_rows($result); 
+            for($i=0; $i<$nr; $i++)
+            {
+		      $row = mysql_fetch_array($result); 
+                $interest=$row['interest'];
+                echo "function dealWith$interest()";
+                echo "{";
+                echo "alert(\"this is an alert from function dealWith$interest\");";
+                echo "}";
+            }
+        }
+            
            </div>
-        
     
         </div>
         
