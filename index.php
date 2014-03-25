@@ -121,8 +121,6 @@
 	</form>		
 
 	</div>
-</div>
-
 	<div id="footer"></br>
 	   <address >
 	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
@@ -134,4 +132,5 @@
 	</div>
 		
 	</body>
+
 </html>
