@@ -36,7 +36,7 @@ openDB();
     <h3><i><b>Interests</h3></i></b>
     <!-- query to list all the interets on one side of the page -->
     <?php
-        $query="SELECT * From Interest";
+        $query="SELECT interestID, majorID, interest, major From MajorInterest, Interest, Major WHERE MajorInterest.interestID=Interest.id";
         $result=mysql_query($query); 
 
 
@@ -69,7 +69,7 @@ openDB();
             {
                 $row=mysql_fetch_array($result2);
                 $major=$row['major'];
-                echo "<td><li>$major</li></td> \n";
+                echo "<td><li id=$majorID>$major</li></td> \n";
             }
         }
 
@@ -80,18 +80,35 @@ openDB();
             echo "<script>";
             if(noerror($result))
 	        {
+                mysql_data_seek($result);
                 $nr = mysql_num_rows($result); 
+                $oldInterest=null;
                 for($i=0; $i<$nr; $i++)
                 {
                   $row = mysql_fetch_array($result); 
                     $interest=$row['interest'];
-                    echo "function dealWith$interest()";
-                    echo "{";
-                    echo "alert(\"this is an alert from function dealWith$interest\");";
-                    echo "}";
+                    if ($interestID!=$oldInterestID)
+                    {
+                        echo "function dealWith$interestID()";
+                        echo "{";
+                        echo "augment($majorID)";
+                        echo "}";
+                        $oldInterestID=$interestID;
+                    }
+                    
+                    else
+                    {
+                        echo "augment($majorID);";
+                    }
                 }
-            }
+
+            echo "function agument(int x)";
+            echo "{";
+            echo "var major document.getElementById($majorID);";
+            echo "major.textcolor=purple;";
+            echo "}";
             echo "</script>";
+            }
             ?>
            
            </div>
