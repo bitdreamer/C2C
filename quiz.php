@@ -36,7 +36,7 @@ openDB();
     <h3><i><b>Interests</h3></i></b>
     <!-- query to list all the interets on one side of the page -->
     <?php
-        $query="SELECT DISTINCT interestID, majorID, interest, major From MajorInterest, Interest, Major ";
+        $query="SELECT DISTINCT interestID, majorID, interest, major From MajorInterest, Interest, Major WHERE MajorInterest.interestID=Interest.id";
         $result=mysql_query($query); 
 
 
