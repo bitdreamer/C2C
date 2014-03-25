@@ -36,18 +36,22 @@ openDB();
     <h3><i><b>Interests</h3></i></b>
     <!-- query to list all the interets on one side of the page -->
     <?php
-        $query="SELECT DISTINCT interestID, majorID, interest, major From MajorInterest, Interest, Major WHERE MajorInterest.interestID=Interest.id";
+        $query="SELECT DISTINCT interestID, majorID, interest, major From MajorInterest, Interest, Major WHERE MajorInterest.interestID=Interest.id AND MajorInterest.majorID=Major.id Order By Interest.interest;";
         $result=mysql_query($query); 
-
-
         if(noerror($result))
 	    {
-            $nr = mysql_num_rows($result); 
+            $nr = mysql_num_rows($result);
+            $lastInterest="";
             for($i=0; $i<$nr; $i++)
             {
 		      $row = mysql_fetch_array($result); 
                 $interest=$row['interest'];
-                echo "<li><input type='button' value='$interest' onclick='dealWith$interest();' /></li> \n"; 
+                $interestID=$row['interestID'];
+                if($interest!=$lastInterest)
+                {
+                    echo "<li><input type=\"button\" value=\"$interest\" onclick=\"dealWith$interestID();\" /></li> \n";
+                    $lastInterest=$interest;
+                }
             }
         }
     ?>
@@ -69,42 +73,52 @@ openDB();
             {
                 $row=mysql_fetch_array($result2);
                 $major=$row['major'];
-                echo "<td><li id=$majorID>$major</li></td> \n";
+                $majorID=$row['id'];
+                echo "<td><li id=MAJ$majorID>$major</li></td> \n";
             }
         }
 
     ?>
            
            <?php
-            
-            echo "<script>";
+            echo "<script src=\"../included/error.js\"></script>";
+            echo "<script>\n";
             if(noerror($result))
 	        {
-                mysql_data_seek($result);
+                mysql_data_seek($result,0);
                 $nr = mysql_num_rows($result); 
-                $oldInterest=null;
+                $oldInterestID="";
                 for($i=0; $i<$nr; $i++)
                 {
                   $row = mysql_fetch_array($result); 
                     $interest=$row['interest'];
+                    $interestID=$row['interestID'];
+                    $majorID=$row['majorID'];
                     if ($interestID!=$oldInterestID)
                     {
-                        echo "function dealWith$interestID()";
-                        echo "{";
-                        echo "augment($majorID)";
-                        echo "}";
+                        if($oldInterestID!="")
+                        {
+                            echo "}\n";
+                        }
+                        echo "function dealWith$interestID()\n";
+                        echo "{\n";
+                        echo "alert(\"deal with\"+$interestID);";
+                     
                         $oldInterestID=$interestID;
                     }
                     
-                    else
-                    {
-                        echo "augment($majorID);";
-                    }
+                
+                        echo "  augment(\"$majorID\");\n";
+                    
+                    
                 }
 
+            echo "}\n";    
             echo "function agument(int x)";
             echo "{";
-            echo "var major document.getElementById($majorID);";
+            echo "var majorName=\"MAJ\"+x;";
+            echo "alert(\"majorName\"+majorName);";
+            echo "var major document.getElementById(majorName);";
             echo "major.textcolor=purple;";
             echo "}";
             echo "</script>";
