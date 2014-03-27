@@ -31,6 +31,7 @@ $emas = addslashes( $em );
 $pw  = @$_POST[password4reg];
 $pw2 = @$_POST[password4reg2];
 $un = @$_POST[username4reg];
+$lv = @$_POST[access];
 
 if ( $pw!=$pw2 )
 {
@@ -117,6 +118,7 @@ else
          //."    ,balance=0 "
          ."    ,email='$em'"
 	  ."	,userName='$un'"
+	  ."	,accessLv='$lv'"
          ." ;";
          $result=mysql_query($query);
          noerror($result);
@@ -135,7 +137,7 @@ Your password is: ".$pw."\n Confirm registration to C2C Pathways by clicking on 
 	  //Send e-mail
          mail($em,$subj,$msg,$heads);
          
-         echo "Go read your email and click on the link to confirm.  ";
+         echo "Go read your email and click on the link to confirm.";
       }
    }
 

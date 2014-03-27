@@ -70,6 +70,13 @@ else{
          <td> <input type="text" name="lastname4reg" /> </td>
       </tr>
       <tr>
+	<td align="right">Access Level</td>
+	<td> <select name="access" id="access" required="required">
+			<option value="1">Partial - Add Content</option>
+			<option value="2">Full - Add Content + Users</option>
+		</select>
+      </tr>
+      <tr>
          <td align="right">Email</td>
          <td> <input type="text" name="email4reg" /> @email.meredith.edu</td>
       </tr>
