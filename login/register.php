@@ -15,7 +15,7 @@
 
 <?php
 
-/* logger3Reg.php
+/* register.php
    This page is sent in POST the email4Reg, firstname4reg, lastname4reg,
    password4reg, password4reg2, regnum.   
    They have been checked for length but not funny stuff.
@@ -123,7 +123,9 @@ else
          
          // Email details to be sent
          $subj="Registration Confirmation";
-         $msg="Confirm registration to C2C Pathways by clicking on this link: "
+         $msg="Congratulations. You now have admin access to the Career Pathways website. \n
+Your username is: ".$un."\n
+Your password is: ".$pw."\n Confirm registration to C2C Pathways by clicking on this link: "
          ."http://www.bitlab.meredith.edu/~c2c/login/regConfirm.php"
          ."?email=$em&confirmationNumber="
          ."$regnum\" >"
