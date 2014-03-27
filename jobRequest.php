@@ -57,14 +57,33 @@
 		echo "<h3>Want to be a $job?...Major in:</h3> \n"; 
 		
 		$nr = mysql_num_rows($r2);
+		
+		//create table for Jobs
+				echo "<table class='jobs' \n"; 
+				echo "	summary='List of majors for a particular job'> \n"; 
+				echo "	<colgroup> \n"; 
+				echo "	<col class='jobs' span='1' /> \n"; 
+				echo "	</colgroup> \n"; 
+				echo " 	<thead> \n"; 
+				echo " 	<tr> \n"; 
+				echo "  </tr> \n"; 
+				echo "  </thead> \n"; 	
+				echo "  <tbody> \n";
+				
 		for($i=0; $i<$nr; $i++)
 		{
 			$row     = mysql_fetch_array($r2); 
 			$major   = $row['major'];
 			$majorID = $row['id']; 
 			
+			echo "  <tr> \n"; 
+			echo "	  <th> \n"; 
 			echo "<a href='majorRequest.php?major=$majorID'>$major</a> \n</p>"; 
+			echo "	  </th> \n";
+			echo " 	</tr> \n";
 		}
+			echo " 	</tbody> \n";
+			echo "	</table> \n";
 	}
 	
 ?>
