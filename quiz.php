@@ -75,7 +75,7 @@ openDB();
                 $row=mysql_fetch_array($result2);
                 $major=$row['major'];
                 $majorID=$row['id'];
-                echo "<td><li id=MAJ$majorID>$major</li></td> \n";
+                echo "<td><li><font id=MAJ$majorID size=\"2\">$major</font></li></td> \n";
             }
         }
 
@@ -103,7 +103,7 @@ openDB();
                         }
                         echo "function dealWith$interestID()\n";
                         echo "{\n";
-                        echo "alert(\"deal with\"+$interestID);\n";
+                        
                      
                         $oldInterestID=$interestID;
                     }
@@ -118,9 +118,8 @@ openDB();
             echo "function augment(x)\n";
             echo "{\n";
             echo "var majorName=\"MAJ\"+x;\n";
-            echo "alert(\"majorName\"+majorName);\n";
             echo "var major =document.getElementById(majorName);\n";
-            echo "major.textcolor=purple;\n";
+            echo "major.size++;\n";
             echo "}\n";
             echo "</script>";
             }
