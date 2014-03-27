@@ -2,12 +2,13 @@
 session_start();
 include("included/openDB.php");
 include("included/tabledump.php");
-include("included/leftMenu.php");
+include("included/mainMenu.php");
 openDB();
 ?>
 
 <html>
 <head>
+      <script src="included/error.js"></script>
     <link rel= "stylesheet"type="text/css"  href="style.css"  />
     <title>Career Pathways</title>
 </head>
@@ -18,7 +19,7 @@ openDB();
     
     <!--left Menu-->
     <div id="links">
-	   <?php leftMenu(); ?>
+	   <?php mainMenu(); ?>
     </div>
     
     <!--main content-->
@@ -81,7 +82,7 @@ openDB();
     ?>
            
            <?php
-            echo "<script src=\"../included/error.js\"></script>";
+          
             echo "<script>\n";
             if(noerror($result))
 	        {
@@ -102,7 +103,7 @@ openDB();
                         }
                         echo "function dealWith$interestID()\n";
                         echo "{\n";
-                        echo "alert(\"deal with\"+$interestID);";
+                        echo "alert(\"deal with\"+$interestID);\n";
                      
                         $oldInterestID=$interestID;
                     }
@@ -114,13 +115,13 @@ openDB();
                 }
 
             echo "}\n";    
-            echo "function agument(int x)";
-            echo "{";
-            echo "var majorName=\"MAJ\"+x;";
-            echo "alert(\"majorName\"+majorName);";
-            echo "var major document.getElementById(majorName);";
-            echo "major.textcolor=purple;";
-            echo "}";
+            echo "function augment(x)\n";
+            echo "{\n";
+            echo "var majorName=\"MAJ\"+x;\n";
+            echo "alert(\"majorName\"+majorName);\n";
+            echo "var major =document.getElementById(majorName);\n";
+            echo "major.textcolor=purple;\n";
+            echo "}\n";
             echo "</script>";
             }
             ?>
