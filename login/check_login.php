@@ -35,11 +35,13 @@ if($count==1){
 	$userInfo = mysql_fetch_array($result1);
 	$getuserID = $userInfo[4];
 	$getusername = $userInfo[6];
+	$getaccessLv = $userInfo[7];
 	settype($getuserID, "integer");
 	settype($getusername, "string");
 	
 	$_SESSION['userID'] = $getuserID;
 	$_SESSION['username'] = $getusername;
+	$_SESSION['accessLv'] = $getaccessLv;
 	
 	//Will be 1 if logged in, 0 if not.
 	$_SESSION['islogged'] = 1;
