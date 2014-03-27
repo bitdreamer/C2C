@@ -50,7 +50,7 @@ openDB();
                 $interestID=$row['interestID'];
                 if($interest!=$lastInterest)
                 {
-                    echo "<li><input type=\"button\" value=\"$interest\" onclick=\"dealWith$interestID();\" /></li> \n";
+                    echo "<input type=\"button\" value=\"$interest\" onclick=\"dealWith$interestID();\" />&nbsp; \n";
                     $lastInterest=$interest;
                 }
             }
@@ -75,7 +75,7 @@ openDB();
                 $row=mysql_fetch_array($result2);
                 $major=$row['major'];
                 $majorID=$row['id'];
-                echo "<td><li><font id=MAJ$majorID size=\"2\">$major</font></li></td> \n";
+                echo "<font id=MAJ$majorID size=\"2\">$major</font> &nbsp;\n";
             }
         }
 
@@ -99,11 +99,15 @@ openDB();
                     {
                         if($oldInterestID!="")
                         {
-                            echo "}\n";
+                            echo "}}\n";
                         }
+                        echo "var done$interestID=false;\n";
                         echo "function dealWith$interestID()\n";
                         echo "{\n";
-                        
+                        echo "if(!done$interestID)";
+                        echo "{";
+                        echo "done$interestID=true;";
+                            
                      
                         $oldInterestID=$interestID;
                     }
@@ -114,7 +118,8 @@ openDB();
                     
                 }
 
-            echo "}\n";    
+            echo "}}\n";
+        
             echo "function augment(x)\n";
             echo "{\n";
             echo "var majorName=\"MAJ\"+x;\n";
