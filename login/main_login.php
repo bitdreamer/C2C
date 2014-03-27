@@ -61,48 +61,6 @@ session_start();
 </form>
 </article>
 
-<article>
-<p>Register:</p>
-<form action="register.php" method="POST">
-   <table>
-      <tr>
-         <td align="right">First Name</td>
-         <td> <input type="text" name="firstname4reg" /> </td>
-      </tr>
-      <tr>
-         <td align="right">Last Name</td>
-         <td> <input type="text" name="lastname4reg" /> </td>
-      </tr>
-      <tr>
-         <td align="right">Email</td>
-         <td> <input type="text" name="email4reg" /> @email.meredith.edu</td>
-      </tr>
-	<tr>
-		<td align="right">Username</td>
-		<td> <input type="text" name="username4reg" /> </td>
-      <tr>
-         <td align="right">Password</td>
-         <td> <input type="password" name="password4reg" /> </td>
-      </tr>
-      <tr>
-         <td align="right">Password</td>
-         <td> <input type="password" name="password4reg2" /> </td>
-      </tr>
-<script type="text/javascript">
-   document.writeln("<input type=\"hidden\" value=\""
-                    +Math.ceil(Math.random()*1000000)
-                    +"\" name=\"regnum\" />"
-                   );
-</script>
-      <tr>
-         <td align="right">Submit</td>
-         <td> <input type="submit"  /> </td>
-      </tr>
-   </table>
-</form>
-</article>
-
-
 </body>
 	<div id="footer"></br>
 	   <address >
