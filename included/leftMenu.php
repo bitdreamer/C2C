@@ -17,6 +17,11 @@
 			echo "<li> <a href=../admin/opportunityAdd.php?PHPSESSID=".session_id().">Opportunities</a></li>";
 			echo "<li> <a href=../admin/linkAdd.php?PHPSESSID=".session_id().">Links</a></li>";
 			echo "<li> <a href=../login/logout.php?PHPSESSID=".session_id().">Logout</a></li>";
+			
+			if($_SESSION['accessLv'] == 2)
+			{
+				echo "<li> <a href=../login/main_register.php?PHPSESSID=".session_id().">Add Admin</a></li>";
+			}
 		}
 		else
 		{
