@@ -71,8 +71,10 @@ if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 ) // no funny stuff in email
          // send email to confirm.
 
          $shtats = "ok2add";
+	 
+	 //This function inserts data into the 'Register' table
          doRegister( $em, $pw, @$_POST[firstname4reg], @$_POST[lastname4reg], 
-                      @$_POST[regnum], @$_POST[username4reg]  ); 
+                      @$_POST[regnum], $un, $lv ); 
       }
       else
       {
@@ -113,9 +115,7 @@ else
          ."    ,last='".addslashes($last)."' "
          ."    ,regCode=$regnum "
          ."    ,regDate='$nowstring' "
-         //."    ,level=0 " // will be set to 1 when confirmed
          ."    ,passWord='".addslashes($pw)."' "
-         //."    ,balance=0 "
          ."    ,email='$em'"
 	  ."	,userName='$un'"
 	  ."	,accessLv='$lv'"
