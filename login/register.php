@@ -93,17 +93,9 @@ else
 
    // register with email, password, firstname, lastname, and regnum
    // Note: pw, firstname and lastname may need slashing
-   function doRegister( $em, $pw, $first, $last, $regnum, $un )
+   function doRegister( $em, $pw, $first, $last, $regnum, $un, $lv )
    {
       $shtats = "ok2add";
-      
-      // find max customerID and add one to get new one
-      //$query = "SELECT MAX(userID) from User";
-      //$result = mysql_query( $query );
-      //if ( noerror( $result ) )
-      {
-         //$row = mysql_fetch_row($result);
-         //$userID = $row[0] + 1; // might want to check that this is not 1
          
          $querydel = "DELETE FROM Register WHERE email='$em';";
          mysql_query($querydel);
@@ -140,7 +132,6 @@ else
          mail($em,$subj,$msg,$heads);
          
          echo "Go read your email and click on the link to confirm.";
-      }
    }
 
 ?>
