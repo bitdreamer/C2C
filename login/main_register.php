@@ -6,16 +6,11 @@ session_start();
 1 - the ability to add database content
 2- the ability to add new admins, and to add database content
 */
-if(isset($_SESSION['email']){
+if(isset($_SESSION['email'])){
 //Send to page that states the person has o access to it, and add link to forward to previous page.
 	if($_SESSION['accessLv'] == 1){
 		header("Location: ../admin/noAccess.php?PHPSESSID=". session_id());
 	}
-	
-	if($_SESSION['accessLv'] == 2){
-		header("Location: ../admin/main_register.php?PHPSESSID=". session_id());
-	}
-	
 }
 else{
 	header("location:..//login/main_login.php");
