@@ -66,10 +66,11 @@ else{
       </tr>
       <tr>
 	<td align="right">Access Level</td>
-	<td> <select name="access" id="access" required="required">
+	<td><select name="access" required="required">
 			<option value="1">Partial - Add Content</option>
 			<option value="2">Full - Add Content + Users</option>
 		</select>
+	</td>
       </tr>
       <tr>
          <td align="right">Email</td>
@@ -83,7 +84,7 @@ else{
          <td> <input type="password" name="password4reg" /> </td>
       </tr>
       <tr>
-         <td align="right">Password</td>
+         <td align="right">Re-enter Password</td>
          <td> <input type="password" name="password4reg2" /> </td>
       </tr>
 <script type="text/javascript">

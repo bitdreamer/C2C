@@ -108,7 +108,7 @@ else
          
          $now = time(); // this is a timestamp for right now
          $nowstring = date("Y-m-d", $now );
-         $query= "INSERT INTO Register SET" // was User, but now we 2-step this
+         $query= "INSERT INTO Register SET" // We 2-step this, first into Register, then after confirmation, Insert into User
          ."     first='".addslashes($first)."' "
          ."    ,last='".addslashes($last)."' "
          ."    ,regCode=$regnum "
@@ -126,8 +126,10 @@ else
          // Email details to be sent
          $subj="Registration Confirmation";
          $msg="Congratulations. You now have admin access to the Career Pathways website. \n
-Your username is: ".$un."\n
-Your password is: ".$pw."\n Confirm registration to C2C Pathways by clicking on this link: "
+	Your username is: ".$un."\n 
+	Your password is: ".$pw."\n\n
+	Confirm registration to Classroom to Career Pathways by clicking on this link:\n "
+
          ."http://www.bitlab.meredith.edu/~c2c/login/regConfirm.php"
          ."?email=$em&confirmationNumber="
          ."$regnum\" >"
