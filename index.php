@@ -10,12 +10,12 @@
 ?>
 
 <!-- main Page -->
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en"> 	
 <head>
-    <meta charest="utf-8" />
-    <title> Carrer Pathways</title>
+    <meta charset="utf-8" />
+    <title> Career Pathways</title>
 	<link rel= "stylesheet" type="text/css"  href="style.css"  />
 </head>
 
@@ -23,7 +23,7 @@
 <body> 
 	<div id="big_wrapper">
 	
-<!~~ logo part~~>	 
+<!-- logo part-->	 
 	<header id="top_header">  
 		<section id="logo"></section>
      </header>
@@ -36,24 +36,24 @@
 	 </ul>	
 	</nav>
 
-<!~~ text~~>
+<!-- text-->
 <section id="main_content">
  		<h1 name="mainHeader"> Classroom to Career PathWays</h1>
 
-      <artical>	 
+      <article>	 
 		<p name="mainIntro">	
 		 Many people have trouble choosing a career path and are
 		 confused on finding their calling. 
 		 Whether you are in high school, graduating,
 		 or an adult,it is never too late to follow your dreams.</p>	
-	  </artical>
+	  </article>
 	  
 	
 <!--<aside id="right_side">
 		 <video  src="career.mp4" type="video/mp4" poster="images/meredith.jpg" controls>
 		 </video>-->
 		 
- <artical id="left_side">
+ <article id="left_side">
 		    <h2 id="left_h2"> Choose a major or job to learn more about it. </h2>
 <!-- Drop down choices for Majors and Jobs-->
 		<?php

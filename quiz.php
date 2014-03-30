@@ -7,12 +7,12 @@ openDB();
 ?>
 
 <!-- main Page -->
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en"> 	
 <head>
-    <meta charest="utf-8" />
-    <title> Carrer Pathways</title>
+    <meta charset="utf-8" />
+    <title> Career Pathways</title>
 	<link rel= "stylesheet" type="text/css"  href="style.css"  />
 </head>
 
@@ -20,7 +20,7 @@ openDB();
 <body> 
 	<div id="big_wrapper">
 	
-<!~~ logo part~~>	 
+<!-- logo part-->	 
 	<header id="top_header">  
 		<section id="logo"></section>
      </header>
@@ -33,7 +33,7 @@ openDB();
 	 </ul>	
 	</nav>
 
-<!~~ text~~>
+<!-- text-->
 <section id="main_content">
         
     <h1 name="mainHeader">Major Match Maker</h1>
@@ -41,7 +41,7 @@ openDB();
     <p name="mainIntro">Look through the list of interests below and drag the things that interest you into the box below. Once you have dragged a few interests into the box below, the majors on the left will change size based off your interests. The larger the major, the more compatiable it is for you.</p>
     
    <div id="contentBox" >
-        <artical id="column1">
+        <article id="column1">
               
     <form>
     <h2 id="left_h2">Interests</h2>
@@ -69,9 +69,9 @@ openDB();
     ?>
         
     </form>
-    </artical>
+    </article>
     
-       <artical id="column2">
+       <article id="column2">
             
      <h2 id="left_h2">Majors</h2>
     <!-- qurey to list all the majors on the other side of the page -->
@@ -143,7 +143,7 @@ openDB();
             }
             ?>
             </div>
-        </artical>
+        </article>
     </section>
     
 </div>
