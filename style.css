@@ -1,134 +1,196 @@
-
-#darkgray
-    {
-    width:  100%;
-    height: 50px;
-    background-image: url(images/up1.png);
-    }
-    
 #logo
-	{
-	width:  100%;
-        height: 90px;
-        background-image: url(images/up2.png);
-	} 
-	  
-#lightgray
-	{
-	width:  100%;
-        height: 25px;
-        background-image: url(images/lightgray.png);
-	} 
-		  
- #links		 
-   {
-    width:  15%;
-    height: 800px;
-    background-image: url(images/sideBar.png);
-    float:left; 
-    }
-    
-
-
-ul   
-  {
-     list-style-type:none;    
-      margin:50 0 0 0;
- }
-
-li a
 {
-      color:white;
-      text-decoration: underline; 
+  width:  100%;
+  height: 90px;
+  background-image: url(images/up2.png);
+  border-top: 50px solid #383838;     /* dark gray*/ 
+  border-bottom: 30px solid #707070 ; /* light gray*/       
+} 
+
+*
+{
+   margin:0px;
+   padding:0px;
 }
 
-#content
+header,section,footer,aside,p, nav,article
+{
+  display: block;
+}
+
+#big_wrapper
+{
+    Margin: 10px auto; 
+    text-align:left;
+}
+
+#links
+{ 
+   float:left;
+   background-image:url("images/sideBar.png");
+   background-repeat:repeat-y;
+   position:relative;
+   display:block;
+   padding:0px;
+   margin:0px;
+}
+				  
+#left_menu 
+{
+    float:left;
+    padding: 40px 0px 0px 20px;
+    margin: 0px; 
+}
+    
+ul
+{   
+   list-style:none; 
+   text-align: center;
+   margin:0px;
+   padding:0px;
+
+} 
+      
+ #left_menu a
+{ 
+    color:white; 
+    font: normal 14px helvetica neue;
+    margin:0px;
+    padding:0px;
+}
+
+#main_content
  {
-       width:85%;
-       height:500px;
-       float:left;
+    width:  1200px;
+    padding: 0px 10px 400px 10px;
+    margin: 0px;
+    height:400px;
  } 
-
- #body
-  {
-     width : 500px;
-     font-family: helvetica neue;
-     margin: 50 0 10 150
-  }
-
-#video 
-  {
-    margin: 40 0 0 250; 
-    width:500;
-    height:300;
-  }
-
-#first
+   
+h1[name="mainHeader"]
  {
-     color: #7C1C05; 
+     color: #8B0941; 
      text-align:center;
-     margin-top: 50px;
+     font:bold 40px helvetica neue;
+     padding:60px 0px 30px 200px;	
  }
  
+p[name="mainIntro"]
+ {
+   color: black;
+   font-family: helvetica neue;
+   text-align:justify;
+   text-justify:inter-word; 	
+   padding: 0px 100px 0px 200px;
+
+ }
+ 
+ p[name="mainIntro"]:first-letter
+ { 
+  font-size:200%;
+  color:#872187;
+  
+ }
+ #contentBox
+{
+   float:left;
+   width:900px;
+   margin: 0px;
+}
+
+#column1
+{
+   float:left; 
+   margin: 30px 0px 0px 300px;
+   width:300px;  
+   padding: 0px;
+
+
+}
+#column2
+{
+   float:right;
+   width:150px;
+   margin: 0px 10px 0px px;
+   padding: 30px 0 0 0;
+}
+input 
+{ 
+  font-family: bold helvetica neue;
+  color:black;
+  margin: 5px 0px 5px 0px;
+}
+/*#right_side
+ {
+   width:300px;
+   float:right;
+   padding: 0px 10px 0px 10px;
+   margin: 0px;
+ }
+ 
+ #right_h2
+ { 
+  font-size: 16px;
+  padding: 0px;
+  margin: 50px 0px 0px 820px;
+  color:green;
+ }
+
+video
+{
+     width:300px; height:200px;
+     padding:0px;
+     margin: 10px 0px 0px 0px;
+}*/
+  
+#left_side
+{
+   width:600px;
+   float:left;
+   padding: 20px 0px 0px 200px;
+   margin: 0px;
+}
+
+#left_h2
+{
+  font-family: helvetica neue; 
+     font:bold 21px helvetica neue;
+  padding: 0px;
+  margin: 30px 0px 10px 0px;
+  color:#872187;
+}
+
+legend
+{
+  font-family: helvetica neue; 
+  padding: 0 0 10px  0;
+}
+
+
 #second
  {
-    font-color:#6C3082;
+    color:green;
     margin: 60 0 0 50;  
  } 
- 
- #main
- {
-  	color: black;
- 	margin: 50 100 0 100; 
- 	font-family: helvetica neue;
- 	text-align:center;
- }
- 
 
- h1 
- {   
-     text-align: center;  	
-     color: #7C1C05;/*red*/ 
-     font-family: helvetica neue;
-     font-size:40px;
-     margin:70 0 0 0;
-  }
-
-h2{  color:#6C3082; font-family: helvetica neue;}/*purple*/
-h3{  color: #7C1C05; font-family: helvetica neue;}/*red*/
-legend{ color: #7C1C05;}/*red*/
-
-
-#major{text-align:center;}
-
-#text
-{
-        color: black;
- 	margin: 50 50 0 250; 
- 	font-family: helvetica neue;
-        font-size:17px;
-}
-
-
- p:first-letter
- { 
-  font-size:150%;
-  color:#6C3082;
- }
- 
-
- address 
- {
-  list-style-type:none;
-  margin:100 0 0 550;
-  }
-  
-  address a{ clear:botrh; color:white;}
-  
 #footer   
-   {
-   clear:both;
+ {
    width:100%;
    height:230px;
-   background-image: url(images/footerc.png);   
-   }
+   border-top: 10px solid #555555;
+   clear:both;
+   background-image: url(images/footerc.png); 
+ }
+    
+ #address 
+ {
+  color:white;
+  list-style-type:none; 
+  margin:120px 0px 0px 550px;
+  }
+  
+ #address a
+ { 
+  style-type:none; 
+  color:white;
+ }

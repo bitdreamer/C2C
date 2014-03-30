@@ -10,33 +10,52 @@
 ?>
 
 <!-- main Page -->
-<html>
+<!doctype html>
 
+<html lang="en"> 	
 <head>
-	<link rel= "stylesheet"type="text/css"  href="style.css"  />
-	<title> Career Pathways</title>
+    <meta charest="utf-8" />
+    <title> Carrer Pathways</title>
+	<link rel= "stylesheet" type="text/css"  href="style.css"  />
 </head>
 
 <!--logo-->
-<body> 	   
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
-
-<!--main Menu-->
+<body> 
+	<div id="big_wrapper">
+	
+<!~~ logo part~~>	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
+     
+<!--Left Menu-->
 <div id="links">
-	<?php mainMenu(); ?>
-</div>
+	<nav id="left_menu">
+	 <ul>
+		<?php mainMenu(); ?>
+	 </ul>	
+	</nav>
 
-<div id="content">
-<h1>Career PathWays</h1>
+<!~~ text~~>
+<section id="main_content">
+ 		<h1 name="mainHeader"> Classroom to Career PathWays</h1>
 
-
-
+      <artical>	 
+		<p name="mainIntro">	
+		 Many people have trouble choosing a career path and are
+		 confused on finding their calling. 
+		 Whether you are in high school, graduating,
+		 or an adult,it is never too late to follow your dreams.</p>	
+	  </artical>
+	  
+	
+<!--<aside id="right_side">
+		 <video  src="career.mp4" type="video/mp4" poster="images/meredith.jpg" controls>
+		 </video>-->
+		 
+ <artical id="left_side">
+		    <h2 id="left_h2"> Choose a major or job to learn more about it. </h2>
 <!-- Drop down choices for Majors and Jobs-->
-
-<div id="body">
-
 		<?php
 
 			//echo "</br>";
@@ -46,19 +65,7 @@
 			//echo "<div id="."section".">";
 
 		?>
-
-	<p> Confused on what you want to do? There are lots of career options and below you can explore many of them. Find career clusters, many groupings of educational
-		        paths that will lead you to a rewarding career. It is time to focus on your future! Many people have trouble choosing a career path and are confused on finding 
-		        their calling. Whether you are in high school graduating, or an adult,it is never too late to follow your dreams. 
-		        Just follow these steps and listen to yourself to make your decision.</p>
 		
-		<!--  Will comment out until video is fixed.  ~Low priority~
-		<video id="video" controls>
-        <source src="career.mp4" type="video/mp4"></video>
-		-->  
-
-	<p> You can choose from Majors.</p>
-	
 	<!-- major form-->
 	<form action="majorRequest.php" method="GET">
 	    <fieldset id="majorInfo">
@@ -90,10 +97,10 @@
 	</form></br></br>
 	
 <!-- Job Form-->
-<p> OR choose from Job</p>
+<h2 id="left_h2"> OR choose from Job</h2>
 	<form action="jobRequest.php" method="GET">
 		<fieldset id="jobInfo">
-			<legend>Which of the following jobs are you most interested in?</legend>
+			<legend id="legends">Which of the following jobs are you most interested in?</legend>
 
 			<?php
 				$query = "SELECT id, career FROM Job ORDER BY career"; 
@@ -120,16 +127,23 @@
 		</fieldset>
 	</form>		
 
-	</div>
-	<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
-      	
-	</div>
+</aside>
+</section>
+ 
+	
+</div>
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	   	
+	</footer>
+	
+</div>	<!-- big_wrapper-->	
 		
 	</body>
 
