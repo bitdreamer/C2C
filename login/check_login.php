@@ -58,7 +58,7 @@ if($count==1){
 	}
 }
 else {
-echo "Wrong Username or Password";
+header ("Location: main_login.php?PHPSESSID=".session_id()."&msg=1");
 }
 ?>
 </body>

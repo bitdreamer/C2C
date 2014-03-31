@@ -35,8 +35,7 @@ $lv = @$_POST[access];
 
 if ( $pw!=$pw2 )
 {
-   //header("Location: logger1Start.php?fun=pwmismatch");
-   echo "Passwords don't match. Please go back and try again.  ";
+   header("Location: main_register.php?PHPSESSID=".session_id()."&msg=2");
 }
 
 if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 ) // no funny stuff in email
@@ -50,15 +49,11 @@ if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 ) // no funny stuff in email
 
    if($result==0)
    {
-      echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
-      echo "This is a server error.  If it persists please tell tech support. ";
-      $shtats = "queryerror1";
+      header("Location: notif.php?PHPSESSID=".session_id()."&msg=3");
    }
    elseif (@mysql_num_rows($result)==0)
    {
-      echo "<b></b><br>";
-      echo "This is a server error.  If it persists please tell tech support. ";
-      $shtats = "queryerror2";
+	header("Location: notif.php?PHPSESSID=".session_id()."&msg=3");
    }
    else
    {
@@ -79,15 +74,14 @@ if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 ) // no funny stuff in email
       else
       {
          $shtats = "EmailTaken"; 
-         echo "An account with this email or username already exists.  Go back "
-         ." and hit the 'forgot password' option if you need to.";
+         header("Location: main_register.php?PHPSESSID=".session_id()."&msg=4");
       }
    }
    
 }
 else
 {
-	echo "Failed to register. Try again.";
+	header("Location: main_register.php?PHPSESSID=".session_id()."&msg=5");
 }
 
 
@@ -131,7 +125,7 @@ else
 	  //Send e-mail
          mail($em,$subj,$msg,$heads);
          
-         echo "Go read your email and click on the link to confirm.";
+         header("Location: notif.php?PHPSESSID=".session_id()."&msg=6");
    }
 
 ?>

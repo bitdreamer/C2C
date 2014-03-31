@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../included/template.php");
 
 //Check who is logged in.
 /*Levels of access:
@@ -53,6 +54,11 @@ else{
 </div>
 	
 <article>
+<p>
+<?php
+	displayContent($_GET['msg']);
+?>
+</p
 <p>Register:</p>
 <form action="register.php" method="POST">
    <table>

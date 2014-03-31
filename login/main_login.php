@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../included/template.php");
 // main_login.php  
 // This page has a form to let you log in or register.  If you 
 // try to login, it jumps
@@ -40,7 +41,7 @@ session_start();
 </div>
 
 <article>
-
+<p><?php displayContent($_GET['msg']); ?></p>
 <p>Login:</p>
 <form action=<?php echo "check_login.php?PHPSESSID=".session_id()?> method="POST">
    <table>
