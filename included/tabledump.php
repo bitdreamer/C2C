@@ -23,13 +23,13 @@
       if($result==0)
       {
           //echo "check1";
-         echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
+         //echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
          return false;
       }
       elseif (@mysql_num_rows($result)==0)
       {
          //echo "check2";
-         echo "<b>Query completed.  Empty result.</b><br>\n";
+         //echo "<b>Query completed.  Empty result.</b><br>\n";
          return false;
       }
       else
