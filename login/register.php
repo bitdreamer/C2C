@@ -4,16 +4,6 @@
    include("..//included/tabledump.php");
    include("..//included/openDB.php");
    openDB();
-?>
-
-<html>
-<head>
-<title> Registration Processsing</title>
-</head>
-<body>
-<h2>Registration Processing</h2>
-
-<?php
 
 /* register.php
    This page is sent in POST the email4Reg, firstname4reg, lastname4reg,
@@ -32,65 +22,61 @@ $pw  = @$_POST[password4reg];
 $pw2 = @$_POST[password4reg2];
 $un = @$_POST[username4reg];
 $lv = @$_POST[access];
-
 if ( $pw!=$pw2 )
 {
    header("Location: main_register.php?PHPSESSID=".session_id()."&msg=2");
+   exit();
 }
-
-if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 ) // no funny stuff in email
+if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 )// no funny stuff in email
 {
-   // user is trying to register.  see if email is already taken
-   // If no match, go ahead and add.
-   $query= "SELECT COUNT(*) FROM User WHERE email='$em';";
-   $result=mysql_query($query);
-   $queryU= "SELECT COUNT(*) FROM User WHERE userName='$un';";
-   $resultU=mysql_query($queryU);
+	// user is trying to register.  see if email is already taken
+	// If no match, go ahead and add.
+	$query= "SELECT COUNT(*) FROM User WHERE email='$em';";
+	$result=mysql_query($query);
+	$queryU= "SELECT COUNT(*) FROM User WHERE userName='$un';";
+	$resultU=mysql_query($queryU);
 
-   if($result==0)
-   {
-      header("Location: notif.php?PHPSESSID=".session_id()."&msg=3");
-   }
-   elseif (@mysql_num_rows($result)==0)
-   {
-	header("Location: notif.php?PHPSESSID=".session_id()."&msg=3");
-   }
-   else
-   {
-      $row = mysql_fetch_row($result);
-	$rowU = mysql_fetch_row($resultU);
-      if ( $row[0]==0 && $rowU[0]==0 ) // no match is good
-      {
-         // registration: email address is
-         // not in the database, so add this person as temp and 
-         // send email to confirm.
-
-         $shtats = "ok2add";
-	 
-	 //This function inserts data into the 'Register' table
-         doRegister( $em, $pw, @$_POST[firstname4reg], @$_POST[lastname4reg], 
-                      @$_POST[regnum], $un, $lv ); 
-      }
-      else
-      {
-         $shtats = "EmailTaken"; 
-         header("Location: main_register.php?PHPSESSID=".session_id()."&msg=4");
-      }
-   }
-   
+	if($result==0)
+	{
+		header("Location: notif.php?PHPSESSID=".session_id()."&msg=3");
+		exit();
+	}
+	elseif (@mysql_num_rows($result)==0)
+	{
+		header("Location: notif.php?PHPSESSID=".session_id()."&msg=3");
+		exit();
+	}
+	else
+	{
+		$row = mysql_fetch_row($result);
+		$rowU = mysql_fetch_row($resultU);
+		if ( $row[0]==0 && $rowU[0]==0 ) // no match is good
+		{
+			 // registration: email address is
+			 // not in the database, so add this person as temp and 
+			 // send email to confirm.
+			 //This function inserts data into the 'Register' table
+			 doRegister( $em, $pw, @$_POST[firstname4reg], @$_POST[lastname4reg], 
+				      @$_POST[regnum], $un, $lv ); 
+			header("Location: notif.php?PHPSESSID=".session_id()."&msg=6");
+			exit();
+		}
+		else
+		{
+			 header("Location: main_register.php?PHPSESSID=".session_id()."&msg=4");
+			 exit();
+		}
+	}
 }
 else
 {
 	header("Location: main_register.php?PHPSESSID=".session_id()."&msg=5");
+	exit();
 }
-
-
    // register with email, password, firstname, lastname, and regnum
    // Note: pw, firstname and lastname may need slashing
    function doRegister( $em, $pw, $first, $last, $regnum, $un, $lv )
-   {
-      $shtats = "ok2add";
-         
+   {         
          $querydel = "DELETE FROM Register WHERE email='$em';";
          mysql_query($querydel);
          
@@ -124,11 +110,5 @@ else
 		
 	  //Send e-mail
          mail($em,$subj,$msg,$heads);
-         
-         header("Location: notif.php?PHPSESSID=".session_id()."&msg=6");
    }
-
 ?>
-
-</body>
-</html>
