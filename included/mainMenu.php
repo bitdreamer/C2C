@@ -2,7 +2,7 @@
 	function mainMenu() 
 	{
 		echo"<nav>";
-		echo"<ul class='links'>"; 
+		echo"<ul>"; 
 		echo"	<li><a href=./index.php?PHPSESSID=".session_id().">Career PathWays</a></li>";
         	echo"	<li><a href=./quiz.php?PHPSESSID=".session_id().">Major Match Maker</a></li>";
 

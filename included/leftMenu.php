@@ -2,7 +2,7 @@
 	function leftMenu() 
 	{
 		echo"<nav>";
-		echo"<ul class='links'>"; 
+		echo"<ul>"; 
 		echo"	<li><a href='../index.php'>Career PathWays</a></li>";
         	echo"	<li><a href='../quiz.php'>Major Match Maker</a></li>";
 
