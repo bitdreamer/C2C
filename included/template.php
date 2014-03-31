@@ -27,7 +27,7 @@ function displayContent($msg){
 	else if($msg==5){
 		$sentence="Failed to register. Try again.";
 	}
-	else if(msg==6){
+	else if($msg==6){
 		//notif
 		$sentence="A registration confirmation e-mail was sent to the user you just added. Be sure to let
 		him/her know to check their spam folder.";
