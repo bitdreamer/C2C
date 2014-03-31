@@ -41,27 +41,28 @@ include("../included/template.php");
 </div>
 
 <article>
-<p><?php displayContent($_GET['msg']); ?></p>
-<p>Login:</p>
-<form action=<?php echo "check_login.php?PHPSESSID=".session_id()?> method="POST">
-   <table>
-      <tr>
-         <td align="right">Email</td>
-         <td> <input type="text" name="email4log" /> @email.meredith.edu</td>
-      </tr>
-      <tr>
-         <td align="right">Password</td>
-         <td> <input type="password" name="password4log" /> </td>
-      </tr>
-      <tr>
-         <td align="right">Submit</td>
-         <td> <input type="submit"  name="Submit" value="Login"/> </td>
-      </tr>
+	<p><?php displayContent($_GET['msg']); ?></p>
+	<p>Login:</p>
+	<form action=<?php echo "check_login.php?PHPSESSID=".session_id()?> method="POST">
+		<table>
+			<tr>
+				<td align="right">Email</td>
+				<td> <input type="text" name="email4log" /> @email.meredith.edu</td>
+			</tr>
+			<tr>
+				<td align="right">Password</td>
+				<td> <input type="password" name="password4log" /> </td>
+			</tr>
+			<tr>
+				<td align="right"><a href='forgot_pw.php'>Forgot your password?</a></td>
+			</tr>
+			<tr>
+				<td> <input type="submit"  name="Submit" value="Login"/> </td>
+			</tr>
 
-   </table>
-</form>
+		</table>
+	</form>
 </article>
-
 </body>
 	<div id="footer"></br>
 	   <address >
