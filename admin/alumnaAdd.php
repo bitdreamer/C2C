@@ -1,8 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['email'])){
-header("location:..//login/main_login.php");
-}
+include("../included/loginStatus.php");
+areYouLogged();
 ?>
 <!-- Here's where the HTML starts -->
 <html>

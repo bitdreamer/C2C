@@ -1,8 +1,7 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['email'])){
-	header("location:..//login/main_login.php");
-	}
+	include("..//included/loginStatus.php");
+	areYouLogged();
 	include("..//included/tabledump.php");
 	include("..//included/openDB.php");
 	openDB();
