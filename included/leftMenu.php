@@ -5,7 +5,7 @@
 		echo"<nav>\n
 			<ul>\n
 			<li><a href='../index.php'>Career PathWays</a></li>\n
-        		<li><a href='../quiz.php'>Major Match Maker</a></li>\n
+        		<li><a href='../main/quiz.php'>Major Match Maker</a></li>\n
 
 			<li><strong>Admin</strong></li>\n";
 		
