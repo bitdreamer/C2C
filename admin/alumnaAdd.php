@@ -126,7 +126,7 @@ The POST array will be indexed using the respective input type's name -->
    
 		
 		echo "<form action=alumnaDelete.php method=$_GET>";
-   		tabledumpdelt( $result );
+   		tabledumpdeltedit( $result );
    		echo "</form>";
 	echo "</section>";
 ?>
