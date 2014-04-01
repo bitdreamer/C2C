@@ -7,36 +7,49 @@
 	openDB();	
 ?>
 <!-- Here's where the HTML starts -->
-<html>
-
+<!DOCTYPE html>
+<html lang="en"> 	
 <head>
-	<link rel= "stylesheet"type="text/css"  href="..//style.css"  />
-	<title> Add an Opportunity</title>
+<meta charset="utf-8" />
+<link rel= "stylesheet" href="../style.css" type="text/css" />
+<title>Add New Opportunity</title>
 </head>
 
-<!--logo-->
-<body> 	   
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
+<!--body-->
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
 
-<div id="links">	
+
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
 <?php
-
-	include("..//included/leftMenu.php"); 
+	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-</div>
-<br/>
+ </ul>	
+</nav>
+</div><!--links-->
 
-<h1 id="smallerH1">Add New Opportunity</h1>
 
-<div id="text">		
-  <h2>Connect Opportunity to Major</h2>
+<h1 id="majorHeader">Add New Opportunity</h1>
+
+<section id="main_content">
+<div id="newJob">
+ <article>		
+ 	
+  <h2 id="left_h2">Connect Opportunity to Major</h2>
+  
 	<form action="opportunityMajorConnect.php" method="POST">
 	<?php
 	
-	$query = "SELECT * FROM Major";
+	$query = "SELECT * FROM Major ORDER BY major";
 	$result=mysql_query($query);
 	majortabledump($result);
 	
@@ -94,7 +107,7 @@
 
 	}
 	
-	$queryB = "SELECT * FROM Opportunity";
+	$queryB = "SELECT * FROM Opportunity ORDER BY opportunity";
 	$resultB=mysql_query($queryB);
 	opptabledump($resultB);
 	
@@ -156,9 +169,9 @@
 </form>
 
 <br />
-<h2>Add New Opportunity</h2>
+ <h2 id="left_h2">Add New Opportunity</h2>
 <form action="opportunityProcess.php" method="POST">
-   <table>
+   <table id="majorTable">
       <tr>
          <td align="right">Opportunity</td>
          <td> <input type="text" name="opportunity" required="required"/> </td>
@@ -185,7 +198,7 @@
 <?php
 	echo "<section>";
 
-	$query="select * from Opportunity;";
+	$query="select * from Opportunity ORDER BY opportunity;";
     $result=mysql_query($query);
    
 	echo "<form action=opportunityDelete.php method=$_GET>";
@@ -194,13 +207,29 @@
    
 	echo "</section>";
 ?>
-</div>
-</body>
-	<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
+ </artical>
+ </div>
+      </div>
+       </div>
+
+         
+ </section>
+ </div><!--links-->
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	   	
+	</footer>
+	
+</div>	<!-- big_wrapper-->	
+		
+	</body>
+</html>
+
+
 </html>

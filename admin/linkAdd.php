@@ -8,35 +8,52 @@
 	
 ?>
 <!-- Here's where the HTML starts -->
-<html>
-
+<!DOCTYPE html>
+<html lang="en"> 	
 <head>
-	<link rel= "stylesheet"type="text/css"  href="..//style.css"  />
-	<title> Add a Link</title>
+<meta charset="utf-8" />
+<link rel= "stylesheet" href="../style.css" type="text/css" />
+<title>Add New Link</title>
 </head>
 
+
 <!--logo-->
-<body> 	   
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
-<div id="links">	
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
+
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
 <?php
-	include("..//included/leftMenu.php"); 
+	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-</div>
-<br/>
-<h1>Add a Link</h1>
-<br/>
 
-<div id="text">
-	<h2>Connect Link to Major</h2>
+   </ul>	
+</nav>
+</div><!--links-->
 
-	<form action="linkMajorConnect.php" method="POST">
+
+<h1 id="majorHeader">Add a Link</h1>
+
+
+<section id="main_content">
+<div id="newJob">
+	<h2 id="left_h2">Connect Link to Major</h2>
+
+ <article>
+ <div id="newLink">
+
+	<form  action="linkMajorConnect.php" method="POST">
 	<?php
 	
-	$query = "SELECT * FROM Major";
+	$query = "SELECT * FROM Major ORDER BY major";
 	$result=mysql_query($query);
 	majortabledump($result);
 	
@@ -94,7 +111,7 @@
 
 	}
 	
-	$queryB = "SELECT * FROM Link";
+	$queryB = "SELECT * FROM Link ORDER BY name";
 	$resultB=mysql_query($queryB);
 	linktabledump($resultB);
 	
@@ -153,9 +170,10 @@
 				<input type="submit" value="Submit">
 				</td>
 			</tr>
+			</div>
 </form>
 
-<h2>Add New Link</h2>
+<h2 id="left_h2">Add New Link</h2>
 <form action="linkProcess.php" method="POST">
    <table>
       <tr>
@@ -185,10 +203,11 @@
 
    </table>
 </form>
+<br/>
 <?php
 	echo "<section>";
 
-	$query="SELECT * from Link;";
+	$query="SELECT * from Link ORDER BY name;";
     $result=mysql_query($query);
    
 	echo "<form action=linkDelete.php method=$_GET>";
@@ -199,11 +218,15 @@
 ?>
 </div>
 </body>
-	<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	 
+         	
+	</footer>
 </html>

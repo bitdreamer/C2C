@@ -7,36 +7,47 @@
 	openDB();
 	
 ?>
-<!-- Here's where the HTML starts -->
-<html>
-
+<!-- main Page -->
+<!DOCTYPE html>
+<html lang="en"> 	
 <head>
-	<link rel= "stylesheet"type="text/css"  href="..//style.css"  />
-	<title> Add a Job</title>
+<meta charset="utf-8" />
+<link rel= "stylesheet" href="../style.css" type="text/css" />
+<title>Add New Major</title>
 </head>
 
-<!--logo-->
-<body> 	   
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
+<!--body-->
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
 
-<div id="links">	
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
 <?php
-	include("..//included/leftMenu.php"); 
+	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-</div>
-<br/>
 
-<h1 id="smallerH1">Add New job</h1>
+   </ul>	
+</nav>
+</div><!--links-->
 
-<div id="text">		
-	<h2>Connect Job to Major</h2>
+<h1 id="majorHeader">Add New job</h1>
+
+<section id="main_content">
+<div id="newMajor">
+ <article>	
+	<h2 id="left_h2">Connect Job to Major</h2>
 	<form action="jobMajorConnect.php" method="POST">
 	<?php
 	
-	$query = "SELECT * FROM Major";
+	$query = "SELECT * FROM Major ORDER BY Major";
 	$result=mysql_query($query);
 	majortabledump($result);
 	
@@ -96,7 +107,7 @@
 
 	}
 	
-	$queryB = "SELECT * FROM Job";
+	$queryB = "SELECT * FROM Job ORDER BY career";
 	$resultB=mysql_query($queryB);
 	jobtabledump($resultB);
 	
@@ -191,7 +202,7 @@
 	<?php
 		echo "<section>";
 
-		$query="select * from Job;";
+		$query="select * from Job ORDER BY career;";
 		$result=mysql_query($query);
 	   
 		echo "<form action=jobDelete.php method=$_GET>";
@@ -199,14 +210,22 @@
 	   	echo "</form>";
 		echo "</section>";
 	?>
-	</div>
+ </artical>
+ </div>
 </body>
 
-<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	 
+         	
+	</footer>
+ </section>
+</div>	<!-- big_wrapper-->	
+
+
 </html>

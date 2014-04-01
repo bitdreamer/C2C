@@ -60,12 +60,12 @@
    <h1 id="majorHeader">Add Major </h1>
 
 <section id="main_content">
-
- <article id="newJob">
-   <p name="majorIntro">* For development purposes (ONLY)</p>
+<div id="newJob">
+ <article>
+   <p id="majorIntro">* For development purposes (ONLY)</p>
 
 <form id="majorForm" action="majorProcess.php" method="POST">
-<table>
+<table id="majorTable">
  <tr>
       <td align="right">Major</td>
 
@@ -126,19 +126,19 @@
          <td><input type="text" name="department" value="" required="required" size="20"></td>
       </tr>
 	</table>
-		<div  colspan="2" ><p>Jobs in Major</p></div>
+		<div  colspan="2" ><h2 id="left_h2">Jobs in Major</h2></div>
 	
 
 <?php
-	$queryB = "SELECT * FROM Job";
+	$queryB = "SELECT * FROM Job ORDER BY career";
 	$resultB=mysql_query($queryB);
 	jobtabledump1($resultB);
 	
 	function jobtabledump1( $resultB )
 	{
 		echo "<table>";
-		echo"<p> To link associated jobs with major being created.</p>";
-		echo"<h3 style='background-color:gray; height:30'> Min Degree: BS </h3>";
+		echo"<p id='majorIntro'> To link associated jobs with major being created.</p>";
+		echo"<h3 id='majorHeaders'> Min Degree: BS </h3>";
 		echo "<tr>";
 		echo "<td></td>";
 
@@ -187,7 +187,7 @@
 	}
 ?>
 <?php
-	$queryB = "SELECT * FROM Job";
+	$queryB = "SELECT * FROM Job ORDER BY career";
 	$resultB=mysql_query($queryB);
 	jobtabledump2($resultB);
 	
@@ -242,7 +242,7 @@
 ?>
 </br>
 <?php
-	$queryB = "SELECT * FROM Job";
+	$queryB = "SELECT * FROM Job ORDER BY career";
 	$resultB=mysql_query($queryB);
 	jobtabledump3($resultB);
 	
@@ -308,12 +308,12 @@
 
 </form>
 <p id="previewData" name="previewData"> </p>
-<h3>Majors already created</h3>
+<h2 id="left_h2">Majors already created</h2>
 <?php
 	echo "<section>";
 
 
-	$query="select * from Major;";
+	$query="select * from Major ORDER BY major;";
     $result=mysql_query($query);
    
 	echo "<form action=majorDelete.php method=$_GET>";
@@ -323,7 +323,7 @@
 	echo "</section>";
 ?>
  </artical>
-</div>
+ </div>
 </body>
 
 <!--footer-->	
