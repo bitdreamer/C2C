@@ -1,34 +1,38 @@
 <?php
 	function leftMenu() 
 	{
-		echo"<nav>";
-		echo"<ul>"; 
-		echo"	<li><a href='../index.php'>Career PathWays</a></li>";
-        	echo"	<li><a href='../quiz.php'>Major Match Maker</a></li>";
+		//Always display the main links, and the Admin list header
+		echo"<nav>\n
+			<ul>\n
+			<li><a href='../index.php'>Career PathWays</a></li>\n
+        		<li><a href='../quiz.php'>Major Match Maker</a></li>\n
 
-		echo "<li><strong>Admin</strong></li>";
+			<li><strong>Admin</strong></li>\n";
 		
+		//If admin is logged in, display pages that all admins can access, and the logout link
 		if($_SESSION['islogged']!=0)
 		{
-			echo "<li> <a href=../admin/majorAdd.php?PHPSESSID=".session_id().">Major</a></li>";
-			echo "<li> <a href=../admin/jobAdd.php?PHPSESSID=".session_id().">Job</a></li>";
-			echo "<li> <a href=../admin/alumnaAdd.php?PHPSESSID=".session_id().">Alumna</a></li>";
-			echo "<li> <a href=../admin/interestAdd.php?PHPSESSID=".session_id().">Interest</a></li>";
-			echo "<li> <a href=../admin/opportunityAdd.php?PHPSESSID=".session_id().">Opportunities</a></li>";
-			echo "<li> <a href=../admin/linkAdd.php?PHPSESSID=".session_id().">Links</a></li>";
+			echo"<li> <a href='../admin/majorAdd.php'>Major</a></li>\n
+				<li> <a href='../admin/jobAdd.php'>Job</a></li>\n
+				<li> <a href='../admin/alumnaAdd.php'>Alumna</a></li>\n
+				<li> <a href='../admin/interestAdd.php'>Interest</a></li>\n
+				<li> <a href='../admin/opportunityAdd.php'>Opportunities</a></li>\n
+				<li> <a href='../admin/linkAdd.php'>Links</a></li>\n";
 
+			//If full-admin is logged in, dislay main_register page link
 			if($_SESSION['accessLv'] == 2)
 			{
-				echo "<li> <a href=../login/main_register.php?PHPSESSID=".session_id().">Add Admin</a></li>";
+				echo "<li> <a href='../login/main_register.php'>Add Admin</a></li>\n";
 			}
 
-			echo "<li> <a href=../login/logout.php?PHPSESSID=".session_id().">Logout</a></li>";
+			echo "<li> <a href='../login/logout.php'>Logout</a></li>\n";
 		}
+		//If user id NOT logged in, display the login link
 		else
 		{
-			echo "<li> <a href=..//login/main_login.php?PHPSESSID=".session_id().">Login</a></li>";
+			echo "<li> <a href='..//login/main_login.php'>Login</a></li>\n";
 		}
-		echo"</ul>";
-		echo"</nav>";
+		echo"</ul>\n
+			</nav>\n";
 	}
 ?>
