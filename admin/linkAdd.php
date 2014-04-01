@@ -192,7 +192,7 @@
     $result=mysql_query($query);
    
 	echo "<form action=linkDelete.php method=$_GET>";
-   tabledumpdelt( $result );
+   tabledumpdeltedit( $result );
 	echo "</form>";
    
 	echo "</section>";
