@@ -247,10 +247,10 @@ $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majo
 				echo "  <tr> \n"; 
 				echo "	  <th> \n"; 
 				echo "<h1>$name</h1> \n"; 
-				echo "<h2 id='degree'>$degree Degree</h2> \n";
-				echo "<h2 id='classYear'>$cy Year Graduated</h2> \n";
-				echo "<h2 id='job'>$job Job</h2> \n";
-				echo "<h3 id='email'>$email Email</h3> \n";
+				echo "<h2 id='degree'>$degree</h2> \n";
+				echo "<h2 id='classYear'>$cy</h2> \n";
+				echo "<h2 id='job'>$job</h2> \n";
+				echo "<h3 id='email'>$email</h3> \n";
 				echo "$blurb \n"; 
 				echo "	  </th> \n";
 				echo " 	</tr> \n";
