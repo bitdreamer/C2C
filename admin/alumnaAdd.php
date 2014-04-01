@@ -3,31 +3,44 @@ session_start();
 include("../included/loginStatus.php");
 areYouLogged();
 ?>
-<!-- Here's where the HTML starts -->
-<html>
 
+<!-- main Page -->
+<!DOCTYPE html>
+<html lang="en"> 	
 <head>
-	<link rel= "stylesheet"type="text/css"  href="..//style.css"  />
-	<title> Add an alumna</title>
-</head>
+<meta charset="utf-8" />
+<link rel= "stylesheet" href="../style.css" type="text/css" />
+<title>Add an Alumna </title>
 
-<!--logo-->
-<body> 	   
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
 
-<div id="links">	
+<!--body-->
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
+
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
 <?php
-	include("..//included/leftMenu.php"); 
+	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-</div>
-<br/>
 
-<div id="text">
-     <h1 id="smallerH1">Add New Alumna</h1>
+   </ul>	
+</nav>
+</div><!--links-->
 
+     <h1 id="majorHeader">Add New Alumna</h1>
+
+<!-- text-->
+<section id="main_content">
+
+<article id="newAlum">	 
 <!--Begin form.  
 action attribute contains the name of the file where the information will be directed.  
 method attribute type POST will create an array with submitted information.  
@@ -121,7 +134,7 @@ The POST array will be indexed using the respective input type's name -->
   	 	openDB();
 
 		//MySQL query
-		$query="SELECT * from Alumna;";
+		$query="SELECT * from Alumna ORDER BY name;";
     		$result=mysql_query($query);
    
 		
@@ -130,12 +143,20 @@ The POST array will be indexed using the respective input type's name -->
    		echo "</form>";
 	echo "</section>";
 ?>
-</div>
-</body>
-	<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
+</artical>
+</section>
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	   	
+	</footer>
+	
+</div>	<!-- big_wrapper-->	
+		
+	</body>
+</html>
