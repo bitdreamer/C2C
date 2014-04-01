@@ -189,7 +189,7 @@
     $result=mysql_query($query);
    
 	echo "<form action=opportunityDelete.php method=$_GET>";
-   tabledumpdelt( $result );
+   tabledumpdeltedit( $result );
 	echo "</form>";
    
 	echo "</section>";
