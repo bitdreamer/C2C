@@ -40,11 +40,11 @@ openDB();
     
     <p name="mainIntro">Look through the list of interests below and drag the things that interest you into the box below. Once you have dragged a few interests into the box below, the majors on the left will change size based off your interests. The larger the major, the more compatiable it is for you.</p>
     
-   <div id="contentBox" >
-        <article id="column1">
+   <div >
+        <!--<article id="column1">-->
               
     <form>
-    <h2 id="left_h2">Interests</h2>
+    <h2 >Interests</h2>
     
     <!-- query to list all the interets on one side of the page -->
     <?php
@@ -69,11 +69,11 @@ openDB();
     ?>
         
     </form>
-    </article>
+    <!--</article>-->
     
-       <article id="column2">
+       <!--<article id="column2">-->
             
-     <h2 id="left_h2">Majors</h2>
+     <h2 >Majors</h2>
     <!-- qurey to list all the majors on the other side of the page -->
     <?php
         $query="SELECT * From Major";
@@ -87,8 +87,7 @@ openDB();
                 $row=mysql_fetch_array($result2);
                 $major=$row['major'];
                 $majorID=$row['id'];
-                echo "<div  style='font: normal 14px helvetica neue'
- id=MAJ$majorID size=\"4\">$major</font> &nbsp;\n</div>";
+                echo "<font id=MAJ$majorID size=\"4\">$major</font> &nbsp;\n</div>";
             }
         }
 
@@ -143,8 +142,8 @@ openDB();
             }
             ?>
             </div>
-        </article>
-    </section>
+       <!-- </article>-->
+   <!-- </section>-->
     
 </div>
 
