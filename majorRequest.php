@@ -193,7 +193,7 @@
 		$deg = $row[3];
 		$cy = $row[4];
 		$job = $row[5];
-		$pic = $row[7]
+		$pic = $row[7];
 		
 		echo "<p> \n"; 
 		echo "<h1>$name</h1> \n"; 
