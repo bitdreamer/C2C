@@ -6,11 +6,14 @@
 	include("..//included/openDB.php");
 	openDB();
 ?>
-<html>
-<head>
 
+<!-- main Page -->
+<!DOCTYPE html>
+<html lang="en"> 	
+<head>
+<meta charset="utf-8" />
 <link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Classroom to Career Pathways</title>
+<title>Add Major</title>
 
 <script type="text/javascript">
 	var k = 0;
@@ -34,24 +37,35 @@
 
 </head>
 
-<body>
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
+<!--logo-->
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
 
-<div id="links">	
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
 <?php
 	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-</div>
-<br/>
-		
-<div id="main">
-<article id="newJob">
-<h1 style="margin:0 0 0 200">Add Major (For development purposes ONLY)</h1>
-<form name="majorForm" action="majorProcess.php" method="POST">
-   <table>
+
+   </ul>	
+</nav>
+   <h1 id="majorHeader">Add Major </h1>
+
+<section id="main_content">
+
+ <article id="newJob">
+   <p name="majorIntro">* For development purposes (ONLY)</p>
+
+<form id="majorForm" action="majorProcess.php" method="POST">
+<table>
  <tr>
       <td align="right">Major</td>
 
@@ -99,19 +113,20 @@
 			</select></td>
       </tr>
 	<tr>
-         <td align="right">ID</td>
-         <td><input type="text" name="id" value="" required="required" size="3" style="height:20px"></td>
+         <td >ID</td>
+         <td><input type="text" name="id" value="" required="required" size="3"></td>
       </tr>
 	  <tr>
-         <td align="right">Description</td>
-         <td><input type="text" name="description" value="" required="required" size="50" style="height:75px"></td>
+
+         <td>Description</td>
+         <td><input type="text" name="description" value="" required="required" size="50"></td>
       </tr>
 	<tr>
-         <td align="right">Department</td>
-         <td><input type="text" name="department" value="" required="required" size="20" style="height:20px"></td>
+         <td >Department</td>
+         <td><input type="text" name="department" value="" required="required" size="20"></td>
       </tr>
 	</table>
-		<div align="left" colspan="2" style="margin:50 0 0 0" ><p>Jobs in Major</p></div>
+		<div  colspan="2" ><p>Jobs in Major</p></div>
 	
 
 <?php
@@ -292,9 +307,7 @@
    </table>
 
 </form>
-<p id="previewData" name="previewData">
-</p>
-<!-- 
+<p id="previewData" name="previewData"> </p>
 <h3>Majors already created</h3>
 <?php
 	echo "<section>";
@@ -303,20 +316,29 @@
 	$query="select * from Major;";
     $result=mysql_query($query);
    
-   tabledump( $result );
+	echo "<form action=majorDelete.php method=$_GET>";
+   tabledumpdeltedit( $result );
+	echo "</form>";
    
 	echo "</section>";
 ?>
- -->
-</div>
-</article>
-<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
+ </artical>
 </div>
 </body>
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	 
+         	
+	</footer>
+</artical>
+ </section>
+</div>	<!-- big_wrapper-->	
+
+
 </html>
