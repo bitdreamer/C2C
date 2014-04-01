@@ -1,21 +1,10 @@
 <?php
 session_start();
 include("../included/template.php");
+include("../included/loginStatus.php");
 
-//Check who is logged in.
-/*Levels of access:
-1 - the ability to add database content
-2- the ability to add new admins, and to add database content
-*/
-if(isset($_SESSION['email'])){
-//Send to page that states the person has o access to it, and add link to forward to previous page.
-	if($_SESSION['accessLv'] == 1){
-		header("Location: ../admin/noAccess.php?PHPSESSID=". session_id());
-	}
-}
-else{
-	header("location:..//login/main_login.php");
-}
+whoIsLogged($_SESSION['accessLv']);
+
 // main_register.php  
 // This page has a form to let you register.  If you register, it sends you
 // to register.php to send an email to the user to complete the
