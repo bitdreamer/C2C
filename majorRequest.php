@@ -180,7 +180,7 @@
 
 
 //get and display Alumna and blurb 
-	$majorID=addslashes($_GET['majorID']); 
+/*	$majorID=addslashes($_GET['major']); 
 	$query="SELECT * FROM MajorAlumna WHERE id='$alumnaID';"; 
 	$result=mysql_query($query); 
 	
@@ -205,8 +205,60 @@
 		echo "</p> \n"; 
 	}
 
+*/
 
 
+
+
+
+$alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majorID';"; 		//one alumnaID from Alumna table, one from MajorAlumna table
+	$alumnaR=mysql_query($alumnaQ);
+	
+		echo "<h3> Alumna Profiles</h3> \n"; 
+	
+	if(noerror($alumnaR))
+	{
+		$nr = mysql_num_rows($alumnaR);
+		
+		//create table for links
+		echo "<table class='jobs' \n"; 
+				echo "	summary='List of alumna for a particular major'> \n"; 
+					
+				echo "	<colgroup> \n"; 
+				echo "	<col class='jobs' span='1' /> \n"; 
+				echo "	</colgroup> \n"; 
+				echo " 	<thead> \n"; 
+				echo " 	<tr> \n"; 
+				echo "  </tr> \n"; 
+				echo "  </thead> \n"; 	
+				echo "  <tbody> \n"; 
+				
+		for($i=0; $i<$nr; $i++)
+		{
+			$row  = mysql_fetch_array($alumnaR);
+			$name = $row['name'];
+			$email = $row['email']; 
+			$blurb = $row['blurb'];
+			$deg = $row['degree'];
+			$cy = $row['class year'];
+			$job = $row['job'];
+			$pic = $row['picture'];
+	
+				echo "  <tr> \n"; 
+				echo "	  <th> \n"; 
+				echo "<h1>$name</h1> \n"; 
+				echo "<h2 id='degree'>$degree Degree</h2> \n";
+				echo "<h2 id='classYear'>$cy Year Graduated</h2> \n";
+				echo "<h2 id='job'>$job Job</h2> \n";
+				echo "<h3 id='email'>$email Email</h3> \n";
+				echo "$blurb \n"; 
+				echo "	  </th> \n";
+				echo " 	</tr> \n";
+		}
+		
+				echo " 	</tbody> \n";
+				echo "	</table> \n";
+	}
 
 
 	
