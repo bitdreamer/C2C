@@ -24,7 +24,7 @@ $un = @$_POST[username4reg];
 $lv = @$_POST[access];
 if ( $pw!=$pw2 )
 {
-   header("Location: main_register.php?PHPSESSID=".session_id()."&msg=2");
+   header("Location: main_register.php?msg=2");
    exit();
 }
 if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 )// no funny stuff in email
@@ -38,12 +38,12 @@ if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 )// no funny stuff in email
 
 	if($result==0)
 	{
-		header("Location: notif.php?PHPSESSID=".session_id()."&msg=3");
+		header("Location: notif.php?msg=3");
 		exit();
 	}
 	elseif (@mysql_num_rows($result)==0)
 	{
-		header("Location: notif.php?PHPSESSID=".session_id()."&msg=3");
+		header("Location: notif.php?msg=3");
 		exit();
 	}
 	else
@@ -58,19 +58,19 @@ if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 )// no funny stuff in email
 			 //This function inserts data into the 'Register' table
 			 doRegister( $em, $pw, @$_POST[firstname4reg], @$_POST[lastname4reg], 
 				      @$_POST[regnum], $un, $lv ); 
-			header("Location: notif.php?PHPSESSID=".session_id()."&msg=6");
+			header("Location: notif.php?msg=6");
 			exit();
 		}
 		else
 		{
-			 header("Location: main_register.php?PHPSESSID=".session_id()."&msg=4");
+			 header("Location: main_register.php?msg=4");
 			 exit();
 		}
 	}
 }
 else
 {
-	header("Location: main_register.php?PHPSESSID=".session_id()."&msg=5");
+	header("Location: main_register.php?msg=5");
 	exit();
 }
    // register with email, password, firstname, lastname, and regnum

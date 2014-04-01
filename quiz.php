@@ -40,7 +40,7 @@ openDB();
     
     <p name="mainIntro">Look through the list of interests below and drag the things that interest you into the box below. Once you have dragged a few interests into the box below, the majors on the left will change size based off your interests. The larger the major, the more compatiable it is for you.</p>
     
-   <div >
+   <div>
         <!--<article id="column1">-->
               
     <form>

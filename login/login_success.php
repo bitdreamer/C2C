@@ -4,14 +4,3 @@ if(!isset($_SESSION['email'])){
 header("location:main_login.php");
 }
 ?>
-<?php
-   include("..//included/includeMe.php");
-   include("..//included/openDB.php");
-   openDB();
-?>
-<html>
-<head>
-</head>
-<body>
-</body>
-</html>

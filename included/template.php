@@ -50,6 +50,5 @@ function footer(){
 		Phone: (919) 760-8600 or 1-800 MEREDITH\n
 		</div>\n
 		</footer>";
-	echo"\nLocation: ".getcwd()."";
 }
 ?>

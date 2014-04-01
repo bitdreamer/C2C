@@ -54,11 +54,11 @@ if($count==1){
 	else	
 	{
 		//go home
-		header("Location: ../admin/majorAdd.php?PHPSESSID=". session_id());
+		header("Location: ../admin/majorAdd.php");
 	}
 }
 else {
-header ("Location: main_login.php?PHPSESSID=".session_id()."&msg=1");
+header ("Location: main_login.php?msg=1");
 }
 ?>
 </body>

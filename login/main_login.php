@@ -43,7 +43,7 @@ include("../included/template.php");
 <article>
 	<p><?php displayContent($_GET['msg']); ?></p>
 	<p>Login:</p>
-	<form action=<?php echo "check_login.php?PHPSESSID=".session_id()?> method="POST">
+	<form action=<?php echo "check_login.php"; ?> method="POST">
 		<table>
 			<tr>
 				<td align="right">Email</td>
