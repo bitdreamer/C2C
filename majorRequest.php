@@ -2,9 +2,9 @@
 
 	session_start(); 
 
-	include("included/openDB.php");
-	include("included/leftMenu.php"); 
-	include("included/tabledump.php");
+	include("../included/openDB.php");
+	include("../included/leftMenu.php"); 
+	include("../included/tabledump.php");
 	openDB();
 
 ?>
@@ -13,7 +13,7 @@
 <html>
 
 <head>
-	<link rel= "stylesheet"type="text/css"  href="style.css"  />
+	<link rel= "stylesheet"type="text/css"  href="../style.css"  />
 	<title> Carrer Pathways</title>
 </head>
 
