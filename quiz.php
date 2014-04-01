@@ -83,7 +83,7 @@ openDB();
                 $row=mysql_fetch_array($result2);
                 $major=$row['major'];
                 $majorID=$row['id'];
-                echo "<font id=MAJ$majorID size=\"2\">$major</font> &nbsp;\n";
+                echo "<a href=\"majorRequest.php?major=$majorID\"><font id=MAJ$majorID size=\"2\">$major</font></a> &nbsp;\n";
             }
         }
 
