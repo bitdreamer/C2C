@@ -197,9 +197,9 @@
 		
 		echo "<p> \n"; 
 		echo "<h1>$name</h1> \n"; 
-		echo "<h2 id='degree'>$degree Degree</h2>
-		echo "<h2 id= 'classYear'>$cy Class Year</h2>
-		echo "<h2 id= 'job'>$job Job</h2>
+		echo "<h2 id='degree'>$degree Degree</h2> \n;
+		echo "<h2 id= 'classYear'>$cy Class Year</h2> \n;
+		echo "<h2 id= 'job'>$job Job</h2> \n;
 		echo "<h3 id='email'>$email Email</h3> \n";
 		echo "$blurb \n"; 
 		echo "</p> \n"; 
