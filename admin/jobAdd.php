@@ -195,7 +195,7 @@
 		$result=mysql_query($query);
 	   
 		echo "<form action=jobDelete.php method=$_GET>";
-		tabledumpdelt( $result );
+		tabledumpdeltedit( $result );
 	   	echo "</form>";
 		echo "</section>";
 	?>
