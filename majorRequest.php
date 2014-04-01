@@ -180,8 +180,8 @@
 
 
 //get and display Alumna and blurb 
-	$alumnaID=addslashes($_GET['alumna']); 
-	$query="SELECT * FROM Alumna WHERE id='$alumnaID';"; 
+	$majorID=addslashes($_GET['majorID']); 
+	$query="SELECT * FROM MajorAlumna WHERE id='$alumnaID';"; 
 	$result=mysql_query($query); 
 	
 	if(noerror($result))
@@ -197,9 +197,9 @@
 		
 		echo "<p> \n"; 
 		echo "<h1>$name</h1> \n"; 
-		echo "<h2 id='degree'>$degree Degree</h2> \n;
-		echo "<h2 id= 'classYear'>$cy Class Year</h2> \n;
-		echo "<h2 id= 'job'>$job Job</h2> \n;
+		echo "<h2 id='degree'>$degree Degree</h2> \n";
+		echo "<h2 id='classYear'>$cy Year Graduated</h2> \n";
+		echo "<h2 id='job'>$job Job</h2> \n";
 		echo "<h3 id='email'>$email Email</h3> \n";
 		echo "$blurb \n"; 
 		echo "</p> \n"; 
