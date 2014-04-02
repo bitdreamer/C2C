@@ -5,8 +5,7 @@
    openDB();
 
 
-	//if ($_SERVER['REQUEST_METHOD'] === 'POST') 
-	//{
+
 		if(isset($_GET['id'])) 
 		{
 			$id = $_GET["id"];
@@ -25,7 +24,7 @@
 		else 
 		{
 			$id=$_GET["ide"];
-			echo $_GET["ide"];
+			//echo $_GET["ide"];
 
 			$query = "SELECT * FROM Interest WHERE id='".$id."'";
 			$result = mysql_query($query);

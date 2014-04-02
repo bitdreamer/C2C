@@ -11,6 +11,7 @@ include("../included/template.php");
 // happen before 
 // any HTML is sent.
 ?>
+
 <!-- Here's where the HTML starts -->
 <html>
 <head>
@@ -19,10 +20,15 @@ include("../included/template.php");
 <link rel= "stylesheet" type="text/css"  href="..//style.css"  />
 <title>C2C - Login</title>
 </head>
-<body>
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
+
+<!--logo-->
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
 <?php
    if(isset($_SESSION['username']))
 	{
@@ -33,44 +39,56 @@ include("../included/template.php");
 	}
 ?>
 
-<div id="links">	
-<?php
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
+<?php 
 	include("..//included/leftMenu.php"); 
 	leftMenu();
 ?>
-</div>
+    </ul>	
+</nav>
+</div><!--links-->
 
-<article>
-	<p><?php displayContent($_GET['msg']); ?></p>
-	<p>Login:</p>
-	<form action=<?php echo "check_login.php"; ?> method="POST">
-		<table>
-			<tr>
-				<td align="right">Email</td>
-				<td> <input type="text" name="email4log" /> @email.meredith.edu</td>
-			</tr>
-			<tr>
-				<td align="right">Password</td>
-				<td> <input type="password" name="password4log" /> </td>
-			</tr>
-			<tr>
-				<td align="right"><a href='forgot_pw.php'>Forgot your password?</a></td>
-			</tr>
-			<tr>
-				<td> <input type="submit"  name="Submit" value="Login"/> </td>
-			</tr>
+<!-- text-->
+<section id="login_content">
 
-		</table>
-	</form>
+<article id="login">
+<h2 id="left_h2"> LogIn</h2> 
+	
+  <form action=<?php echo "check_login.php?PHPSESSID=".session_id()?> method="POST">
+   <table>
+      <tr>
+         <td align="right">Email</td>
+         <td> <input type="text" name="email4log" /> @email.meredith.edu</td>
+      </tr>
+      <tr>
+         <td align="right">Password</td>
+         <td> <input type="password" name="password4log" /> </td>
+      </tr>
+      <tr>
+         <td align="right">Submit</td>
+         <td> <input type="submit"  name="Submit" value="Login"/> </td>
+      </tr>
+   </table>
+</form>
+
 </article>
-</body>
-	<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
-      	
-	</div>
+</section>
+ 	
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	   	
+	</footer>
+	
+</div>	<!-- big_wrapper-->	
+		
+	</body>
 </html>

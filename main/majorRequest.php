@@ -240,7 +240,7 @@ $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majo
 			$email = $row['email']; 
 			$blurb = $row['blurb'];
 			$deg = $row['degree'];
-			$cy = $row['classYear'];
+			$cy = $row['class year'];
 			$job = $row['job'];
 			$pic = $row['picture'];
 	

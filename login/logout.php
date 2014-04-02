@@ -17,39 +17,45 @@ This page logs the user out.
 	<title> LogOut</title>
 </head>
 
-<!--logo-->
-<body> 	   
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
+<!--body-->
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
 
-<div id="links">	
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
 <?php
 	include("..//included/leftMenu.php"); 
 	leftMenu();
 ?>
-</div>
-
-<br/>
-		
-<div>
-<h1 id="logoutH1">Log Out</h1>
-	<br/>
-	
-	<div id="logout">
-	<article>
-       <p> You have logged out of C2C.  </p>
-	<p>We hope you will return again soon.</p>
-	<article>
-	</div>
- </body>
+ </ul>
+ </nav>	
  
-	<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
-	</div>
+<section id="logout_content">
+	<h1 name="mainHeader">Log Out</h1>
+  <article>
+       <p id="logout"> You have logged out of C2C. </br>We hope you will return again soon.</p>
+	</article>
+ </section>
+ </div><!--links-->
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	   	
+	</footer>
+	
+</div>	<!-- big_wrapper-->	
+		
+	</body>
 </html>
