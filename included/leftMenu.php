@@ -22,15 +22,15 @@
 			//If full-admin is logged in, dislay main_register page link
 			if($_SESSION['accessLv'] == 2)
 			{
-				echo "<li> <a href='../login/main_register.php'>Add Admin</a></li>\n";
+				echo "<li> <a href='main_register.php'>Add Admin</a></li>\n";
 			}
 
-			echo "<li> <a href='../login/logout.php'>Logout</a></li>\n";
+			echo "<li> <a href='logout.php'>Logout</a></li>\n";
 		}
 		//If user id NOT logged in, display the login link
 		else
 		{
-			echo "<li> <a href='..//login/main_login.php'>Login</a></li>\n";
+			echo "<li> <a href='main_login.php'>Login</a></li>\n";
 		}
 		echo"</ul>\n
 			</nav>\n";
