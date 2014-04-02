@@ -46,7 +46,7 @@ action attribute contains the name of the file where the information will be dir
 method attribute type POST will create an array with submitted information.  
 The POST array will be indexed using the respective input type's name -->
 
-<form action="alumnaProcess.php" method="POST">
+<form action="../admin/alumnaProcess.php" method="POST">
    <table>
 
       <tr>
@@ -138,7 +138,7 @@ The POST array will be indexed using the respective input type's name -->
     		$result=mysql_query($query);
    
 		
-		echo "<form action=alumnaDelete.php method=$_GET>";
+		echo "<form action=../admin/alumnaDelete.php method=$_GET>";
    		tabledumpdeltedit( $result );
    		echo "</form>";
 	echo "</section>";

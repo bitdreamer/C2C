@@ -13,6 +13,6 @@
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
-   header("Location: opportunityAdd.php");
+   header("Location: ../main/opportunityAdd.php");
    exit; 
 ?>

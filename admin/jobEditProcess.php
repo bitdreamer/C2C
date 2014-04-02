@@ -12,6 +12,6 @@
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
-   header("Location: jobAdd.php");
+   header("Location: ../main/jobAdd.php");
    exit; 
 ?>

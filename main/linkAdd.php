@@ -1,22 +1,23 @@
 <?php
 	session_start();
-	include("..//included/loginStatus.php");
+	include("../included/loginStatus.php");
 	areYouLogged();
-	include("..//included/tabledump.php");
-	include("..//included/openDB.php");
+	include("../included/tabledump.php");
+	include("../included/openDB.php");
 	openDB();
 	
 ?>
-<!-- main Page -->
+<!-- Here's where the HTML starts -->
 <!DOCTYPE html>
 <html lang="en"> 	
 <head>
 <meta charset="utf-8" />
 <link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Add New Major</title>
+<title>Add New Link</title>
 </head>
 
-<!--body-->
+
+<!--logo-->
 <body> 
 	<div id="big_wrapper">
 	
@@ -38,16 +39,21 @@
 </nav>
 </div><!--links-->
 
-<h1 id="majorHeader">Add New job</h1>
+
+<h1 id="majorHeader">Add a Link</h1>
+
 
 <section id="main_content">
-<div id="newMajor">
- <article>	
-	<h2 id="left_h2">Connect Job to Major</h2>
-	<form action="jobMajorConnect.php" method="POST">
+<div id="newJob">
+	<h2 id="left_h2">Connect Link to Major</h2>
+
+ <article>
+ <div id="newLink">
+
+	<form  action="../admin/linkMajorConnect.php" method="POST">
 	<?php
 	
-	$query = "SELECT * FROM Major ORDER BY Major";
+	$query = "SELECT * FROM Major ORDER BY major";
 	$result=mysql_query($query);
 	majortabledump($result);
 	
@@ -68,14 +74,13 @@
 		else
 		{
 			$nr = mysql_num_rows($result);
+			$c=0;
 					
 			//echo "<td><select name=major id=major required=required>";
-			$c=0;
 			
 			for($i=0; $i<$nr; $i++ )
 			{
 				$j=1;
-				
 				$row=mysql_fetch_array($result);
 				settype($row[$j], "string");
 				if($c==5)
@@ -88,7 +93,6 @@
 					echo "<input type=checkbox name=checkboxM[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c=1;
-					
 				}
 				else
 				{
@@ -107,15 +111,15 @@
 
 	}
 	
-	$queryB = "SELECT * FROM Job ORDER BY career";
+	$queryB = "SELECT * FROM Link ORDER BY name";
 	$resultB=mysql_query($queryB);
-	jobtabledump($resultB);
+	linktabledump($resultB);
 	
-	function jobtabledump( $resultB )
+	function linktabledump( $resultB )
 	{
 		echo "<table>";
 		echo "<tr>";
-		echo "<td align=center width=100>Job</td>";
+		echo "<td align=center width=100>Link</td>";
 
 		if($resultB==0)
 		{
@@ -132,7 +136,7 @@
 					
 			for($i=0; $i<$nr; $i++ )
 			{	   
-				$j=1;
+				$j=2;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
 				if($c==5)
@@ -142,15 +146,14 @@
 					echo "<tr>";
 					echo "<td></td>";
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxL[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c=1;
-					
 				}
 				else
 				{
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxL[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c++;
 				}
@@ -162,56 +165,58 @@
 		return $row;
 	}
 	?>
-		<table>
-			<tr>
-				<td align="right">Minimum Required Degree</td>
-				<td><select name="MinDegree" id="MinDegree" required="required">
-					<option value="BA">BA</option>
-					<option value="BS">BS</option>
-					<option value="BSW">BSW</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
+	<tr>
 				<td colspan="2" align="center"> 
 				<input type="submit" value="Submit">
 				</td>
 			</tr>
-		</table>
-	</form>
-	<br/>
-	<br/>
-	<h2>Add New Job</h2>
-	<form action="jobProcess.php" method="POST">
-	   <table>
-			<tr>
-				<td align="right">Job</td>
-				<td><input type="text" name="job" value="" required="required" size="20" style="height:20px"></td>
-			</tr>
-			<tr>
-				<td align="right">Description</td>
-				<td><input type="text" name="description" value="" required="required" size="75" style="height:75px"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"> 
-				<input type="submit" value="Submit">
-				</td>
-			</tr>
-		</table>
-	</form>
-	<?php
-		echo "<section>";
+			</div>
+</form>
 
-		$query="select * from Job ORDER BY career;";
-		$result=mysql_query($query);
-	   
-		echo "<form action=jobDelete.php method=$_GET>";
-		tabledumpdeltedit( $result );
-	   	echo "</form>";
-		echo "</section>";
-	?>
- </artical>
- </div>
+<h2 id="left_h2">Add New Link</h2>
+<form action="../admin/linkProcess.php" method="POST">
+   <table>
+      <tr>
+         <td align="right">Link</td>
+         <td> <input type="url" name="link" required="required"/> </td>
+      </tr>
+      
+      <tr>
+         <td align="right">Name</td>
+         <td> <input type="text" name="name" required="required"/> </td>
+      </tr>
+      
+      <tr>
+         <td align="right">Description</td>
+         <td> <input type="text" name="description" required="required"/> </td>
+      </tr>
+      
+      <tr>
+         <td align="right">Category</td>
+         <td> <input type="text" name="category" required="required"/> </td>
+      </tr>
+      
+      <tr>
+         <td align="right">Submit</td>
+         <td> <input type="submit"  name="Submit" value="Submit"/> </td>
+      </tr>
+
+   </table>
+</form>
+<br/>
+<?php
+	echo "<section>";
+
+	$query="SELECT * from Link ORDER BY name;";
+    $result=mysql_query($query);
+   
+	echo "<form action=../admin/linkDelete.php method=$_GET>";
+   tabledumpdeltedit( $result );
+	echo "</form>";
+   
+	echo "</section>";
+?>
+</div>
 </body>
 
 <!--footer-->	
@@ -224,8 +229,4 @@
        </div><!--address-->	 
          	
 	</footer>
- </section>
-</div>	<!-- big_wrapper-->	
-
-
 </html>

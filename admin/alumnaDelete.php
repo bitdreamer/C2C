@@ -27,7 +27,7 @@ if(isset($_GET['id']))
 	if ($resultB==0) {noerror($resultB);}
 
 
-	header("Location: alumnaAdd.php");
+	header("Location: ../main/alumnaAdd.php");
 	exit;
 }
 else

@@ -60,6 +60,6 @@
 		}
 	}
    //Header travels to specified location
-   header("Location:interestAdd.php");
+   header("Location: ../main/interestAdd.php");
    exit;
 ?>

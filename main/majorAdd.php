@@ -64,7 +64,7 @@
  <article>
    <p id="majorIntro">* For development purposes (ONLY)</p>
 
-<form id="majorForm" action="majorProcess.php" method="POST">
+<form id="majorForm" action="../admin/majorProcess.php" method="POST">
 <table id="majorTable">
  <tr>
       <td align="right">Major</td>
@@ -316,7 +316,7 @@
 	$query="select * from Major ORDER BY major;";
     $result=mysql_query($query);
    
-	echo "<form action=majorDelete.php method=$_GET>";
+	echo "<form action=../admin/majorDelete.php method=$_GET>";
    tabledumpdeltedit( $result );
 	echo "</form>";
    

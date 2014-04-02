@@ -38,7 +38,7 @@ if(isset($_GET['id']))
 	$resultF=mysql_query($queryF);
 	if ($resultF==0) {noerror($resultF);}
 
-   header("Location: majorAdd.php");
+   header("Location: ../main/majorAdd.php");
    exit;
 }
 else

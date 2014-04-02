@@ -23,7 +23,7 @@ session_start();
    if ($result==0) { noerror( $result ); }
    //echo "query = $query";
 
-   header("Location: opportunityAdd.php");
+   header("Location: ../main/opportunityAdd.php");
    exit;
    
 ?>

@@ -19,6 +19,6 @@ session_start();
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
-   header("Location: majorAdd.php");
+   header("Location: ../main/majorAdd.php");
    exit;
 ?>

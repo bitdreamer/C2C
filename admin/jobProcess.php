@@ -18,6 +18,6 @@ session_start();
 
 
 
-   header("Location: jobAdd.php");
+   header("Location: ../main/jobAdd.php");
    exit;
 ?>

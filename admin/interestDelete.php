@@ -18,7 +18,7 @@
 			$resultB=mysql_query($queryB);
 			if ($resultB==0) {noerror($resultB);}
 
-			header("Location: interestAdd.php");
+			header("Location: ../main/interestAdd.php");
 			exit;
 		} 
 		else 

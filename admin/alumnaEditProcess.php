@@ -12,6 +12,6 @@
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
-   header("Location: alumnaAdd.php");
+   header("Location: ../main/alumnaAdd.php");
    exit; 
 ?>

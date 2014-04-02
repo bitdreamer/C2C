@@ -26,7 +26,7 @@ if(isset($_GET['id']))
 	if ($resultC==0) {noerror($resultC);}
 
 
-   header("Location: jobAdd.php");
+   header("Location: ../main/jobAdd.php");
    exit;
 }
 else

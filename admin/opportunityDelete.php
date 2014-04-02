@@ -18,7 +18,7 @@ if(isset($_GET['id']))
 	$resultB=mysql_query($queryB);
 	if ($resultB==0) {noerror($resultB);}
 
-   header("Location: opportunityAdd.php");
+   header("Location: ../main/opportunityAdd.php");
    exit;
 }
 else
