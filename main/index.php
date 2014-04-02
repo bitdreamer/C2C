@@ -3,7 +3,7 @@
 	session_start(); 
 
 	include("../included/openDB.php");
-	include("../included/mainMenu.php"); 
+	include("../included/leftMenu.php"); 
 	include("../included/tabledump.php");
 	openDB();
 
@@ -32,7 +32,7 @@
 <div id="links">
 	<nav id="left_menu">
 	 <ul>
-		<?php mainMenu(); ?>
+		<?php leftMenu(); ?>
 	 </ul>	
 	</nav>
 
