@@ -18,29 +18,24 @@
     <title> Job Request</title>
 	<link rel= "stylesheet" type="text/css"  href="../style.css"  />
 </head>
-
-
-<!--body-->
+	
+<!--logo-->
 <body> 
-	<div id="big_wrapper">
 	
 <!-- logo part-->	 
-	<header id="top_header">  
-		<section id="logo"></section>
+	<header id="logo">  
      </header>
-     
-<!--Left Menu-->
-<div id="links">
-	<nav id="left_menu">
+	
+<aside>
+	<nav>
 	 <ul>
 		<?php leftMenu(); ?>
 	 </ul>	
 </nav>
-</div>
 
 <!-- text-->
- <h1 name="mainHeader"> Job Request</h1>
-<section id="new_text">
+ 		<h1 name="mainHeader"> Job Request</h1>
+<section id="main_content">
 <?php
 
 	$jobID=addslashes($_GET['career']); 
@@ -90,5 +85,6 @@
 
 	</footer>
 	
+	</aside>
 	</body>
 </html>
