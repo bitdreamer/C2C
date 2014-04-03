@@ -1,3 +1,6 @@
+
+/*new CSS*/
+
 html 
 {
   margin: 0;
@@ -22,6 +25,8 @@ body
 {  
    width: auto;
    margin: 0px auto;
+   font: normal 16px Arial;
+
 }
 
 aside
@@ -36,29 +41,13 @@ h1[name="mainHeader"]
  {
      color: #8B0941; 
      text-align:center;
-     font: bold 40px helvetica neue;
-     margin: 70px 0px 0px 0px;	
+     margin: 50px 0px 0px 0px;	
  }
-#majorHeader
-{ 
-     color: #8B0941; 
-     text-align:center;
-     font: bold 30px helvetica neue;
-     padding: 90px 0px 0px 0px; 
-}
-
-#main_content
- {
-    padding: 30px 50px 0px 200px;
-    margin: 0px 0px 0px 0px;
-    height:700px;
-    width:900;
- } 
 				  
-#left_menu 
+nav 
 {
     float:left;
-    padding: 40px 0px 0px 20px;
+    padding: 20px 0px 0px 10px;
     margin: 0 0 20px 0;
 }
     
@@ -68,20 +57,39 @@ ul
    text-align: left;
    margin:0px;
    padding:0px;
-
+   font-size:14px;
 } 
       
- #left_menu a
+nav a
 { 
     color:white; 
-    font: normal 14px helvetica neue;
     margin:0px;
     padding:0px;
 }
 
+#main_content
+ {
+    padding: 30px 50px 0px 200px;
+    margin: 0px 0px 0px 0px;
+    height:700px;
+    width:900;
+ } 
 
+#main_text
+{
+   float:left;
+   padding: 50px 0px 30px 150px;
+   margin: 0px;
+   display:block;
+}
 
-
+#h2_header
+{
+  font:bold 21px;
+  padding: 0px;
+  margin: 10px 0px 10px 0px;
+  color:#872187;
+}
 
 #newJob{padding:30px 40px 20px 180px;font: normal 20px helvetica neue;} 
 #majorTable{ margin: 0px 40px 20px 0px;}
@@ -96,17 +104,16 @@ h1[name="mainHeader"]
  {
      color: #8B0941; 
      text-align:center;
-     font: bold 40px helvetica neue;
+     font: bold 40px arial;
      padding: 10px 0px 0px 0px;	
  }
  
 p[name="mainIntro"]
  {
    color: black;
-   font-family: helvetica neue;
    text-align:justify;
    text-justify:inter-word; 	
-   padding:50px 0px 0px 0px; 
+   padding:30px 70px 0px 50px; 
    margin:0px;
 
  }
@@ -127,17 +134,18 @@ p[name="mainIntro"]
    display:block;
 }
 
+
+
+
 #mainIntro
  {
    color: black;
-   font-family: helvetica neue;
    text-align:justify;
    text-justify:inter-word; 	
    padding: 0px 100px 0px 200px;
 }
 #logout_content
 {
-   font-family: helvetica neue;	
    width:700px;
    height: 500;
    margin: 0px 0px 0px 300px;
@@ -147,7 +155,6 @@ p[name="mainIntro"]
 
 #login_content
 {
-   font-family: helvetica neue;	
    width:700px;
    height: 500px;
    margin: 50px 0px 0px 200px;
@@ -163,7 +170,7 @@ p[name="mainIntro"]
 #column1
 {
    float:left; 
-   margin: 20px 0px 0px 200px;
+   margin: 20px 0px 0px 50px;
    width:300px;  
    padding: 0px;
 
@@ -172,35 +179,24 @@ p[name="mainIntro"]
 #column2
 {
    float:right;
-   width: 200px;
+   width: 400px;
    margin: 15px 10px 30px 0px;
    font-family: helvetica neue;	
 
 }
-table{font:normal 16px helvetica neue;}
 td{align:right;}
 
 input 
 { 
-  font-family: bold helvetica neue;
   color:black;
   margin: 5px 0px 5px 0px;
 }
 
 
 
-#left_h2
-{
-  font-family: helvetica neue; 
-  font:bold 21px helvetica neue;
-  padding: 0px;
-  margin: 10px 0px 10px 0px;
-  color:#872187;
-}
 
 legend
 {
-  font-family: helvetica neue; 
   padding: 0 0 10px  0;
 }
 

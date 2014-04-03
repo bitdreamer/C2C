@@ -17,27 +17,27 @@
     <meta charset="utf-8" />
     <title> Career Pathways</title>
 	<link rel= "stylesheet" type="text/css"  href="../style.css"  />
+
 </head>
 
 <!--logo-->
 <body> 	
+
 <!-- logo part-->	 
-	<header id="top_header">  
-		<section id="logo"></section>
+	<header id="logo">  
      </header>
-     
 <!--Left Menu-->
-<aside id="links">
-	<nav id="left_menu">
+<aside>
+	<nav>
 	 <ul>
 		<?php leftMenu(); ?>
 	 </ul>	
-	</nav>
-
+</nav>
+	 
 <!-- text-->
- 		<h1 name="mainHeader"> Classroom to Career PathWays</h1>
 
 <section id="main_content">
+ 		<h1 name="mainHeader"> Classroom to Career PathWays</h1>
 
       <article>	 
 		<p name="mainIntro">	
@@ -52,8 +52,9 @@
 		 <video  src="career.mp4" type="video/mp4" poster="images/meredith.jpg" controls>
 		 </video>-->
 		 
- <article id="left_side">
-		    <h2 id="left_h2"> Choose a major or job to learn more about it. </h2>
+ <article id="main_text">
+ 		    <h2 id="h2_header"> Choose a major or job to learn more about it. </h2>
+
 <!-- Drop down choices for Majors and Jobs-->
 		<?php
 
@@ -96,7 +97,7 @@
 	</form></br></br>
 	
 <!-- Job Form-->
-<h2 id="left_h2"> OR choose from Job</h2>
+<h2 id="h2_header"> OR choose from Job</h2>
 	<form action="jobRequest.php" method="GET">
 		<fieldset id="jobInfo">
 			<legend id="legends">Which of the following jobs are you most interested in?</legend>
