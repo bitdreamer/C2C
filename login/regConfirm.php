@@ -44,6 +44,7 @@ $confirmationNumber = @$_GET[confirmationNumber];
       $regDate = $row['regDate'];
       $password = $row['password'];
 	$userName = $row['userName'];
+	$accessLv = $row['accessLv'];
       
       $query = "SELECT MAX(userID) from User";
       $result = mysql_query( $query );
@@ -61,6 +62,7 @@ $confirmationNumber = @$_GET[confirmationNumber];
                ." ,password='$password' "
                ." ,regDate='$regDate' "
 		." ,userName='$userName' "
+		." ,accessLv='$accessLv' "
                .";";
          $result=mysql_query($query);
          // Give click option back to login page.
@@ -87,7 +89,7 @@ else
 
 ?>
 
-<a href="main_login.php"> Click here to login </a> 
+<a href="../main/main_login.php"> Click here to login </a> 
 
 </body>
 </html>

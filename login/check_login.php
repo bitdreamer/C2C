@@ -35,11 +35,13 @@ if($count==1){
 	$userInfo = mysql_fetch_array($result1);
 	$getuserID = $userInfo[4];
 	$getusername = $userInfo[6];
+	$getaccessLv = $userInfo[7];
 	settype($getuserID, "integer");
 	settype($getusername, "string");
 	
 	$_SESSION['userID'] = $getuserID;
 	$_SESSION['username'] = $getusername;
+	$_SESSION['accessLv'] = $getaccessLv;
 	
 	//Will be 1 if logged in, 0 if not.
 	$_SESSION['islogged'] = 1;
@@ -52,11 +54,11 @@ if($count==1){
 	else	
 	{
 		//go home
-		header("Location: ../admin/majorAdd.php?PHPSESSID=". session_id());
+		header("Location: ../admin/majorAdd.php");
 	}
 }
 else {
-echo "Wrong Username or Password";
+header ("Location: ../main/main_login.php?msg=1");
 }
 ?>
 </body>

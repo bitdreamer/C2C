@@ -4,20 +4,14 @@
    include("..//included/openDB.php");
    openDB();
 
-   	$name=$_POST['name'];
-	$email=$_POST['email'];
-	$major=$_POST['major'];
-	$degree=$_POST['degree'];
+   $id=$_GET["id"];
+   $name=$_POST["name"];
+   $email=$_POST["email"];
    
-   $query="INSERT INTO Alumna "
-          ." set name='$name' "
-	." ,email='$email' "
-	." ,degree='$degree' "
-          .";";
-
+   $query="UPDATE Alumna SET name='".$name."', email='".$email."' WHERE id='".$id."'";
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
    header("Location: ../main/alumnaAdd.php");
-   exit;
+   exit; 
 ?>

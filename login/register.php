@@ -4,18 +4,8 @@
    include("..//included/tabledump.php");
    include("..//included/openDB.php");
    openDB();
-?>
 
-<html>
-<head>
-<title> Registration Processsing</title>
-</head>
-<body>
-<h2>Registration Processing</h2>
-
-<?php
-
-/* logger3Reg.php
+/* register.php
    This page is sent in POST the email4Reg, firstname4reg, lastname4reg,
    password4reg, password4reg2, regnum.   
    They have been checked for length but not funny stuff.
@@ -31,99 +21,87 @@ $emas = addslashes( $em );
 $pw  = @$_POST[password4reg];
 $pw2 = @$_POST[password4reg2];
 $un = @$_POST[username4reg];
-
+$lv = @$_POST[access];
 if ( $pw!=$pw2 )
 {
-   //header("Location: logger1Start.php?fun=pwmismatch");
-   echo "Passwords don't match. Please go back and try again.  ";
+   header("Location: ../main/main_register.php?msg=2");
+   exit();
 }
-
-if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 ) // no funny stuff in email
+if($em!="" && $em==$emas && $pw!="" && $pw==$pw2 )// no funny stuff in email
 {
-   // user is trying to register.  see if email is already taken
-   // If no match, go ahead and add.
-   $query= "SELECT COUNT(*) FROM User WHERE email='$em';";
-   $result=mysql_query($query);
-   $queryU= "SELECT COUNT(*) FROM User WHERE userName='$un';";
-   $resultU=mysql_query($queryU);
+	// user is trying to register.  see if email is already taken
+	// If no match, go ahead and add.
+	$query= "SELECT COUNT(*) FROM User WHERE email='$em';";
+	$result=mysql_query($query);
+	$queryU= "SELECT COUNT(*) FROM User WHERE userName='$un';";
+	$resultU=mysql_query($queryU);
 
-   if($result==0)
-   {
-      echo "<b>Error ".mysql_errno().": ".mysql_error()."</b>";
-      echo "This is a server error.  If it persists please tell tech support. ";
-      $shtats = "queryerror1";
-   }
-   elseif (@mysql_num_rows($result)==0)
-   {
-      echo "<b></b><br>";
-      echo "This is a server error.  If it persists please tell tech support. ";
-      $shtats = "queryerror2";
-   }
-   else
-   {
-      $row = mysql_fetch_row($result);
-	$rowU = mysql_fetch_row($resultU);
-      if ( $row[0]==0 && $rowU[0]==0 ) // no match is good
-      {
-         // registration: email address is
-         // not in the database, so add this person as temp and 
-         // send email to confirm.
-
-         $shtats = "ok2add";
-         doRegister( $em, $pw, @$_POST[firstname4reg], @$_POST[lastname4reg], 
-                      @$_POST[regnum], @$_POST[username4reg]  ); 
-      }
-      else
-      {
-         $shtats = "EmailTaken"; 
-         echo "An account with this email or username already exists.  Go back "
-         ." and hit the 'forgot password' option if you need to.";
-      }
-   }
-   
+	if($result==0)
+	{
+		header("Location: ../main/notif.php?msg=3");
+		exit();
+	}
+	elseif (@mysql_num_rows($result)==0)
+	{
+		header("Location: ../main/notif.php?msg=3");
+		exit();
+	}
+	else
+	{
+		$row = mysql_fetch_row($result);
+		$rowU = mysql_fetch_row($resultU);
+		if ( $row[0]==0 && $rowU[0]==0 ) // no match is good
+		{
+			 // registration: email address is
+			 // not in the database, so add this person as temp and 
+			 // send email to confirm.
+			 //This function inserts data into the 'Register' table
+			 doRegister( $em, $pw, @$_POST[firstname4reg], @$_POST[lastname4reg], 
+				      @$_POST[regnum], $un, $lv ); 
+			header("Location: ../main/notif.php?msg=6");
+			exit();
+		}
+		else
+		{
+			 header("Location: ../main/main_register.php?msg=4");
+			 exit();
+		}
+	}
 }
 else
 {
-	echo "Failed to register. Try again.";
+	header("Location: ../main/main_register.php?msg=5");
+	exit();
 }
-
-
    // register with email, password, firstname, lastname, and regnum
    // Note: pw, firstname and lastname may need slashing
-   function doRegister( $em, $pw, $first, $last, $regnum, $un )
-   {
-      $shtats = "ok2add";
-      
-      // find max customerID and add one to get new one
-      //$query = "SELECT MAX(userID) from User";
-      //$result = mysql_query( $query );
-      //if ( noerror( $result ) )
-      {
-         //$row = mysql_fetch_row($result);
-         //$userID = $row[0] + 1; // might want to check that this is not 1
-         
+   function doRegister( $em, $pw, $first, $last, $regnum, $un, $lv )
+   {         
          $querydel = "DELETE FROM Register WHERE email='$em';";
          mysql_query($querydel);
          
          $now = time(); // this is a timestamp for right now
          $nowstring = date("Y-m-d", $now );
-         $query= "INSERT INTO Register SET" // was User, but now we 2-step this
+         $query= "INSERT INTO Register SET" // We 2-step this, first into Register, then after confirmation, Insert into User
          ."     first='".addslashes($first)."' "
          ."    ,last='".addslashes($last)."' "
          ."    ,regCode=$regnum "
          ."    ,regDate='$nowstring' "
-         //."    ,level=0 " // will be set to 1 when confirmed
          ."    ,passWord='".addslashes($pw)."' "
-         //."    ,balance=0 "
          ."    ,email='$em'"
 	  ."	,userName='$un'"
+	  ."	,accessLv='$lv'"
          ." ;";
          $result=mysql_query($query);
          noerror($result);
          
          // Email details to be sent
          $subj="Registration Confirmation";
-         $msg="Confirm registration to C2C Pathways by clicking on this link: "
+         $msg="Congratulations. You now have admin access to the Career Pathways website. \n
+	Your username is: ".$un."\n 
+	Your password is: ".$pw."\n\n
+	Confirm registration to Classroom to Career Pathways by clicking on this link:\n "
+
          ."http://www.bitlab.meredith.edu/~c2c/login/regConfirm.php"
          ."?email=$em&confirmationNumber="
          ."$regnum\" >"
@@ -132,12 +110,5 @@ else
 		
 	  //Send e-mail
          mail($em,$subj,$msg,$heads);
-         
-         echo "Go read your email and click on the link to confirm.  ";
-      }
    }
-
 ?>
-
-</body>
-</html>

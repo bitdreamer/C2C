@@ -58,6 +58,6 @@
 		}
 	}
    //Header travels to specified location
-   header("Location:opportunityAdd.php");
+   header("Location: ../main/opportunityAdd.php");
    exit;
 ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-   include("..//included/tabledump.php");
-   include("..//included/openDB.php");
+   include("../included/tabledump.php");
+   include("../included/openDB.php");
    openDB();
 
    $interest= $_POST['interest'];
@@ -13,6 +13,6 @@ session_start();
    if ($result==0) { noerror( $result ); }
    //echo "query = $query";
 
-   header("Location: interestAdd.php");
+   header("Location: ../main/interestAdd.php");
    exit; 
 ?>

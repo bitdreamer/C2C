@@ -61,6 +61,6 @@
 		}
 	}
    //Header travels to specified location
-   header("Location:jobAdd.php");
+   header("Location: ../main/jobAdd.php");
    exit;
 ?>

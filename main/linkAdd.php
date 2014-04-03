@@ -1,43 +1,57 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['email'])){
-	header("location:..//login/main_login.php");
-	}
-	include("..//included/tabledump.php");
-	include("..//included/openDB.php");
-	openDB();	
+	include("../included/loginStatus.php");
+	areYouLogged();
+	include("../included/tabledump.php");
+	include("../included/openDB.php");
+	openDB();
+	
 ?>
 <!-- Here's where the HTML starts -->
-<html>
-
+<!DOCTYPE html>
+<html lang="en"> 	
 <head>
-	<link rel= "stylesheet"type="text/css"  href="..//style.css"  />
-	<title> Add an Opportunity</title>
+<meta charset="utf-8" />
+<link rel= "stylesheet" href="../style.css" type="text/css" />
+<title>Add New Link</title>
 </head>
 
+
 <!--logo-->
-<body> 	   
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
 
-<div id="links">	
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
 <?php
-
-	include("..//included/leftMenu.php"); 
+	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-</div>
-<br/>
 
-<h1 id="smallerH1">Add New Opportunity</h1>
+   </ul>	
+</nav>
+	</div><!--links-->
 
-<div id="text">		
-  <h2>Connect Opportunity to Major</h2>
-	<form action="opportunityMajorConnect.php" method="POST">
+
+<h1 id="majorHeader">Add a Link</h1>
+<section id="next_text">
+<article id="newJob">
+
+	<h2 id="left_h2">Connect Link to Major</h2>
+
+ <div id="newLink">
+
+	<form  action="../admin/linkMajorConnect.php" method="POST">
 	<?php
 	
-	$query = "SELECT * FROM Major";
+	$query = "SELECT * FROM Major ORDER BY major";
 	$result=mysql_query($query);
 	majortabledump($result);
 	
@@ -95,15 +109,15 @@
 
 	}
 	
-	$queryB = "SELECT * FROM Opportunity";
+	$queryB = "SELECT * FROM Link ORDER BY name";
 	$resultB=mysql_query($queryB);
-	opptabledump($resultB);
+	linktabledump($resultB);
 	
-	function opptabledump( $resultB )
+	function linktabledump( $resultB )
 	{
 		echo "<table>";
 		echo "<tr>";
-		echo "<td align=center width=100>Opportunity</td>";
+		echo "<td align=center width=100>Link</td>";
 
 		if($resultB==0)
 		{
@@ -120,7 +134,7 @@
 					
 			for($i=0; $i<$nr; $i++ )
 			{	   
-				$j=1;
+				$j=2;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
 				if($c==5)
@@ -130,14 +144,14 @@
 					echo "<tr>";
 					echo "<td></td>";
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxO[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxL[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
-					$c=0;
+					$c=1;
 				}
 				else
 				{
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxO[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxL[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c++;
 				}
@@ -149,31 +163,36 @@
 		return $row;
 	}
 	?>
-		<tr>
+	<tr>
 				<td colspan="2" align="center"> 
 				<input type="submit" value="Submit">
 				</td>
 			</tr>
+			</div>
 </form>
 
-<br />
-<h2>Add New Opportunity</h2>
-<form action="opportunityProcess.php" method="POST">
+<h2 id="left_h2">Add New Link</h2>
+<form action="../admin/linkProcess.php" method="POST">
    <table>
-      <tr>
-         <td align="right">Opportunity</td>
-         <td> <input type="text" name="opportunity" required="required"/> </td>
-      </tr>
-      
       <tr>
          <td align="right">Link</td>
          <td> <input type="url" name="link" required="required"/> </td>
       </tr>
-	
-	<tr>
-		<td align="right">Description</td>
-		<td> <input type="text" name="description" /></td>
-	</tr>
+      
+      <tr>
+         <td align="right">Name</td>
+         <td> <input type="text" name="name" required="required"/> </td>
+      </tr>
+      
+      <tr>
+         <td align="right">Description</td>
+         <td> <input type="text" name="description" required="required"/> </td>
+      </tr>
+      
+      <tr>
+         <td align="right">Category</td>
+         <td> <input type="text" name="category" required="required"/> </td>
+      </tr>
       
       <tr>
          <td align="right">Submit</td>
@@ -182,26 +201,34 @@
 
    </table>
 </form>
-
+<br/>
 <?php
 	echo "<section>";
 
-	$query="select * from Opportunity;";
+	$query="SELECT * from Link ORDER BY name;";
     $result=mysql_query($query);
    
-	echo "<form action=opportunityDelete.php method=$_GET>";
-   tabledumpdelt( $result );
+	echo "<form action=../admin/linkDelete.php method=$_GET>";
+   tabledumpdeltedit( $result );
 	echo "</form>";
    
 	echo "</section>";
 ?>
-</div>
+
+</article>
+<div>
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	   	
+	</footer>
+
+</div>	<!-- big_wrapper-->	
+</section>		
 </body>
-	<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
 </html>

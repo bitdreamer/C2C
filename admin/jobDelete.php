@@ -4,6 +4,8 @@
    include("..//included/openDB.php");
    openDB();
 
+if(isset($_GET['id'])) 
+{
 	$id = $_GET["id"];
    
    $query="DELETE FROM Job WHERE id='".$id."'";
@@ -24,6 +26,41 @@
 	if ($resultC==0) {noerror($resultC);}
 
 
-   header("Location: jobAdd.php");
+   header("Location: ../main/jobAdd.php");
    exit;
+}
+else
+{
+
+			$id=$_GET["ide"];
+			//echo $_GET["ide"];
+
+			$query = "SELECT * FROM Job WHERE id='".$id."'";
+			$result = mysql_query($query);
+
+			$row=mysql_fetch_array($result);
+			$i=1;
+			$career=$row[$i];
+			$description=$row[2];
+
+
+	echo "<form action=jobEditProcess.php?id=".$id." method=POST>";
+	   echo "<table>";
+			echo "<tr>";
+				echo "<td align=right>Job</td>";
+				echo "<td><input type=text name=career value=$career required=required size=20 style=height:20px></td>";
+			echo "</tr>";
+			echo "<tr>";
+				echo "<td align=right>Description</td>";
+				echo "<td><input type=text name=description value=$description required=required size=75 style=height:75px></td>";
+			echo "</tr>";
+			echo "<tr>";
+				echo "<td colspan=2 align=center >";
+				echo "<input type=submit value=Submit >";
+				echo "</td>";
+			echo "</tr>";
+		echo "</table>";
+	echo "</form>";
+
+}
 ?>

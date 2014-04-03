@@ -1,17 +1,19 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['email'])){
-	header("location:..//login/main_login.php");
-	}
-	 include("..//included/tabledump.php");
-     include("..//included/openDB.php");
-     openDB();
+	include("..//included/loginStatus.php");
+	areYouLogged();
+	include("..//included/tabledump.php");
+	include("..//included/openDB.php");
+	openDB();
 ?>
-<html>
-<head>
 
+<!-- main Page -->
+<!DOCTYPE html>
+<html lang="en"> 	
+<head>
+<meta charset="utf-8" />
 <link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Classroom to Career Pathways</title>
+<title>Add New Major</title>
 
 <script type="text/javascript">
 	var k = 0;
@@ -29,30 +31,43 @@
 		var previewData = document.getElementById("previewData");
 		previewData.firstChild.nodeValue = preview[0];
 	}
-	
-	
+		
 </script>
 
 </head>
 
-<body>
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
 
-<div id="links">	
+<!--body-->
+<body> 
+	<div id="big_wrapper">
+	
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
+
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+	 <ul>
 <?php
 	include("../included/leftMenu.php");
 	leftMenu();
 ?>
+	 </ul>	
+</nav>
 </div>
-<br/>
-		
-<div id="main">
-<article id="newJob">
-<h1 style="margin:0 0 0 200">Add Major (For development purposes ONLY)</h1>
-<form name="majorForm" action="majorProcess.php" method="POST">
-   <table>
+
+   <h1 name="mainHeader">Add Major </h1>
+   
+<section id="text_content">
+<div id="newMajor">
+ <article>	
+ 
+   <p id="majorIntro">* For development purposes (ONLY)</p>
+
+<form id="majorForm" action="../admin/majorProcess.php" method="POST">
+<table id="majorTable">
  <tr>
       <td align="right">Major</td>
 
@@ -100,31 +115,32 @@
 			</select></td>
       </tr>
 	<tr>
-         <td align="right">ID</td>
-         <td><input type="text" name="id" value="" required="required" size="3" style="height:20px"></td>
+         <td >ID</td>
+         <td><input type="text" name="id" value="" required="required" size="3"></td>
       </tr>
 	  <tr>
-         <td align="right">Description</td>
-         <td><input type="text" name="description" value="" required="required" size="50" style="height:75px"></td>
+
+         <td>Description</td>
+         <td><input type="text" name="description" value="" required="required" size="50"></td>
       </tr>
 	<tr>
-         <td align="right">Department</td>
-         <td><input type="text" name="department" value="" required="required" size="20" style="height:20px"></td>
+         <td >Department</td>
+         <td><input type="text" name="department" value="" required="required" size="20"></td>
       </tr>
 	</table>
-		<div align="left" colspan="2" style="margin:50 0 0 0" ><p>Jobs in Major</p></div>
+		<div  colspan="2" ><h2 id="left_h2">Jobs in Major</h2></div>
 	
 
 <?php
-	$queryB = "SELECT * FROM Job";
+	$queryB = "SELECT * FROM Job ORDER BY career";
 	$resultB=mysql_query($queryB);
 	jobtabledump1($resultB);
 	
 	function jobtabledump1( $resultB )
 	{
 		echo "<table>";
-		echo"<p> To link associated jobs with major being created.</p>";
-		echo"<h3 style='background-color:gray; height:30'> Min Degree: BS </h3>";
+		echo"<p id='majorIntro'> To link associated jobs with major being created.</p>";
+		echo"<h3 id='majorHeaders'> Min Degree: BS </h3>";
 		echo "<tr>";
 		echo "<td></td>";
 
@@ -173,7 +189,7 @@
 	}
 ?>
 <?php
-	$queryB = "SELECT * FROM Job";
+	$queryB = "SELECT * FROM Job ORDER BY career";
 	$resultB=mysql_query($queryB);
 	jobtabledump2($resultB);
 	
@@ -228,7 +244,7 @@
 ?>
 </br>
 <?php
-	$queryB = "SELECT * FROM Job";
+	$queryB = "SELECT * FROM Job ORDER BY career";
 	$resultB=mysql_query($queryB);
 	jobtabledump3($resultB);
 	
@@ -293,31 +309,40 @@
    </table>
 
 </form>
-<p id="previewData" name="previewData">
-</p>
-<!-- 
-<h3>Majors already created</h3>
+
+
+<p id="previewData" name="previewData"> </p>
+<h2 id="left_h2">Majors already created</h2>
 <?php
 	echo "<section>";
 
 
-	$query="select * from Major;";
+	$query="select * from Major ORDER BY major;";
     $result=mysql_query($query);
    
-   tabledump( $result );
+	echo "<form action=../admin/majorDelete.php method=$_GET>";
+   tabledumpdeltedit( $result );
+	echo "</form>";
    
 	echo "</section>";
 ?>
- -->
-</div>
-</article>
-<div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
-</div>
+
+ </artical>
+ </div>
 </body>
+
+<!--footer-->	
+<footer id="footer">
+	   <div id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </div><!--address-->	 
+         	
+	</footer>
+ </section>
+</div>	<!-- big_wrapper-->	
+
+
 </html>
