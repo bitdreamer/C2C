@@ -6,7 +6,7 @@ session_start();
 
 
 
-		if(isset($_GET['id'])) 
+		if(isset($_GET['id'])) //Delete
 		{
 			$id = $_GET["id"];
 
@@ -21,7 +21,7 @@ session_start();
 			header("Location: ../main/interestAdd.php");
 			exit;
 		} 
-		elseif(isset($_POST['SubmitP']))
+		elseif(isset($_POST['SubmitP'])) //Add new
 		{
  			$interest= $_POST['interest'];
    
@@ -35,7 +35,7 @@ session_start();
    			header("Location: ../main/interestAdd.php");
    			exit; 
 		}
-		else if(isset($_POST['Connect']))
+		else if(isset($_POST['Connect'])) //Connect
 		{
 	//Gathers input data from addInterest.php
 	$arrayM=$_POST['checkboxM'];	//majors
@@ -96,7 +96,7 @@ session_start();
    header("Location: ../main/interestAdd.php");
    exit;
 		}
-		else 
+		else  //Edit
 		{
 			$id=$_GET["ide"];
 			//echo $_GET["ide"];
@@ -113,7 +113,7 @@ session_start();
    				echo "<table>";
      					echo "<tr>";
          					echo "<td align=right>Interest</td>";
-         					echo "<td> <input type=text name=interest value=$interest /> </td>";
+         					echo "<td> <input type=text name=interest value='".$interest."' /> </td>";
      					 echo "</tr>";
      					 echo "<tr>";
          					echo "<td align=right>Submit</td>";
