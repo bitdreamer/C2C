@@ -40,7 +40,7 @@
 
 <h1 id="majorHeader">Add New Opportunity</h1>
 
-<section id="main_content">
+<section id="text_content">
 <div id="newJob">
  <article>		
  	
@@ -123,7 +123,7 @@
 		}
 		elseif (@mysql_num_rows($resultB)==0)
 		{
-			echo "<b>There doesn't seem to be anything here... yet.</b><br>";
+			echo "<br/><b>There doesn't seem to be anything here... yet.</b><br/><br/>";
 		}
 		else
 		{
@@ -207,14 +207,8 @@
    
 	echo "</section>";
 ?>
- </artical>
- </div>
-      </div>
-       </div>
-
-         
- </section>
- </div><!--links-->
+</artical>
+</section>
 
 <!--footer-->	
 <footer id="footer">
@@ -229,7 +223,4 @@
 </div>	<!-- big_wrapper-->	
 		
 	</body>
-</html>
-
-
 </html>

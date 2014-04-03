@@ -37,14 +37,13 @@
 </nav>
 </div><!--links-->
 
-
-<section id="main_content">
 <h1 id="majorHeader">Add New Interest</h1>
+<section id="text_content">
 
 <div id="newMajor">
- <article>	
+ <article >	
 <h2 id="left_h2">Connect Interest to Major</h2>
-	<form action="../admin/interestMajorConnect.php" method="POST">
+	<form action="../admin/interestProcess.php" method="POST">
 	<?php
 	
 	$query = "SELECT * FROM Major ORDER BY Major";
@@ -161,7 +160,7 @@
 		<table>
 			<tr>
 				<td colspan="2" align="center"> 
-				<input type="submit" value="Submit">
+				<input type="submit" name="Connect" id="Connect" value="Submit">
 				</td>
 			</tr>
 		</table>
@@ -176,20 +175,19 @@
       </tr>
       <tr>
          <td align="right">Submit</td>
-         <td> <input type="submit"  name="Submit" value="Submit"/> </td>
+         <td> <input type="submit" name="SubmitP" id="SubmitP" value="Submit"/> </td>
       </tr>
    </table>
 </form>
-
+<br/>
+<br/>
 <?php
 	echo "<section>";
-
-
 
 	$query="select * from Interest ORDER BY interest;";
     $result=mysql_query($query);
    
-	echo "<form action=../admin/interestDelete.php method=$_GET>";
+	echo "<form action=../admin/interestProcess.php method=$_GET>";
    tabledumpdeltedit( $result );
 	echo "</form>";
    

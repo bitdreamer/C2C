@@ -23,12 +23,25 @@ include("../included/template.php");
 
 <!--logo-->
 <body> 
-	<div id="big_wrapper">
 	
+
 <!-- logo part-->	 
-	<header id="top_header">  
-		<section id="logo"></section>
+	<header id="logo">  
      </header>
+     
+<!--Left Menu-->
+<div id="links">
+	<nav id="left_menu">
+
+<?php 
+	include("..//included/leftMenu.php"); 
+	leftMenu();
+?>
+   </ul>	
+</nav>
+</div><!--links-->
+
+ <div id="welcome">    
 <?php
    if(isset($_SESSION['username']))
 	{
@@ -38,24 +51,14 @@ include("../included/template.php");
 		echo "</aside>";
 	}
 ?>
+</div>
 
-<!--Left Menu-->
-<div id="links">
-	<nav id="left_menu">
-	 <ul>
-<?php 
-	include("..//included/leftMenu.php"); 
-	leftMenu();
-?>
-    </ul>	
-</nav>
-</div><!--links-->
+
 
 <!-- text-->
 <section id="login_content">
+<h2 id="h2_header"> LogIn</h2> 
 
-<article id="login">
-<h2 id="left_h2"> LogIn</h2> 
 	
   <form action="../login/check_login.php" method="POST">
    <table>
@@ -74,9 +77,8 @@ include("../included/template.php");
    </table>
 </form>
 
-</article>
-</section>
  	
+</section>
 
 <!--footer-->	
 <footer id="footer">
@@ -88,7 +90,7 @@ include("../included/template.php");
        </div><!--address-->	   	
 	</footer>
 	
-</div>	<!-- big_wrapper-->	
+	</aside>
 		
 	</body>
 </html>

@@ -37,17 +37,15 @@
 
    </ul>	
 </nav>
-</div><!--links-->
+	</div><!--links-->
 
 
 <h1 id="majorHeader">Add a Link</h1>
+<section id="next_text">
+<article id="newJob">
 
-
-<section id="main_content">
-<div id="newJob">
 	<h2 id="left_h2">Connect Link to Major</h2>
 
- <article>
  <div id="newLink">
 
 	<form  action="../admin/linkMajorConnect.php" method="POST">
@@ -216,8 +214,9 @@
    
 	echo "</section>";
 ?>
-</div>
-</body>
+
+</article>
+<div>
 
 <!--footer-->	
 <footer id="footer">
@@ -226,7 +225,10 @@
 	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
 	      </br>
           Phone: (919) 760-8600 or 1-800 MEREDITH
-       </div><!--address-->	 
-         	
+       </div><!--address-->	   	
 	</footer>
+
+</div>	<!-- big_wrapper-->	
+</section>		
+</body>
 </html>

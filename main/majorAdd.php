@@ -13,7 +13,7 @@
 <head>
 <meta charset="utf-8" />
 <link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Add Major</title>
+<title>Add New Major</title>
 
 <script type="text/javascript">
 	var k = 0;
@@ -31,13 +31,13 @@
 		var previewData = document.getElementById("previewData");
 		previewData.firstChild.nodeValue = preview[0];
 	}
-	
-	
+		
 </script>
 
 </head>
 
-<!--logo-->
+
+<!--body-->
 <body> 
 	<div id="big_wrapper">
 	
@@ -54,14 +54,16 @@
 	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-
-   </ul>	
+	 </ul>	
 </nav>
-   <h1 id="majorHeader">Add Major </h1>
+</div>
 
-<section id="main_content">
-<div id="newJob">
- <article>
+   <h1 name="mainHeader">Add Major </h1>
+   
+<section id="text_content">
+<div id="newMajor">
+ <article>	
+ 
    <p id="majorIntro">* For development purposes (ONLY)</p>
 
 <form id="majorForm" action="../admin/majorProcess.php" method="POST">
@@ -307,6 +309,8 @@
    </table>
 
 </form>
+
+
 <p id="previewData" name="previewData"> </p>
 <h2 id="left_h2">Majors already created</h2>
 <?php
@@ -322,6 +326,7 @@
    
 	echo "</section>";
 ?>
+
  </artical>
  </div>
 </body>
@@ -336,7 +341,6 @@
        </div><!--address-->	 
          	
 	</footer>
-</artical>
  </section>
 </div>	<!-- big_wrapper-->	
 

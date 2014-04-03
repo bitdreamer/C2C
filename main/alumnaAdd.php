@@ -10,7 +10,7 @@ areYouLogged();
 <head>
 <meta charset="utf-8" />
 <link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Add an Alumna </title>
+<title>Add New Alumna </title>
 
 
 <!--body-->
@@ -121,6 +121,8 @@ The POST array will be indexed using the respective input type's name -->
 
    </table>
 </form>
+<br/>
+<br/>
 <?php
 	//This section will show the contents of the Alumna table
 	echo "<section>";

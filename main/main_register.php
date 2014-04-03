@@ -31,7 +31,7 @@ whoIsLogged($_SESSION['accessLv']);
 		<section id="logo"></section>
      </header>
 
-</div>
+
 <!--Left Menu-->
 <div id="links">
 	<nav id="left_menu">
@@ -45,20 +45,19 @@ whoIsLogged($_SESSION['accessLv']);
 </nav>
 </div><!--links-->
 	   <h1 id="majorHeader"> Register</h1>
-
-	<div id="welcome">
+	   
+ <div id="welcome">    
 <?php
    if(isset($_SESSION['username']))
 	{
-		echo "<aside>";
 		$username=$_SESSION['username'];
-		echo "<p>Hello, ".$username."</p>";
-		echo "</aside>";
+		echo "<h4 id='hello'>Hello, ".$username."</h4>";
 	}
 ?>
-	   
-<section id="main_content">
-<div id="new">
+</div>	   
+
+<section id="text_content">
+<div id="newJob">
 <article>
 
 <p>
@@ -66,7 +65,6 @@ whoIsLogged($_SESSION['accessLv']);
 	displayContent($_GET['msg']);
 ?>
 </p
-<p>Register:</p>
 <form id="forms" action="../login/register.php" method="POST">
    <table>
       <tr>

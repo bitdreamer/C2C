@@ -15,28 +15,31 @@ openDB();
     <title>major Match Maker</title>
 </head>
 
-<!--logo-->
-<body> 	
-
+<!--body-->
+<body> 
+	<div id="big_wrapper">
+	
 <!-- logo part-->	 
-	<header id="logo">  
+	<header id="top_header">  
+		<section id="logo"></section>
      </header>
+     
 <!--Left Menu-->
-<aside>
-	<nav>
+<div id="links">
+	<nav id="left_menu">
 	 <ul>
 		<?php leftMenu(); ?>
 	 </ul>	
 </nav>
+</div>
 
 <!-- text-->
-    <h1 name="mainHeader">Major Match Maker</h1>
-    
 <section id="main_content">
- 
+
+    <h1 name="mainHeader">Major Match Maker</h1>    
     <p name="mainIntro">Look through the list of interests below and drag the things that interest you into the box below. Once you have dragged a few interests into the box below, the majors on the left will change size based off your interests. The larger the major, the more compatiable it is for you.</p>
     
-   <article id="contentBox">
+   <article id="content_text">
         
     <form id="column1">
     
@@ -64,9 +67,8 @@ openDB();
     ?>
         
     </form>
-   </article> 
    
-<article id="column2">            
+  <article id="column2">            
     <h2 id="h2_header">Majors</h2>
     <!-- qurey to list all the majors on the other side of the page -->
     <?php
@@ -81,7 +83,7 @@ openDB();
                 $row=mysql_fetch_array($result2);
                 $major=$row['major'];
                 $majorID=$row['id'];
-                echo "<a href=\"majorRequest.php?major=$majorID\"><font id=MAJ$majorID size=\"2\">$major</font></a> &nbsp;\n";
+                echo "<a id='quizMajors' href=\"majorRequest.php?major=$majorID\"><font id=MAJ$majorID size=\"2\">$major</font></a> &nbsp;\n";
             }
         }
 
@@ -136,22 +138,18 @@ openDB();
             }
 ?>
 
-</article>
-</section>
- 
-	
+</div>
+</body>
+
 <!--footer-->	
 <footer id="footer">
-	   <article id="address">
+	   <div id="address">
 	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
 	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
 	      </br>
           Phone: (919) 760-8600 or 1-800 MEREDITH
-       </article><!--address-->	   	
+       </div><!--address-->	 
+         	
 	</footer>
-	
-</aside>
-	
-	</body>
-
 </html>
+ 

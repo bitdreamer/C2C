@@ -13,7 +13,7 @@
 <head>
 <meta charset="utf-8" />
 <link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Add New Major</title>
+<title>Add New Job</title>
 </head>
 
 <!--body-->
@@ -40,7 +40,7 @@
 
 <h1 id="majorHeader">Add New job</h1>
 
-<section id="main_content">
+<section id="text_content">
 <div id="newMajor">
  <article>	
 	<h2 id="left_h2">Connect Job to Major</h2>
@@ -181,7 +181,8 @@
 	</form>
 	<br/>
 	<br/>
-	<h2>Add New Job</h2>
+	
+	<h2 id="left_h2">Add New Job</h2>
 	<form action="../admin/jobProcess.php" method="POST">
 	   <table>
 			<tr>

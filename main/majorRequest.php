@@ -19,26 +19,30 @@
 	<link rel= "stylesheet" type="text/css"  href="../style.css"  />
 </head>
 	
-<!--logo-->
-<body> 
 
+<!--body-->
+<body> 
+	<div id="big_wrapper">
+	
 <!-- logo part-->	 
-	<header id="logo">  
+	<header id="top_header">  
+		<section id="logo"></section>
      </header>
-		
+     
 <!--Left Menu-->
-<aside>
-	<nav>
+<div id="links">
+	<nav id="left_menu">
 	 <ul>
 		<?php leftMenu(); ?>
 	 </ul>	
 </nav>
-
+</div>
 
 <!-- text-->
-<h1 name="mainHeader"> Major Request</h1>
-<section id="_content">
-  
+  <h1 name="mainHeader"> Major Request</h1>
+
+<section id="new_text">
+
 <?php
 
 	//get and display Major and description 
@@ -52,11 +56,9 @@
 		$major = $row['major'];
 		$des = $row['description']; 
 		$dep = $row['department'];
-		echo "<p> \n"; 
 		echo "<h1 id='request_header1'>$major</h1> \n"; 
 		echo "<h2 id='request_header2'>$dep Department</h2> \n"; 
 		echo "$des \n"; 
-		echo "</p> \n"; 
 	}
 	
 	//get and display job options 
@@ -289,7 +291,6 @@ $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majo
 
 	</footer>
 	
-	</aside>
 	</body>
 </html>
 

@@ -36,16 +36,15 @@ This page logs the user out.
 ?>
  </ul>
  </nav>	
+ </div>
  
-<section id="logout_content">
+<section id="text_content">
 	<h1 name="mainHeader">Log Out</h1>
   <article>
-       <p id="logout"> You have logged out of C2C. </br>We hope you will return again soon.</p>
+       <p id="logout"> You have logged out of C2C. We hope you will return again soon.</p>
 	</article>
  </section>
- </div><!--links-->
-
-<!--footer-->	
+ </div><!--links--><!--footer-->	
 <footer id="footer">
 	   <div id="address">
 	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
