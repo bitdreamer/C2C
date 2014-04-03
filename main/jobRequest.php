@@ -21,25 +21,21 @@
 	
 <!--logo-->
 <body> 
-	<div id="big_wrapper">
 	
 <!-- logo part-->	 
-	<header id="top_header">  
-		<section id="logo"></section>
-     </header>	
+	<header id="logo">  
+     </header>
 	
-<!--left Menu-->
-<div id="links">
-	<nav id="left_menu">
-	 <ul>	<?php leftMenu(); ?>
-	 
+<aside>
+	<nav>
+	 <ul>
+		<?php leftMenu(); ?>
 	 </ul>	
 </nav>
-</div><!--links-->
+
 <!-- text-->
-<section id="main_content">
  		<h1 name="mainHeader"> Job Request</h1>
- 	<div id="mainIntro">	
+<section id="main_content">
 <?php
 
 	$jobID=addslashes($_GET['career']); 
@@ -53,7 +49,7 @@
 		$job = $row['career']; 
 		$des = $row['description']; 
 		
-		echo "<h1>$job</h1> \n"; 
+		echo "<h1 id='h2_header'>$job</h1> \n"; 
 		echo "<p>$des</p> \n"; 
 	}
 	
@@ -76,22 +72,19 @@
 	}
 	
 ?>
-</div>
 </section>
- 
+
 <!--footer-->	
 <footer id="footer">
-	   <div id="address">
+	   <article id="address">
 	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
 	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
 	      </br>
           Phone: (919) 760-8600 or 1-800 MEREDITH
-       </div><!--address-->	   	
+       </article><!--address-->	  
+
 	</footer>
 	
-</div>	<!-- big_wrapper-->	
-		
-</body>
-
-
+	</aside>
+	</body>
 </html>

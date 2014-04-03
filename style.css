@@ -75,12 +75,19 @@ nav a
     width:900;
  } 
 
+#_content
+ {
+    padding: 30px 50px 0px 200px;
+    margin: 0px 0px 0px 0px;
+    height:1000px;
+ } 
 #main_text
 {
    float:left;
    padding: 50px 0px 30px 150px;
    margin: 0px;
-   display:block;
+   height:1200px;
+
 }
 
 #h2_header
@@ -90,7 +97,26 @@ nav a
   margin: 10px 0px 10px 0px;
   color:#872187;
 }
+#request_header1
+{
+ font-size:24px;
+  padding: 0px;
+  margin: 20px 0px 0px 300px;
+  color:#872187;
+}
 
+#request_header2
+{
+ font-size: 20px;
+  padding: 0px;
+  margin: 10px 0px 20px 300px;
+  color:#872187;
+
+}
+a
+{
+float:left;
+}
 #newJob{padding:30px 40px 20px 180px;font: normal 20px helvetica neue;} 
 #majorTable{ margin: 0px 40px 20px 0px;}
 #majorIntro{ font: normal 20px helvetica neue; padding:0px 0px 20px 0px;}
@@ -107,7 +133,8 @@ h1[name="mainHeader"]
      font: bold 40px arial;
      padding: 10px 0px 0px 0px;	
  }
- 
+
+
 p[name="mainIntro"]
  {
    color: black;
@@ -133,9 +160,6 @@ p[name="mainIntro"]
    margin: 0px;
    display:block;
 }
-
-
-
 
 #mainIntro
  {
@@ -193,7 +217,7 @@ input
 }
 
 
-
+#welcome{margin:50px 0px 0px 150px;}
 
 legend
 {
@@ -208,11 +232,12 @@ legend
 #footer   
  {
    border-top: 10px solid #555555;
-   width:100%;
+   width:auto;
    height:230px;
    padding:0px;
    background-image: url(images/footerc.png); 
  }
+
 
 #address
  {
@@ -226,3 +251,12 @@ legend
   style-type:none; 
   color:white;
  }
+
+#left_side
+{
+   width:600px;
+   float:left;
+   padding: 50px 0px 0px 0px;
+   margin: 0px;
+   display:block;
+}

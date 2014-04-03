@@ -36,7 +36,7 @@ openDB();
  
     <p name="mainIntro">Look through the list of interests below and drag the things that interest you into the box below. Once you have dragged a few interests into the box below, the majors on the left will change size based off your interests. The larger the major, the more compatiable it is for you.</p>
     
-   <section id="contentBox">
+   <article id="contentBox">
         
     <form id="column1">
     
@@ -64,7 +64,8 @@ openDB();
     ?>
         
     </form>
-    
+   </article> 
+   
 <article id="column2">            
     <h2 id="h2_header">Majors</h2>
     <!-- qurey to list all the majors on the other side of the page -->
@@ -133,10 +134,9 @@ openDB();
             echo "}\n";
             echo "</script>";
             }
-            ?>
-           
-           </div>
-       </section>
+?>
+
+</article>
 </section>
  
 	
@@ -150,7 +150,6 @@ openDB();
        </article><!--address-->	   	
 	</footer>
 	
-</div>	<!-- big_wrapper-->	
 </aside>
 	
 	</body>
