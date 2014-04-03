@@ -2,8 +2,8 @@
 	session_start();
 	include("../included/loginStatus.php");
 	areYouLogged();
-	include("../included/tabledump.php");
-	include("../included/openDB.php");
+	include("..//included/tabledump.php");
+	include("..//included/openDB.php");
 	openDB();
 	
 ?>
@@ -11,13 +11,12 @@
 <!DOCTYPE html>
 <html lang="en"> 	
 <head>
-<meta charset="utf-8" />
-<link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Add New Link</title>
+	<meta charset="utf-8" />
+	<link rel= "stylesheet" href="../style.css" type="text/css" />
+	<title>Add New Interest </title>
 </head>
 
-
-<!--logo-->
+<!--body-->
 <body> 
 	<div id="big_wrapper">
 	
@@ -25,7 +24,7 @@
 	<header id="top_header">  
 		<section id="logo"></section>
      </header>
-
+     
 <!--Left Menu-->
 <div id="links">
 	<nav id="left_menu">
@@ -34,26 +33,20 @@
 	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-
-   </ul>	
+ </ul>	
 </nav>
 </div><!--links-->
 
+<h1 id="majorHeader">Add New Interest</h1>
+<section id="text_content">
 
-<h1 id="majorHeader">Add a Link</h1>
-
-
-<section id="main_content">
-<div id="newJob">
-	<h2 id="left_h2">Connect Link to Major</h2>
-
- <article>
- <div id="newLink">
-
-	<form  action="../admin/linkMajorConnect.php" method="POST">
+<div id="newMajor">
+ <article >	
+<h2 id="left_h2">Connect Interest to Major</h2>
+	<form action="../admin/interestProcess.php" method="POST">
 	<?php
 	
-	$query = "SELECT * FROM Major ORDER BY major";
+	$query = "SELECT * FROM Major ORDER BY Major";
 	$result=mysql_query($query);
 	majortabledump($result);
 	
@@ -108,18 +101,17 @@
 		echo "</tr>";
 		echo "</table>";
 		return $row;
-
 	}
 	
-	$queryB = "SELECT * FROM Link ORDER BY name";
+	$queryB = "SELECT * FROM Interest ORDER BY interest";
 	$resultB=mysql_query($queryB);
-	linktabledump($resultB);
+	interesttabledump($resultB);
 	
-	function linktabledump( $resultB )
+	function interesttabledump( $resultB )
 	{
 		echo "<table>";
 		echo "<tr>";
-		echo "<td align=center width=100>Link</td>";
+		echo "<td align=center width=100>Interest</td>";
 
 		if($resultB==0)
 		{
@@ -136,7 +128,7 @@
 					
 			for($i=0; $i<$nr; $i++ )
 			{	   
-				$j=2;
+				$j=1;
 				$row=mysql_fetch_array($resultB);
 				settype($row[$j], "string");
 				if($c==5)
@@ -146,14 +138,14 @@
 					echo "<tr>";
 					echo "<td></td>";
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxL[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxI[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c=1;
 				}
 				else
 				{
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxL[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxI[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c++;
 				}
@@ -165,52 +157,37 @@
 		return $row;
 	}
 	?>
-	<tr>
+		<table>
+			<tr>
 				<td colspan="2" align="center"> 
-				<input type="submit" value="Submit">
+				<input type="submit" name="Connect" id="Connect" value="Submit">
 				</td>
 			</tr>
-			</div>
-</form>
-
-<h2 id="left_h2">Add New Link</h2>
-<form action="../admin/linkProcess.php" method="POST">
+		</table>
+	</form>
+<br/>
+<h2 id="left_h2">Add New Interest</h2>
+<form action="../admin/interestProcess.php" method="POST">
    <table>
       <tr>
-         <td align="right">Link</td>
-         <td> <input type="url" name="link" required="required"/> </td>
+         <td align="right">Interest</td>
+         <td> <input type="text" name="interest" /> </td>
       </tr>
-      
-      <tr>
-         <td align="right">Name</td>
-         <td> <input type="text" name="name" required="required"/> </td>
-      </tr>
-      
-      <tr>
-         <td align="right">Description</td>
-         <td> <input type="text" name="description" required="required"/> </td>
-      </tr>
-      
-      <tr>
-         <td align="right">Category</td>
-         <td> <input type="text" name="category" required="required"/> </td>
-      </tr>
-      
       <tr>
          <td align="right">Submit</td>
-         <td> <input type="submit"  name="Submit" value="Submit"/> </td>
+         <td> <input type="submit" name="SubmitP" id="SubmitP" value="Submit"/> </td>
       </tr>
-
    </table>
 </form>
+<br/>
 <br/>
 <?php
 	echo "<section>";
 
-	$query="SELECT * from Link ORDER BY name;";
+	$query="select * from Interest ORDER BY interest;";
     $result=mysql_query($query);
    
-	echo "<form action=../admin/linkDelete.php method=$_GET>";
+	echo "<form action=../admin/interestProcess.php method=$_GET>";
    tabledumpdeltedit( $result );
 	echo "</form>";
    
