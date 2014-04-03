@@ -111,11 +111,11 @@ echo "<table>";
 
 	echo "<tr>";
          echo "<td>Description</td>";
-         echo "<td><input type=text name=description value=$description required=required size=50 ></td>";
+         echo "<td><input type=text name=description value='".$description."' required=required size=50 ></td>";
       echo "</tr>";
 	echo "<tr>";
          echo "<td >Department</td>";
-         echo "<td><input type=text name=department value=$department required=required size=20></td>";
+         echo "<td><input type=text name=department value='".$department."' required=required size=20></td>";
       echo "</tr>";
 echo "<tr>";
 				echo "<td colspan=2 align=center >";

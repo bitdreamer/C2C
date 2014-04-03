@@ -4,7 +4,7 @@
    include("..//included/openDB.php");
    openDB();
 
-if(isset($_GET['id'])) 
+if(isset($_GET['id'])) //Delete
 {
 	$id = $_GET["id"];
    
@@ -29,7 +29,7 @@ if(isset($_GET['id']))
    header("Location: ../main/jobAdd.php");
    exit;
 }
-else
+else //Edit
 {
 
 			$id=$_GET["ide"];
@@ -48,11 +48,11 @@ else
 	   echo "<table>";
 			echo "<tr>";
 				echo "<td align=right>Job</td>";
-				echo "<td><input type=text name=career value=$career required=required size=20 style=height:20px></td>";
+				echo "<td><input type=text name=career value='".$career."' required=required size=20 style=height:20px></td>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td align=right>Description</td>";
-				echo "<td><input type=text name=description value=$description required=required size=75 style=height:75px></td>";
+				echo "<td><input type=text name=description value='".$description."' required=required size=75 style=height:75px></td>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td colspan=2 align=center >";

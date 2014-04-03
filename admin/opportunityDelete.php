@@ -39,17 +39,17 @@ echo "<form action=opportunityEditProcess.php?id=".$id." method=POST>";
    echo "<table>";
       echo "<tr>";
          echo "<td align=right>Opportunity</td>";
-         echo "<td> <input type=text name=opportunity value=$opportunity required=required /> </td>";
+         echo "<td> <input type=text name=opportunity value='".$opportunity."' required=required /> </td>";
       echo "</tr>";
       
       echo "<tr>";
          echo "<td align=right>Link</td>";
-         echo "<td> <input type=url name=link value=$link required=required /> </td>";
+         echo "<td> <input type=url name=link value='".$link."' required=required /> </td>";
       echo "</tr>";
 	
 	echo "<tr>";
 		echo "<td align=right>Description</td>";
-		echo "<td> <input type=text name=description value=$description /></td>";
+		echo "<td> <input type=text name=description value='".$description."' /></td>";
 	echo "</tr>";
       
       echo "<tr>";

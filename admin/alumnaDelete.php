@@ -51,12 +51,12 @@ echo "<form action=alumnaEditProcess.php?id=".$id." method=POST>";
 
       echo "<tr>";
          echo "<td align=right>Name</td>";
-         echo "<td> <input type=text name=name value=$name /> </td>";
+         echo "<td> <input type=text name=name value='".$name."' /> </td>";
       echo "</tr>";
 
       echo "<tr>";
          echo "<td align=right>Email</td>";
-         echo "<td> <input type=text name=email value=$email /> </td>";
+         echo "<td> <input type=text name=email value='".$email."' /> </td>";
       echo "</tr>";
 
       /*echo "<tr>";
