@@ -44,7 +44,7 @@
 <div id="newMajor">
  <article>	
 	<h2 id="left_h2">Connect Job to Major</h2>
-	<form action="../admin/jobMajorConnect.php" method="POST">
+	<form action="../admin/jobProcess.php" method="POST">
 	<?php
 	
 	$query = "SELECT * FROM Major ORDER BY Major";
@@ -174,7 +174,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center"> 
-				<input type="submit" value="Submit">
+				<input type="submit" name="Connect" id="Connect" value="Submit">
 				</td>
 			</tr>
 		</table>
@@ -191,11 +191,11 @@
 			</tr>
 			<tr>
 				<td align="right">Description</td>
-				<td><input type="text" name="description" value="" required="required" size="75" style="height:75px"></td>
+				<td><textarea name="description" value="" required="required" size="75" rows="3" cols="50"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"> 
-				<input type="submit" value="Submit">
+				<input type="submit" name="SubmitP" id="SubmitP" value="Submit">
 				</td>
 			</tr>
 		</table>
@@ -206,7 +206,7 @@
 		$query="select * from Job ORDER BY career;";
 		$result=mysql_query($query);
 	   
-		echo "<form action=../admin/jobDelete.php method=$_GET>";
+		echo "<form action=../admin/jobProcess.php method=$_GET>";
 		tabledumpdeltedit( $result );
 	   	echo "</form>";
 		echo "</section>";
