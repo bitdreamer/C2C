@@ -69,7 +69,7 @@
 <form id="majorForm" action="../admin/majorProcess.php" method="POST">
 <table id="majorTable">
  <tr>
-      <td align="right">Major</td>
+      <td align="left">Major</td>
 
 		 	<td><select name="major" id="major" required="required">
 				<option value="Accounting">Accounting</option>
@@ -121,7 +121,7 @@
 	  <tr>
 
          <td>Description</td>
-         <td><input type="text" name="description" value="" required="required" size="50"></td>
+         <td><textarea name="description" value="" required="required" rows="3" cols="50"></textarea></td>
       </tr>
 	<tr>
          <td >Department</td>
@@ -303,7 +303,7 @@
       <tr>
          <td colspan="2"  style="margin:200 0 0 0"> 
 	 <input type="button" value="Preview Entry" onclick="previewData();"/>
-         <input type="submit" value="Submit">
+         <input type="submit" name="SubmitP" id="SubmitP" value="Submit">
          </td>
       </tr>
    </table>
@@ -320,7 +320,7 @@
 	$query="select * from Major ORDER BY major;";
     $result=mysql_query($query);
    
-	echo "<form action=../admin/majorDelete.php method=$_GET>";
+	echo "<form action=../admin/majorProcess.php method=$_GET>";
    tabledumpdeltedit( $result );
 	echo "</form>";
    
