@@ -121,8 +121,7 @@ openDB();
                     }
                     
                 
-                        echo "  augment(\"$majorID\");\n";
-                    
+                    echo "  augment(\"$majorID\");\n";
                     
                 }
 
@@ -131,14 +130,17 @@ openDB();
             echo "function augment(x)\n";
             echo "{\n";
             echo "var majorName=\"MAJ\"+x;\n";
+            echo "var countMajor=\"0\";";
             echo "var major =document.getElementById(majorName);\n";
             echo "major.size++;\n";
+            echo "countMajor++;";    
             echo "}\n";
+            echo "major + \"\" + countMajor;";
             echo "</script>";
             }
             ?>
            
-           </div>
+        </div>
        </div>
         </div>
          
