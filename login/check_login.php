@@ -58,7 +58,7 @@ if($count==1){
 	}
 }
 else {
-header ("Location: main_login.php?msg=1");
+header ("Location: ../main/main_login.php?msg=1");
 }
 ?>
 </body>

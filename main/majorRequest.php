@@ -10,26 +10,39 @@
 ?>
 
 <!-- main Page -->
-<html>
+<!DOCTYPE html>
 
+<html lang="en"> 	
 <head>
-	<link rel= "stylesheet"type="text/css"  href="../style.css"  />
-	<title> Carrer Pathways</title>
+    <meta charset="utf-8" />
+    <title> Major Request</title>
+	<link rel= "stylesheet" type="text/css"  href="../style.css"  />
 </head>
+	
 
-<!--logo-->
-<body> 	   
-	<div id="darkgray"></div>
-	<div id="logo"></div>
-	<div id="lightgray"></div>
+<!--body-->
+<body> 
+	<div id="big_wrapper">
 	
-	
-<!--left Menu-->
+<!-- logo part-->	 
+	<header id="top_header">  
+		<section id="logo"></section>
+     </header>
+     
+<!--Left Menu-->
 <div id="links">
-	<?php leftMenu(); ?>
+	<nav id="left_menu">
+	 <ul>
+		<?php leftMenu(); ?>
+	 </ul>	
+</nav>
 </div>
 
-<div id="text">
+<!-- text-->
+  <h1 name="mainHeader"> Major Request</h1>
+
+<section id="new_text">
+
 <?php
 
 	//get and display Major and description 
@@ -43,19 +56,16 @@
 		$major = $row['major'];
 		$des = $row['description']; 
 		$dep = $row['department'];
-		
-		echo "<p> \n"; 
-		echo "<h1>$major</h1> \n"; 
-		echo "<h2 id='major'>$dep Department</h2> \n"; 
+		echo "<h1 id='request_header1'>$major</h1> \n"; 
+		echo "<h2 id='request_header2'>$dep Department</h2> \n"; 
 		echo "$des \n"; 
-		echo "</p> \n"; 
 	}
 	
 	//get and display job options 
 	$q2="SELECT * FROM MajorJob, Job WHERE jobID=id AND majorID='$majorID';";
 	$r2=mysql_query($q2); 
 
- 			echo "<h3> Career Options </h3> \n"; 
+ 			echo "<br/> <br/><h2 id='h2_header'> Career Options </h2> \n"; 
 			
 	if(noerror($r2))
 	{
@@ -91,10 +101,11 @@
 				echo "	</table> \n";
 	}
 
+	
 	$linkQ="SELECT * FROM MajorLink, Link WHERE linkID=ID AND majorID='$majorID';"; 		//one linkID from Link table, one from MajorLink table
 	$linkR=mysql_query($linkQ);
 	
-		echo "<h3> Related Websites</h3> \n"; 
+		echo "<br/><br/><h2 id='h2_header'> Related Websites</h3> \n"; 
 	
 	if(noerror($linkR))
 	{
@@ -133,7 +144,7 @@
 	$iQ="SELECT * FROM MajorInterest, Interest WHERE interestID=id AND majorID='$majorID';"; 		//one linkID from Link table, one from MajorLink table
 	$iR=mysql_query($iQ);
 	
-		echo "<h3> Interests </h3> \n"; 
+		echo "</br/> <h2 id='h2_header'> Interests </h2> \n"; 
 	
 	if(noerror($iR))
 	{
@@ -158,7 +169,7 @@
 					
 				echo "  <tr> \n"; 
 				echo "	  <th> \n"; 
-				echo "		<a href='$interest'> $interest </a> \n";
+				echo "	<a href='$interest'> $interest </a> \n";
 				echo "	  </th> \n";
 				echo " 	</tr> \n";
 		}
@@ -214,7 +225,8 @@
 $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majorID';"; 		//one alumnaID from Alumna table, one from MajorAlumna table
 	$alumnaR=mysql_query($alumnaQ);
 	
-		echo "<h3> Alumna Profiles</h3> \n"; 
+		echo "<h2 id='h2_header'> Alumna Profiles</h2>"; 
+		
 	
 	if(noerror($alumnaR))
 	{
@@ -258,21 +270,27 @@ $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majo
 		
 				echo " 	</tbody> \n";
 				echo "	</table> \n";
+				
+
 	}
 
 
 	
 ?>
-</div>
-  <div id="footer"></br>
-	   <address >
-	    		<a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
-	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
-	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
-       					Phone: (919) 760-8600 or 1-800 MEREDITH
-       	</address>	
-      	
-	</div>
-</body>
+
+</section>
+
+<!--footer-->	
+<footer id="footer">
+	   <article id="address">
+	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
+	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
+	      </br>
+          Phone: (919) 760-8600 or 1-800 MEREDITH
+       </article><!--address-->	  
+
+	</footer>
+	
+	</body>
 </html>
 

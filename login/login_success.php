@@ -1,6 +1,6 @@
 <?php
 session_start();
 if(!isset($_SESSION['email'])){
-header("location:main_login.php");
+header("Location:../main/main_login.php");
 }
 ?>

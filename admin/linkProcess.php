@@ -24,6 +24,6 @@ session_start();
    $result1=mysql_query($query1);
    if ($result1==0) { noerror( $result1 ); }
    //echo "query = $query";
-   header("Location: linkAdd.php");
+   header("Location: ../main/linkAdd.php");
    exit;
 ?>

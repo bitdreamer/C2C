@@ -1,19 +1,18 @@
 <?php
 	session_start();
-	include("../included/loginStatus.php");
+	include("..//included/loginStatus.php");
 	areYouLogged();
 	include("..//included/tabledump.php");
 	include("..//included/openDB.php");
-	openDB();
-	
+	openDB();	
 ?>
 <!-- Here's where the HTML starts -->
 <!DOCTYPE html>
 <html lang="en"> 	
 <head>
-	<meta charset="utf-8" />
-	<link rel= "stylesheet" href="../style.css" type="text/css" />
-	<title>Add New Interest </title>
+<meta charset="utf-8" />
+<link rel= "stylesheet" href="../style.css" type="text/css" />
+<title>Add New Opportunity</title>
 </head>
 
 <!--body-->
@@ -24,7 +23,8 @@
 	<header id="top_header">  
 		<section id="logo"></section>
      </header>
-     
+
+
 <!--Left Menu-->
 <div id="links">
 	<nav id="left_menu">
@@ -38,16 +38,18 @@
 </div><!--links-->
 
 
-<section id="main_content">
-<h1 id="majorHeader">Add New Interest</h1>
+<h1 id="majorHeader">Add New Opportunity</h1>
 
-<div id="newMajor">
- <article>	
-<h2 id="left_h2">Connect Interest to Major</h2>
-	<form action="interestMajorConnect.php" method="POST">
+<section id="text_content">
+<div id="newJob">
+ <article>		
+ 	
+  <h2 id="left_h2">Connect Opportunity to Major</h2>
+  
+	<form action="../admin/opportunityMajorConnect.php" method="POST">
 	<?php
 	
-	$query = "SELECT * FROM Major ORDER BY Major";
+	$query = "SELECT * FROM Major ORDER BY major";
 	$result=mysql_query($query);
 	majortabledump($result);
 	
@@ -102,17 +104,18 @@
 		echo "</tr>";
 		echo "</table>";
 		return $row;
+
 	}
 	
-	$queryB = "SELECT * FROM Interest ORDER BY interest";
+	$queryB = "SELECT * FROM Opportunity ORDER BY opportunity";
 	$resultB=mysql_query($queryB);
-	interesttabledump($resultB);
+	opptabledump($resultB);
 	
-	function interesttabledump( $resultB )
+	function opptabledump( $resultB )
 	{
 		echo "<table>";
 		echo "<tr>";
-		echo "<td align=center width=100>Interest</td>";
+		echo "<td align=center width=100>Opportunity</td>";
 
 		if($resultB==0)
 		{
@@ -120,7 +123,7 @@
 		}
 		elseif (@mysql_num_rows($resultB)==0)
 		{
-			echo "<b>There doesn't seem to be anything here... yet.</b><br>";
+			echo "<br/><b>There doesn't seem to be anything here... yet.</b><br/><br/>";
 		}
 		else
 		{
@@ -139,14 +142,14 @@
 					echo "<tr>";
 					echo "<td></td>";
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxI[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxO[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
-					$c=1;
+					$c=0;
 				}
 				else
 				{
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxI[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxO[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c++;
 				}
@@ -158,45 +161,54 @@
 		return $row;
 	}
 	?>
-		<table>
-			<tr>
+		<tr>
 				<td colspan="2" align="center"> 
 				<input type="submit" value="Submit">
 				</td>
 			</tr>
-		</table>
-	</form>
-<br/>
-<h2 id="left_h2">Add New Interest</h2>
-<form action="interestProcess.php" method="POST">
-   <table>
+</form>
+
+<br />
+ <h2 id="left_h2">Add New Opportunity</h2>
+<form action="..//admin/opportunityProcess.php" method="POST">
+   <table id="majorTable">
       <tr>
-         <td align="right">Interest</td>
-         <td> <input type="text" name="interest" /> </td>
+         <td align="right">Opportunity</td>
+         <td> <input type="text" name="opportunity" required="required"/> </td>
       </tr>
+      
+      <tr>
+         <td align="right">Link</td>
+         <td> <input type="url" name="link" required="required"/> </td>
+      </tr>
+	
+	<tr>
+		<td align="right">Description</td>
+		<td> <input type="text" name="description" /></td>
+	</tr>
+      
       <tr>
          <td align="right">Submit</td>
          <td> <input type="submit"  name="Submit" value="Submit"/> </td>
       </tr>
+
    </table>
 </form>
 
 <?php
 	echo "<section>";
 
-
-
-	$query="select * from Interest ORDER BY interest;";
+	$query="select * from Opportunity ORDER BY opportunity;";
     $result=mysql_query($query);
    
-	echo "<form action=interestDelete.php method=$_GET>";
+	echo "<form action=../admin/opportunityDelete.php method=$_GET>";
    tabledumpdeltedit( $result );
 	echo "</form>";
    
 	echo "</section>";
 ?>
-</div>
-</body>
+</artical>
+</section>
 
 <!--footer-->	
 <footer id="footer">
@@ -205,7 +217,10 @@
 	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
 	      </br>
           Phone: (919) 760-8600 or 1-800 MEREDITH
-       </div><!--address-->	 
-         	
+       </div><!--address-->	   	
 	</footer>
+	
+</div>	<!-- big_wrapper-->	
+		
+	</body>
 </html>

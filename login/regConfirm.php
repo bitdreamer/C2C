@@ -89,7 +89,7 @@ else
 
 ?>
 
-<a href="main_login.php"> Click here to login </a> 
+<a href="../main/main_login.php"> Click here to login </a> 
 
 </body>
 </html>

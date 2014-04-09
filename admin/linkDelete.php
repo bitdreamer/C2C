@@ -18,7 +18,7 @@ if(isset($_GET['id']))
 	$resultB=mysql_query($queryB);
 	if ($resultB==0) {noerror($resultB);}
 
-   header("Location: linkAdd.php");
+   header("Location: ../main/linkAdd.php");
    exit;
 }
 else
@@ -36,26 +36,26 @@ else
 			$description=$row[3];
 			$category=$row[4];
 
-echo "<form action=linkEditProcess.php?id=".$id." method=POST>";
+echo "<form action=../main/linkEditProcess.php?id=".$id." method=POST>";
    echo "<table>";
       echo "<tr>";
          echo "<td align=right>Link</td>";
-         echo "<td> <input type=url name=link value=$link required=required /> </td>";
+         echo "<td> <input type=url name=link value='".$link."' required=required /> </td>";
       echo "</tr>";
       
       echo "<tr>";
          echo "<td align=right>Name</td>";
-         echo "<td> <input type=text name=name value=$name required=required /> </td>";
+         echo "<td> <input type=text name=name value='".$name."' required=required /> </td>";
       echo "</tr>";
       
       echo "<tr>";
          echo "<td align=right>Description</td>";
-         echo "<td> <input type=text name=description value=$description required=required /> </td>";
+         echo "<td> <input type=text name=description value='".$description."' required=required /> </td>";
       echo "</tr>";
       
       echo "<tr>";
          echo "<td align=right>Category</td>";
-         echo "<td> <input type=text name=category value=$category required=required /> </td>";
+         echo "<td> <input type=text name=category value='".$category."' required=required /> </td>";
       echo "</tr>";
       
       echo "<tr>";

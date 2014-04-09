@@ -3,7 +3,7 @@
 	session_start(); 
 
 	include("../included/openDB.php");
-	include("../included/mainMenu.php"); 
+	include("../included/leftMenu.php"); 
 	include("../included/tabledump.php");
 	openDB();
 
@@ -16,10 +16,10 @@
 <head>
     <meta charset="utf-8" />
     <title> Career Pathways</title>
-	<link rel= "stylesheet" type="text/css"  href="../style.css"  />
+    <link rel= "stylesheet" type="text/css"  href="../style.css"  />
 </head>
 
-<!--logo-->
+<!--body-->
 <body> 
 	<div id="big_wrapper">
 	
@@ -32,10 +32,10 @@
 <div id="links">
 	<nav id="left_menu">
 	 <ul>
-		<?php mainMenu(); ?>
+		<?php leftMenu(); ?>
 	 </ul>	
-	</nav>
-
+</nav>
+</div>	 
 <!-- text-->
 <section id="main_content">
  		<h1 name="mainHeader"> Classroom to Career PathWays</h1>
@@ -53,8 +53,9 @@
 		 <video  src="career.mp4" type="video/mp4" poster="images/meredith.jpg" controls>
 		 </video>-->
 		 
- <article id="left_side">
-		    <h2 id="left_h2"> Choose a major or job to learn more about it. </h2>
+ <article id="_content">
+ 		    <h2 id="h2_header"> Choose a major or job to learn more about it. </h2>
+
 <!-- Drop down choices for Majors and Jobs-->
 		<?php
 
@@ -97,7 +98,7 @@
 	</form></br></br>
 	
 <!-- Job Form-->
-<h2 id="left_h2"> OR choose from Job</h2>
+<h2 id="h2_header"> OR choose from Job</h2>
 	<form action="jobRequest.php" method="GET">
 		<fieldset id="jobInfo">
 			<legend id="legends">Which of the following jobs are you most interested in?</legend>
@@ -126,12 +127,10 @@
 				
 		</fieldset>
 	</form>		
+</article>
 
-</aside>
 </section>
- 
-	
-</div>
+
 
 <!--footer-->	
 <footer id="footer">
@@ -140,11 +139,8 @@
 	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
 	      </br>
           Phone: (919) 760-8600 or 1-800 MEREDITH
-       </div><!--address-->	   	
+       </div><!--address-->	 
+         	
 	</footer>
-	
-</div>	<!-- big_wrapper-->	
-		
 	</body>
-
 </html>

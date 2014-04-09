@@ -59,6 +59,6 @@
 		}
 	}
    //Header travels to specified location
-   header("Location:linkAdd.php");
+   header("Location: ../main/linkAdd.php");
    exit;
 ?>

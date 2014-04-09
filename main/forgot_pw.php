@@ -28,7 +28,7 @@
 	<section id="main_content">
 		<article>	 
 			<p>Your password will be sent to your e-mail.</p>
-			<form action=<?php echo "send_pw.php"; ?> method="POST">
+			<form action="../login/check_pw.php" method="POST">
 				<table>
 					<tr>
 						<td align="right">Email</td>

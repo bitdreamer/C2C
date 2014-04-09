@@ -10,7 +10,7 @@ areYouLogged();
 <head>
 <meta charset="utf-8" />
 <link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Add an Alumna </title>
+<title>Add New Alumna </title>
 
 
 <!--body-->
@@ -46,7 +46,7 @@ action attribute contains the name of the file where the information will be dir
 method attribute type POST will create an array with submitted information.  
 The POST array will be indexed using the respective input type's name -->
 
-<form action="alumnaProcess.php" method="POST">
+<form action="../admin/alumnaProcess.php" method="POST">
    <table>
 
       <tr>
@@ -116,11 +116,13 @@ The POST array will be indexed using the respective input type's name -->
 
       <tr>
          <td align="right">Submit</td>
-         <td> <input type="submit"  name="Submit" value="Submit"/> </td>
+         <td> <input type="submit"  name="SubmitP" id="SubmitP" value="Submit"/> </td>
       </tr>
 
    </table>
 </form>
+<br/>
+<br/>
 <?php
 	//This section will show the contents of the Alumna table
 	echo "<section>";
@@ -138,12 +140,12 @@ The POST array will be indexed using the respective input type's name -->
     		$result=mysql_query($query);
    
 		
-		echo "<form action=alumnaDelete.php method=$_GET>";
+		echo "<form action=../admin/alumnaProcess.php method=$_GET>";
    		tabledumpdeltedit( $result );
    		echo "</form>";
 	echo "</section>";
 ?>
-</artical>
+</article>
 </section>
 
 <!--footer-->	

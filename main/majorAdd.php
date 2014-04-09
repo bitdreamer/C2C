@@ -13,7 +13,7 @@
 <head>
 <meta charset="utf-8" />
 <link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Add Major</title>
+<title>Add New Major</title>
 
 <script type="text/javascript">
 	var k = 0;
@@ -31,13 +31,13 @@
 		var previewData = document.getElementById("previewData");
 		previewData.firstChild.nodeValue = preview[0];
 	}
-	
-	
+		
 </script>
 
 </head>
 
-<!--logo-->
+
+<!--body-->
 <body> 
 	<div id="big_wrapper">
 	
@@ -54,20 +54,22 @@
 	include("../included/leftMenu.php");
 	leftMenu();
 ?>
-
-   </ul>	
+	 </ul>	
 </nav>
-   <h1 id="majorHeader">Add Major </h1>
+</div>
 
-<section id="main_content">
-<div id="newJob">
- <article>
+   <h1 name="mainHeader">Add Major </h1>
+   
+<section id="text_content">
+<div id="newMajor">
+ <article>	
+ 
    <p id="majorIntro">* For development purposes (ONLY)</p>
 
-<form id="majorForm" action="majorProcess.php" method="POST">
+<form id="majorForm" action="../admin/majorProcess.php" method="POST">
 <table id="majorTable">
  <tr>
-      <td align="right">Major</td>
+      <td align="left">Major</td>
 
 		 	<td><select name="major" id="major" required="required">
 				<option value="Accounting">Accounting</option>
@@ -119,7 +121,7 @@
 	  <tr>
 
          <td>Description</td>
-         <td><input type="text" name="description" value="" required="required" size="50"></td>
+         <td><textarea name="description" value="" required="required" rows="3" cols="50"></textarea></td>
       </tr>
 	<tr>
          <td >Department</td>
@@ -301,12 +303,14 @@
       <tr>
          <td colspan="2"  style="margin:200 0 0 0"> 
 	 <input type="button" value="Preview Entry" onclick="previewData();"/>
-         <input type="submit" value="Submit">
+         <input type="submit" name="SubmitP" id="SubmitP" value="Submit">
          </td>
       </tr>
    </table>
 
 </form>
+
+
 <p id="previewData" name="previewData"> </p>
 <h2 id="left_h2">Majors already created</h2>
 <?php
@@ -316,12 +320,13 @@
 	$query="select * from Major ORDER BY major;";
     $result=mysql_query($query);
    
-	echo "<form action=majorDelete.php method=$_GET>";
+	echo "<form action=../admin/majorProcess.php method=$_GET>";
    tabledumpdeltedit( $result );
 	echo "</form>";
    
 	echo "</section>";
 ?>
+
  </artical>
  </div>
 </body>
@@ -336,7 +341,6 @@
        </div><!--address-->	 
          	
 	</footer>
-</artical>
  </section>
 </div>	<!-- big_wrapper-->	
 

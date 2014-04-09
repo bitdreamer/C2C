@@ -11,6 +11,6 @@
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
-   header("Location: interestAdd.php");
+   header("Location: ../main/interestAdd.php");
    exit; 
 ?>
