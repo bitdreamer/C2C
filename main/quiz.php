@@ -58,7 +58,7 @@ openDB();
                 $interestID=$row['interestID'];
                 if($interest!=$lastInterest)
                 {
-                    echo "<input type=\"button\" value=\"$interest\" onclick=\"dealWith$interestID();\" />&nbsp; \n";
+                    echo "<input type=\"button\" value=\"$interest\" style=\"background-color:#848484\" onclick=\"dealWith$interestID(); setColor(this);\" />&nbsp; \n";
                     $lastInterest=$interest;
                 }
             }
@@ -115,13 +115,12 @@ openDB();
                         echo "if(!done$interestID)";
                         echo "{";
                         echo "done$interestID=true;";
-                            
                      
                         $oldInterestID=$interestID;
                     }
                     
                 
-                    echo "  augment(\"$majorID\");\n";
+                    echo "augment(\"$majorID\");\n";
                     
                 }
 
@@ -130,12 +129,19 @@ openDB();
             echo "function augment(x)\n";
             echo "{\n";
             echo "var majorName=\"MAJ\"+x;\n";
-            echo "var countMajor=\"0\";";
+           
             echo "var major =document.getElementById(majorName);\n";
             echo "major.size++;\n";
-            echo "countMajor++;";    
+               
             echo "}\n";
-            echo "major + \"\" + countMajor;";
+                                    
+            echo "function setColor(btn){\n";
+            echo "var property=document.getElementById(btn);\n";
+            
+            echo "      property.style.backgroundColor = \"#6A287E\";\n";
+            
+            echo "}\n";
+            
             echo "</script>";
             }
             ?>
