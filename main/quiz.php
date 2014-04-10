@@ -152,7 +152,7 @@ openDB();
          
  <!-- adds the address line at the bottom of the page -->
         <div id="footer"></br>
-	       <address >
+	       <article id="address" >
 	       <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,
 	   			   -78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c/">
 	    				3800 Hillsborough Street | Raleigh, NC 27607-5298</br>
