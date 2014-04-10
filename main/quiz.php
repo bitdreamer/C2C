@@ -58,7 +58,7 @@ openDB();
                 $interestID=$row['interestID'];
                 if($interest!=$lastInterest)
                 {
-                    echo "<input type=\"button\" value=\"$interest\" style=\"background-color:#848484\" onclick=\"dealWith$interestID(); setColor(this);\" />&nbsp; \n";
+                    echo "<input type=\"button\" id=\"$interestID\" value=\"$interest\" style=\"background-color:#D0D0D0\" onclick=\"dealWith$interestID(); setColor($interestID);\" />&nbsp; \n";
                     $lastInterest=$interest;
                 }
             }
@@ -138,7 +138,7 @@ openDB();
             echo "function setColor(btn){\n";
             echo "var property=document.getElementById(btn);\n";
             
-            echo "      property.style.backgroundColor = \"#6A287E\";\n";
+            echo "      property.style.backgroundColor=\"#D000D0\";\n";
             
             echo "}\n";
             
