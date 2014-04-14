@@ -88,7 +88,7 @@ openDB();
         }
 
     ?>
-    <p id="majorTable">Please show up!!!!</p>
+    <p id="majorTable">Your Results: <br></p>
            
            <?php
           
@@ -187,7 +187,7 @@ openDB();
         for (var i=0; i<majorList.length; i++)
         {
             var z =document.getElementById("MAJ"+majorIDList[i]);
-            whale+=majorList[i]+z.size+"<br>";
+            whale+=majorList[i]+""+z.size+"\n";
             
         }
         
