@@ -75,7 +75,7 @@ openDB();
         $query="SELECT * From Major";
         $result2=mysql_query($query);
 
-        if(noerror($result))
+        if(noerror($result2))
         {
             $nr=mysql_num_rows($result2);
             for($i=0; $i<$nr; $i++)
@@ -88,6 +88,7 @@ openDB();
         }
 
     ?>
+    <p id="majorTable">Please show up!!!!</p>
            
            <?php
           
@@ -132,7 +133,8 @@ openDB();
            
             echo "var major =document.getElementById(majorName);\n";
             echo "major.size++;\n";
-               
+            echo "makeTable();\n";
+            
             echo "}\n";
                                     
             echo "function setColor(btn){\n";
@@ -141,6 +143,22 @@ openDB();
             echo "      property.style.backgroundColor=\"#D000D0\";\n";
             
             echo "}\n";
+            echo "var majorList = new Array();\n";
+            echo "var majorIDList = new Array();\n";
+            if(noerror($result2))
+            {
+                mysql_data_seek($result2,0);
+                $nr=mysql_num_rows($result2);
+                for($i=0; $i<$nr; $i++)
+                {
+                    $row=mysql_fetch_array($result2);
+                    $major=$row['major'];
+                    $majorID=$row['id'];
+                    echo "majorList[$i]=\"$major\";\n";
+                    echo "majorIDList[$i]=\"$majorID\";\n";
+                }
+            }
+            
             
             echo "</script>";
             }
@@ -161,5 +179,21 @@ openDB();
       	
 	</div>	
 		
-</body>
+</body> 
+<script>
+    function makeTable()
+    {
+        var whale="";
+        for (var i=0; i<majorList.length; i++)
+        {
+            var z =document.getElementById("MAJ"+majorIDList[i]);
+            whale+=majorList[i]+z.size+"<br>";
+            
+        }
+        
+        var mt=document.getElementById("majorTable");
+        mt.firstChild.nodeValue=whale;
+    }
+            
+</script>
 </html>
