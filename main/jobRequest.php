@@ -39,7 +39,7 @@
 </div>
 
 <!-- text-->
- <h1 name="mainHeader"> Job Request</h1>
+ 
 <section id="new_text">
 <?php
 
