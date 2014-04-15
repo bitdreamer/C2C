@@ -88,7 +88,7 @@ openDB();
         }
 
     ?>
-    <p id="majorTable">Your Results: <br></p>
+    <pre><p id="majorTable">Your Results: <br></p></pre>
            
            <?php
           
@@ -186,8 +186,11 @@ openDB();
         var whale="";
         for (var i=0; i<majorList.length; i++)
         {
+            
             var z =document.getElementById("MAJ"+majorIDList[i]);
-            whale+=majorList[i]+""+z.size+"\n";
+            var z2=z.size;
+            z2=z2-2;
+            whale+=""+z2+" "+majorList[i]+"\n";
             
         }
         
