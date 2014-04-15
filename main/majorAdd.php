@@ -169,7 +169,7 @@
 					echo "<tr>";
 					echo "<td></td>";
 					echo "<td>";
-					echo "<input  type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input  type=checkbox name=checkboxJ1[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c=1;
 					
@@ -177,7 +177,7 @@
 				else
 				{
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxJ1[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c++;
 				}
@@ -225,13 +225,13 @@
 					echo "<tr>";
 					echo "<td></td>";
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxJ2[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					$c=1;
 				}
 				else
 				{
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxJ2[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c++;
 				}
@@ -280,7 +280,7 @@
 					echo "<tr>";
 					echo "<td></td>";
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxJ3[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c=1;
 					
@@ -288,7 +288,7 @@
 				else
 				{
 					echo "<td width=200>";
-					echo "<input type=checkbox name=checkboxJ[] value="."'$row[$j]'".">".$row[$j]."</option>";
+					echo "<input type=checkbox name=checkboxJ3[] value="."'$row[$j]'".">".$row[$j]."</option>";
 					echo "</td>";
 					$c++;
 				}

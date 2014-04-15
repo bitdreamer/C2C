@@ -59,6 +59,55 @@ elseif(isset($_POST['SubmitP']))
    $result=mysql_query($query);
    if ($result==0) { noerror( $result ); }
 
+
+
+	function connect($arrayJ,$mindegree, $id)
+	{
+
+		$sizeJ=sizeof($arrayJ);
+
+		for($j=0;$j<$sizeJ;$j++)
+		{
+				//Defines query to get the correct Job id from the table
+				$queryJ="SELECT id FROM Job WHERE career='$arrayJ[$j]'";
+
+				//Performs defined query, result is an array
+				$jobIDq=mysql_query($queryJ);
+
+				//Fetchs the row from the resulting array
+				$jobIDr=mysql_fetch_row($jobIDq);
+
+				//Goes to specific field (#0) in the row
+				$jobID=$jobIDr[0];
+
+				//Defines query to put the found ids and the mindegree in the MajorJob table
+				$query="INSERT INTO MajorJob "
+					." set majorID='$id' "
+					." ,jobID='$jobID' "
+					." ,degree='$mindegree' "
+					.";";
+
+   				//Performs insertion query, checks for errors using noerror function defined in tabledump.php	
+   				$result=mysql_query($query);
+   				if ($result==0) { noerror( $result ); }
+		}
+		}
+	
+
+//Gathers input data from addMajor.php
+	$mindegree1='BS';
+	$arrayJ1=$_POST['checkboxJ1'];	//jobs
+	connect($arrayJ1,$mindegree1,$id);
+
+	$mindegree2='BA';
+	$arrayJ2=$_POST['checkboxJ2'];
+	connect($arrayJ2,$mindegree2,$id);
+
+	$mindegree3='BSW';
+	$arrayJ3=$_POST['checkboxJ3'];
+	connect($arrayJ3,$mindegree3,$id);
+
+
    header("Location: ../main/majorAdd.php");
    exit;
 }
