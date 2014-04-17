@@ -39,7 +39,7 @@
 </div>
 
 <!-- text-->
-  <h1 name="mainHeader"> </h1>
+  <h1 name="mainHeader"> Major Request</h1>
 
 <section id="new_text">
 
