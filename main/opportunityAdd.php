@@ -184,7 +184,7 @@
 	
 	<tr>
 		<td align="right">Description</td>
-		<td> <input type="text" name="description" /></td>
+		<td> <textarea name="description" rows="3" cols="50" ></textarea></td>
 	</tr>
       
       <tr>
