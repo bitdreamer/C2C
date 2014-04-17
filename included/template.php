@@ -34,6 +34,9 @@ function displayContent($msg){
 	else if(msg==7){
 		$sentence="An email was sent to ".$email." with your password.";
 	}
+	else if(msg==8){
+		$sentence="A user with that e-mail has not been found.";
+	}
 	
 	echo $sentence;
 }
