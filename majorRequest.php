@@ -234,6 +234,7 @@
 				echo "<tr><td>$job</td></tr> \n";
 				echo "<tr><td>$email</td></tr> \n";
 				echo "<tr><td>$blurb</td></tr> \n"; 
+				echo "<tr><td>$picture</td></tr> \n";
 		}
 		
 				echo " 	</tbody> \n";
