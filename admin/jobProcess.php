@@ -29,7 +29,7 @@ if(isset($_GET['id']))
    header("Location: ../main/jobAdd.php");
    exit;
 }
-else if(isset($_POST['SubmitP']))
+elseif(isset($_POST['SubmitP']))
 {
    	$career=$_POST['job'];
 	$description=$_POST['description'];
@@ -55,8 +55,6 @@ else if(isset($_POST['Connect']))
 	$arrayM=$_POST['checkboxM'];	//majors
 	$arrayJ=$_POST['checkboxJ'];	//jobs
 
-
-	connect($arrayM,$arrayJ,$mindegree);
 
 	function connect($arrayM,$arrayJ,$mindegree)
 	{
@@ -104,6 +102,8 @@ else if(isset($_POST['Connect']))
 		}
 		}
 	}
+
+	connect($arrayM,$arrayJ,$mindegree);
    //Header travels to specified location
    header("Location: ../main/jobAdd.php");
    exit;

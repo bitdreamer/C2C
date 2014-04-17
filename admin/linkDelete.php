@@ -36,7 +36,7 @@ else
 			$description=$row[3];
 			$category=$row[4];
 
-echo "<form action=../main/linkEditProcess.php?id=".$id." method=POST>";
+echo "<form action=../linkEditProcess.php?id=".$id." method=POST>";
    echo "<table>";
       echo "<tr>";
          echo "<td align=right>Link</td>";
