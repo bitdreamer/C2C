@@ -114,6 +114,21 @@ The POST array will be indexed using the respective input type's name -->
 			</select></td>
 	</tr>
 
+	<tr>
+		<td align="right">Class Year</td>
+		<td><input type="text" name="classYear" /></td>
+	</tr>
+
+	<tr>
+		<td align="right">Job</td>
+		<td><input type="text" name="job" /></td>
+	</tr>
+
+	<tr>
+		<td align="right">Blurb</td>
+		<td><input type="text" name="blurb" /></td>
+	</tr>
+
       <tr>
          <td align="right">Submit</td>
          <td> <input type="submit"  name="SubmitP" id="SubmitP" value="Submit"/> </td>
