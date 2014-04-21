@@ -28,11 +28,11 @@
 	<section id="main_content">
 		<article>	 
 			<p>Your password will be sent to your e-mail.</p>
-			<form action="../login/check_pw.php" method="POST">
+			<form action="../login/send_pw.php" method="POST">
 				<table>
 					<tr>
 						<td align="right">Email</td>
-						<td> <input type="text" name="email4log" /> @email.meredith.edu</td>
+						<td> <input type="text" name="email" /></td>
 					</tr>
 					<tr>
 						<td> <input type="submit"  name="Submit" value="Submit"/> </td>

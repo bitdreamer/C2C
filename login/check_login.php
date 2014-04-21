@@ -54,12 +54,10 @@ if($count==1){
 	else	
 	{
 		//go home
-		header("Location: ../admin/majorAdd.php");
+		header("Location: ../main/majorAdd.php");
 	}
 }
 else {
 header ("Location: ../main/main_login.php?msg=1");
 }
 ?>
-</body>
-</html>
