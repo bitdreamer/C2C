@@ -65,7 +65,7 @@
 	$q2="SELECT * FROM MajorJob, Job WHERE jobID=id AND majorID='$majorID';";
 	$r2=mysql_query($q2); 
 
- 			echo "<br/> <br/><h2 id='h2_header'> Career Options </h2> \n"; 
+ 			//echo "<br/> <br/><h2 id='h2_header'> Career Options </h2> \n"; 
 			
 	if(noerror($r2))
 	{
@@ -73,7 +73,7 @@
 
 			//create table to list career options
 			echo "<table class='jobs' \n"; 
-				echo "	summary='List of career options for a particular major'> \n"; 
+				echo "	summary='List of career options for a particular major' style='float:left'> \n"; 
 					
 				echo "	<colgroup> \n"; 
 				echo "	<col class='jobs' span='1' /> \n"; 
@@ -83,6 +83,11 @@
 				echo "  </tr> \n"; 
 				echo "  </thead> \n"; 	
 				echo "  <tbody> \n"; 
+				
+				if(!isEmpty($r2))
+				{
+					echo "<th>Career Options</th> \n";
+				}
 		
 		for($i=0; $i<$nr; $i++)
 		{
@@ -92,9 +97,9 @@
 			$jobID  = $row['id']; 
 							
 				echo "  <tr> \n"; 
-				echo "	  <th> \n"; 
+				echo "	  <td> \n"; 
 				echo "		<a href='jobRequest.php?career=$jobID'>$job</a> \n";
-				echo "	  </th> \n";
+				echo "	  </td> \n";
 				echo " 	</tr> \n";
 		}
 				echo " 	</tbody> \n";
@@ -104,9 +109,7 @@
 	
 	$linkQ="SELECT * FROM MajorLink, Link WHERE linkID=ID AND majorID='$majorID';"; 		//one linkID from Link table, one from MajorLink table
 	$linkR=mysql_query($linkQ);
-	
-		echo "<br/><br/><h2 id='h2_header'> Related Websites</h3> \n"; 
-	
+		
 	if(noerror($linkR))
 	{
 		$nr = mysql_num_rows($linkR);
@@ -122,8 +125,11 @@
 				echo " 	<tr> \n"; 
 				echo "  </tr> \n"; 
 				echo "  </thead> \n"; 	
-				echo "  <tbody> \n"; 
-				
+
+				if(!isEmpty($linkR))
+				{
+					echo "<th>Related Websites</th> \n";
+				}				
 		for($i=0; $i<$nr; $i++)
 		{
 			$row  = mysql_fetch_array($linkR);
@@ -131,9 +137,9 @@
 			$name = $row['name']; 
 	
 				echo "  <tr> \n"; 
-				echo "	  <th> \n"; 
+				echo "	  <td> \n"; 
 				echo "		<a href='$link'> $name </a> \n";
-				echo "	  </th> \n";
+				echo "	  </td> \n";
 				echo " 	</tr> \n";
 		}
 		
@@ -144,7 +150,6 @@
 	$iQ="SELECT * FROM MajorInterest, Interest WHERE interestID=id AND majorID='$majorID';"; 		//one linkID from Link table, one from MajorLink table
 	$iR=mysql_query($iQ);
 	
-		echo "</br/> <h2 id='h2_header'> Interests </h2> \n"; 
 	
 	if(noerror($iR))
 	{
@@ -162,15 +167,18 @@
 				echo "  </thead> \n"; 	
 				echo "  <tbody> \n";
 				
+				if(!isEmpty($iR))
+				{
+					echo "<th>Interests</th> \n";
+				}
+				
 		for($i=0; $i<$nr; $i++)
 		{
 			$row  = mysql_fetch_array($iR);
 			$interest = $row['interest'];
 					
 				echo "  <tr> \n"; 
-				echo "	  <th> \n"; 
-				echo "	<a href='$interest'> $interest </a> \n";
-				echo "	  </th> \n";
+				echo "	  <td> $interest </td> \n";
 				echo " 	</tr> \n";
 		}
 				echo " 	</tbody> \n";
@@ -179,55 +187,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//get and display Alumna and blurb 
-/*	$majorID=addslashes($_GET['major']); 
-	$query="SELECT * FROM MajorAlumna WHERE id='$alumnaID';"; 
-	$result=mysql_query($query); 
-	
-	if(noerror($result))
-	{
-		$row = mysql_fetch_array($result); 
-		$name = $row[1];
-		$email = $row[2]; 
-		$blurb = $row[6];
-		$deg = $row[3];
-		$cy = $row[4];
-		$job = $row[5];
-		$pic = $row[7];
-		
-		echo "<p> \n"; 
-		echo "<h1>$name</h1> \n"; 
-		echo "<h2 id='degree'>$degree Degree</h2> \n";
-		echo "<h2 id='classYear'>$cy Year Graduated</h2> \n";
-		echo "<h2 id='job'>$job Job</h2> \n";
-		echo "<h3 id='email'>$email Email</h3> \n";
-		echo "$blurb \n"; 
-		echo "</p> \n"; 
-	}
-
-*/
-
-
-
-
-
 $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majorID';"; 		//one alumnaID from Alumna table, one from MajorAlumna table
 	$alumnaR=mysql_query($alumnaQ);
-	
-		echo "<h2 id='h2_header'> Alumna Profiles</h2>"; 
 		
-	
 	if(noerror($alumnaR))
 	{
 		$nr = mysql_num_rows($alumnaR);
@@ -245,6 +207,11 @@ $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majo
 				echo "  </thead> \n"; 	
 				echo "  <tbody> \n"; 
 				
+				if(!isEmpty($alumnaR))
+				{
+					echo "<th>Alumna Profile</th> \n";
+				}
+				
 		for($i=0; $i<$nr; $i++)
 		{
 			$row  = mysql_fetch_array($alumnaR);
@@ -257,14 +224,12 @@ $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majo
 			$pic = $row['picture'];
 	
 				echo "  <tr> \n"; 
-				echo "	  <th> \n"; 
-				echo "<h1>$name</h1> \n"; 
-				echo "<h2 id='degree'>$degree</h2> \n";
-				echo "<h2 id='classYear'>$cy</h2> \n";
-				echo "<h2 id='job'>$job</h2> \n";
-				echo "<h3 id='email'>$email</h3> \n";
-				echo "$blurb \n"; 
-				echo "	  </th> \n";
+				echo "<td>$name</td> \n"; 
+				echo "<td id='degree'>$degree</td> \n";
+				echo "<td id='classYear'>$cy</td> \n";
+				echo "<td id='job'>$job</td> \n";
+				echo "<td id='email'>$email</td> \n";
+				echo "<td>$blurb</td> \n"; 
 				echo " 	</tr> \n";
 		}
 		
