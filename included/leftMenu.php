@@ -2,8 +2,7 @@
 	function leftMenu() 
 	{
 		//Always display the main links, and the Admin list header
-		echo"<nav>\n
-			<ul>\n
+		echo"<ul>\n
 			<li><a href='index.php'>Career PathWays</a></li>\n
         		<li><a href='quiz.php'>Major Match Maker</a></li>\n
 
@@ -32,7 +31,6 @@
 		{
 			echo "<li> <a href='main_login.php'>Login</a></li>\n";
 		}
-		echo"</ul>\n
-			</nav>\n";
+		echo"</ul>\n";
 	}
 ?>
