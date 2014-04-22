@@ -103,7 +103,7 @@
 
             //create table for links
             echo "<table class='jobs' \n"; 
-                    echo "	summary='List of related sites for a particular major'> \n"; 
+                    echo "	summary='List of related sites for a particular major' style='float:left'> \n"; 
 
                     echo "	<colgroup> \n"; 
                     echo "	<col class='jobs' span='1' /> \n"; 
