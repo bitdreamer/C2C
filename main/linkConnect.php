@@ -1,44 +1,32 @@
 <?php
 	session_start();
-	include("../included/loginStatus.php");
-	areYouLogged();
-	include("../included/tabledump.php");
 	include("../included/openDB.php");
+    include("../included/template.php");
+    include("../included/leftMenu.php");
+    include("../included/tabledump.php");
 	openDB();
-	
 ?>
-<!-- Here's where the HTML starts -->
-<!DOCTYPE html>
-<html lang="en"> 	
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta charset="utf-8" />
-<link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Connect Link to Major</title>
+    <?php headContent(); ?>
 </head>
 
+<body>
+    <div class="top_border"></div>
+    <div class="band_header">
+        <header>
+            <h1 class="logo"></h1>
+        </header>
+    </div>
+    <div class="bottom_border"></div>
 
-<!--logo-->
-<body> 
-	<div id="big_wrapper">
-	
-<!-- logo part-->	 
-	<header id="top_header">  
-		<section id="logo"></section>
-     </header>
 
-<!--Left Menu-->
-<div id="links">
-	<nav id="left_menu">
-	 <ul>
-<?php
-	include("../included/leftMenu.php");
-	leftMenu();
-?>
+<nav>
+        <?php leftMenu(); ?>
+    </nav>
 
-   </ul>	
-</nav>
-	</div><!--links-->
-<section id="next_text">
+<section>
 <article id="newJob">
 
 	<h2 id="left_h2">Connect Link to Major</h2>
@@ -169,19 +157,12 @@
 </form>
 
 </article>
-<div>
+</section>
 
-<!--footer-->	
-<footer id="footer">
-	   <div id="address">
-	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
-	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
-	      </br>
-          Phone: (919) 760-8600 or 1-800 MEREDITH
-       </div><!--address-->	   	
-	</footer>
-
-</div>	<!-- big_wrapper-->	
-</section>		
+        <footer>
+            <?php footerContent(); ?>
+        </footer>
+    </div>
 </body>
+
 </html>
