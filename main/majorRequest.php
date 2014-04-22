@@ -210,7 +210,7 @@
                 $email = $row['email']; 
                 $blurb = $row['blurb'];
                 $deg = $row['degree'];
-                $cy = $row['classYear'];
+                $cy = $row['class Year'];
                 $job = $row['job'];
                 $pic = $row['picture'];
 
