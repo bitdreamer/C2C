@@ -3,30 +3,26 @@
 	include("../included/leftMenu.php"); 
 	include("../included/template.php");
 ?>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <?php headContent(); ?>
+</head>
 
-<!DOCTYPE html>
-
-<html lang="en"> 	
-<!-- head info -->
-<?php
-	head();
-?>
-
-<body> 
-	<div id="big_wrapper">
-	
-	<!-- header -->
-	<?php	
-		heading();
-		echo"<div id='links'>\n
-		<nav id='left_menu'>\n
-		<ul>\n";
-		leftMenu();
-		echo"</ul>\n
-		</nav>\n";
-	?>
-
-	<section id="main_content">
+<body>
+    <div class="top_border"></div>
+    <div class="band_header">
+        <header>
+            <h1 class="logo"></h1>
+        </header>
+    </div>
+    <div class="bottom_border"></div>
+    
+    <nav>
+        <?php leftMenu(); ?>
+    </nav>
+    
+    <section id="main_content">
 	
 		<article>	 
 			<p name="mainIntro">
@@ -37,12 +33,11 @@
 		</article>
 	  
 	</section>
- 
-	<!-- footer -->
-	<?php
-		echo "</div>\n";
-		footer();	
-	?>
-		
+    
+        <footer>
+            <?php footerContent(); ?>
+        </footer>
+    </div>
 </body>
+
 </html>
