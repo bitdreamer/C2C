@@ -173,8 +173,8 @@
                     echo " 	</tbody> \n";
                     echo "	</table> \n";
         }
-
-echo "<hr />";
+//echo "</section> <section>";
+//echo "<hr />";
 
     $alumnaQ="SELECT * FROM MajorAlumna, Alumna WHERE alumnaID=ID AND majorID='$majorID';"; 		
     //one alumnaID from Alumna table, one from MajorAlumna table
