@@ -1,5 +1,7 @@
 <?php
 	session_start();
+    include("../included/loginStatus.php");
+	areYouLogged();
 	include("../included/openDB.php");
     include("../included/template.php");
     include("../included/leftMenu.php");
