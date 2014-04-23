@@ -1,46 +1,36 @@
 <?php
-session_start();
-include("../included/loginStatus.php");
-areYouLogged();
+	session_start();
+	include("../included/loginStatus.php");
+	areYouLogged();
+	include("../included/openDB.php");
+    include("../included/template.php");
+    include("../included/leftMenu.php");
+    include("../included/tabledump.php");
+	openDB();
 ?>
-
-<!-- main Page -->
-<!DOCTYPE html>
-<html lang="en"> 	
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta charset="utf-8" />
-<link rel= "stylesheet" href="../style.css" type="text/css" />
-<title>Add New Alumna </title>
+    <?php headContent(); ?>
+</head>
 
-
-<!--body-->
-<body> 
-	<div id="big_wrapper">
-	
-<!-- logo part-->	 
-	<header id="top_header">  
-		<section id="logo"></section>
-     </header>
-
-<!--Left Menu-->
-<div id="links">
-	<nav id="left_menu">
-	 <ul>
-<?php
-	include("../included/leftMenu.php");
-	leftMenu();
-?>
-
-   </ul>	
-</nav>
-</div><!--links-->
-
-     <h1 id="majorHeader">Add New Alumna</h1>
+<body>
+    <div class="top_border"></div>
+    <div class="band_header">
+        <header>
+            <h1 class="logo"></h1>
+        </header>
+    </div>
+    <div class="bottom_border"></div>
+    
+    <nav>
+        <?php leftMenu(); ?>
+    </nav>
+    
+    <h1>Add New Alumna</h1>
 
 <!-- text-->
-<section id="main_content">
-
-<article id="newAlum">	 
+<section>	 
 <!--Begin form.  
 action attribute contains the name of the file where the information will be directed.  
 method attribute type POST will create an array with submitted information.  
@@ -145,11 +135,6 @@ The POST array will be indexed using the respective input type's name -->
 		/*tabledump contains a function (tabledump()) that iterates through a table and displays all of its contents
 		opeDB contains a function (opeDB()) that grants access to the database*/
 
-   		include("../included/tabledump.php");
-  	 	include("../included/openDB.php");
-		
-  	 	openDB();
-
 		//MySQL query
 		$query="SELECT * from Alumna ORDER BY name;";
     		$result=mysql_query($query);
@@ -160,20 +145,12 @@ The POST array will be indexed using the respective input type's name -->
    		echo "</form>";
 	echo "</section>";
 ?>
-</article>
 </section>
+    
+        <footer>
+            <?php footerContent(); ?>
+        </footer>
+    </div>
+</body>
 
-<!--footer-->	
-<footer id="footer">
-	   <div id="address">
-	   <a href="https://www.google.com/maps/place/Meredith+College/@35.7983206,-78.6889146,16z/data=!3m1!4b1!4m2!3m1!1s0x89acf5c670c2dbc5:0x179f9c722569698c">
-	      3800 Hillsborough Street | Raleigh, NC 27607-5298</a>
-	      </br>
-          Phone: (919) 760-8600 or 1-800 MEREDITH
-       </div><!--address-->	   	
-	</footer>
-	
-</div>	<!-- big_wrapper-->	
-		
-	</body>
 </html>

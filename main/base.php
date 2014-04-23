@@ -13,11 +13,13 @@
 </head>
 
 <body>
+    <div class="top_border"></div>
     <div class="band_header">
-    <header>
-        <h1 class="logo"></h1>
-    </header>
+        <header>
+            <h1 class="logo"></h1>
+        </header>
     </div>
+    <div class="bottom_border"></div>
     
     <nav>
         <?php leftMenu(); ?>
@@ -30,9 +32,10 @@
         </article>
     </section>
     
-    <footer>
-        <?php footerContent(); ?>
-    </footer>
+        <footer>
+            <?php footerContent(); ?>
+        </footer>
+    </div>
 </body>
 
 </html>

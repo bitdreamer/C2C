@@ -31,8 +31,8 @@
             <h1>Major Match Maker</h1>
             <p>Look through the list of interests below and drag the things that interest you into the box below. Once you have dragged a few interests into the box below, the majors on the left will change size based off your interests. The larger the major, the more compatiable it is for you.</p>
 
-           <div id="contentBox" style="margin: 0px auto; width:70%">
-                <div id="column1" style="float:left; margin:0; width:50%;">
+           <div id="contentBox" style="margin: 0px auto; width:85%">
+                <div id="column1" style="float:left; margin:0; width:40%;">
             <form>
             <h3><i><b>Interests</h3></i></b>
             <!-- query to list all the interets on one side of the page -->
@@ -59,7 +59,7 @@
 
             </form>
             </div>
-               <div id="column2" style="float:left; margin:0; width:50%;">
+               <div id="column2" style="float:left; margin:0; width:40%;">
 
             <h3><i><b>Majors</b></i></h3>
             <!-- query to list all the majors on the other side of the page -->
